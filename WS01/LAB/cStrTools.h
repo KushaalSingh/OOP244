@@ -1,3 +1,4 @@
+// I have done all the coding by myselfand only copied the code that my professor provided to complete my workshopsand assignments.
 #ifndef SDDS_CSTRTOOLS_H // replace with relevant names
 #define SDDS_CSTRTOOLS_H
 #include <cstdio>
