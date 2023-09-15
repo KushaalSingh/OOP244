@@ -1,10 +1,9 @@
 #ifndef SDDS_WORD_H 
 #define SDDS_WORD_H
+#include <cstdio>
+#include <iostream>
+#include <iomanip>
 namespace sdds {
-	#include <cstdio>
-	#include <iostream>
-	#include <iomanip>
-	#include "cStrTools.h"
 	using namespace std;
 
 	const int MAX_WORD_LEN = 21;
@@ -24,6 +23,13 @@ namespace sdds {
 	void endList();
 	void totalWordsStat(int totNoWrds, int totalOverAll, int longestWord);
 	void print(const Word* w, int gotoNextLine, int len);
+	int findMaxLen(const Word words[], int noOfWords);
+	void listWords(const Word words[], int noOfWords, const char* theTitle);
+	void swap(Word* p1, Word* p2);
+	void sort(Word words[], int cnt, int sortType);
+	int totalCount(const Word* words, int num);
+	void wordStats(const char* filename);
+	void programTitle();
 	
 
 }

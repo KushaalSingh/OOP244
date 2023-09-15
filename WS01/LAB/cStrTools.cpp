@@ -1,6 +1,7 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include "cStrTools.h"
 namespace sdds {
+
     // returns the lower case value of a character
     char toLower(char ch) {
         if (ch >= 'A' && ch <= 'Z') ch += ('a' - 'A');

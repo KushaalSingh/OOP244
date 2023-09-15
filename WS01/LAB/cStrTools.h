@@ -1,13 +1,13 @@
 #ifndef SDDS_CSTRTOOLS_H // replace with relevant names
 #define SDDS_CSTRTOOLS_H
-
+#include <cstdio>
+#include <iostream>
+#include <iomanip>
 namespace sdds {
-	#include <cstdio>
-	#include <iostream>
-	#include <iomanip>
 	char toLower(char ch);
 	int strCmp(const char* s1, const char* s2);
 	int strnCmp(const char* s1, const char* s2, int len);
+	const char* strStr(const char* str, const char* find);
 	void strCpy(char* des, const char* src);
 	int strLen(const char* str);
 	int isAlpha(char ch);
@@ -15,4 +15,5 @@ namespace sdds {
 	void trim(char word[]);
 	void toLowerCaseAndCopy(char des[], const char source[]);
 }
+
 #endif

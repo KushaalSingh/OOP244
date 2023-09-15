@@ -1,7 +1,10 @@
 #include <iostream>
 #include "Word.h"
-using namespace sdds;
+#include "cStrTools.h"
+
 using namespace std;
+using namespace sdds;
+
 int main() {
 	char filename[256];
 	programTitle();

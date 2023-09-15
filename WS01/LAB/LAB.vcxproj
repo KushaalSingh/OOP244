@@ -128,7 +128,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="cStrTools.cpp" />
-    <ClCompile Include="main.cpp" />
     <ClCompile Include="Word.cpp" />
     <ClCompile Include="WordStat.cpp" />
   </ItemGroup>
