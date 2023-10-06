@@ -127,12 +127,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="cStrTools.cpp" />
     <ClCompile Include="direcotry.cpp" />
     <ClCompile Include="Phone.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="cStrTools.h" />
     <ClInclude Include="Phone.h" />
   </ItemGroup>
   <ItemGroup>
