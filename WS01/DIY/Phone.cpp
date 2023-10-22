@@ -1,75 +1,71 @@
-// I have done all the coding by myselfand only copied the code that my professor provided to complete my workshopsand assignments.
 #include "Phone.h"
 
 namespace sdds {
+	FILE* fptr;
+
 	void phoneDir(const char* programTitle, const char* fileName) {
-		char input_name[NAME_LEN];
-		int stst = 1;
-		dirInfo prsn[MAX_CONTACTS] = { "", 0, 0, 0 };
+		dirInfo prsn[NUM_CONTACTS];
+		auto fileOpened = openFile("phones.txt");
+		if (!fileOpened) std::cout << "ERROR: Couldn't open the file." << std::endl;
+		importFileData(prsn);
+		closeFile();
+
 		std::cout << "-------------------------------------------------------" << std::endl;
 		std::cout << programTitle << " phone direcotry search" << std::endl;
 		std::cout << "-------------------------------------------------------" << std::endl;
 
-		while (stst) {
-			std::cout << "Enter a partial name to search (no spaces) or enter '!' to exit" << std::endl << "> ";
-			std::cin >> input_name;
-			if (input_name[0] == '!') {
-				std::cout << "Thank you for using Star Wars directory." << std::endl;
-				stst = 0;
-			}
-			else {
-				importFileData("phones.txt", prsn);
-				int index = findContact(input_name, prsn);
-				displayContactInfo(index, prsn);
-			}
+		while (takeUserInput(prsn));
+
+		std::cout << "Thank you for using Star Wars directory." << std::endl;
+	}
+
+	bool takeUserInput(dirInfo prsn[]) {
+		char userInput[NAME_LEN];
+		std::cout << "Enter a partial name to search(no spaces) or enter '!' to exit" << std::endl << "> ";
+		std::cin >> userInput;
+		if (userInput[0] == '!') return false;
+		displayMatches(userInput, prsn);
+		return true;
+	}
+
+	void displayMatches(const char* userInput, dirInfo prsn[]) {
+		int i, k;
+		char tempName[NAME_LEN];
+		char tempUserInput[NAME_LEN];
+		strcpy(tempUserInput, userInput);
+
+		for (i = 0; i < NUM_CONTACTS; i++) {
+			strcpy(tempName, prsn[i].name);
+			for (k = 0; k < tempName[k] != '\0'; k++) tempName[k] = tolower(tempName[k]);
+			for (k = 0; k < tempUserInput[k] != '\0'; k++) tempUserInput[k] = tolower(tempUserInput[k]);
+			const char* result = strstr(tempName, tempUserInput);
+			if (result != nullptr) display(prsn, i);
 		}
 	}
 
-	void importFileData(const char* fileName, dirInfo prsn[]) {
-		int i = 0;
-		FILE* phns = NULL;
-		phns = fopen(fileName, "r");
-		if (phns != NULL) {
-			while (!feof(phns)) {
-				fscanf(phns, "%[^\t]", prsn[i].name);
-				fscanf(phns, "\t%d", &prsn[i].areacode);
-				fscanf(phns, "\t%d", &prsn[i].prefix);
-				fscanf(phns, "\t%d", &prsn[i].sbscr);
-				i++;
-			}
-			fclose(phns);
+	void display(dirInfo prsn[], int index) {
+		std::cout << prsn[index].name << ": (" << prsn[index].areacode << ") " << prsn[index].prefix << "-"
+			<< prsn[index].sbscr << std::endl;
+	}
+
+	bool readToStruct(char name[], int& areaCode, int& prefix, int& sbscr) {
+		while (!feof(fptr) && (fscanf(fptr, "%[^\t]\t%d\t%d\t%d\n", name, &areaCode, &prefix, &sbscr)) == 4) return true;
+		return false;
+	}
+
+	void importFileData(dirInfo prsn[]) {
+		int i;
+		for (i = 0; i < NUM_CONTACTS; i++) {
+			readToStruct(prsn[i].name, prsn[i].areacode, prsn[i].prefix, prsn[i].sbscr);
 		}
 	}
 
-	int findContact(const char* userInput, dirInfo prsn[]) {
-		int i, j;
-		int foundIndex = -1;
-
-		char lowerCaseInput[NAME_LEN];
-		strcpy(lowerCaseInput, userInput);
-		for (i = 0; i < MAX_CONTACTS; i++) lowerCaseInput[i] = tolower(lowerCaseInput[i]);
-
-		for (i = 0; i < MAX_CONTACTS; i++) {
-			char lowerCaseContact[NAME_LEN];
-			strcpy(lowerCaseContact, prsn[i].name);
-			for (j = 0; j < NAME_LEN; j++) lowerCaseContact[j] = tolower(lowerCaseContact[j]);
-			
-			const char* ifFound = strstr(lowerCaseContact, lowerCaseInput);
-			if (ifFound != nullptr) {
-				foundIndex = i;
-				return foundIndex;
-			}
-		}
-		return foundIndex;
+	bool openFile(const char* fileName) {
+		fptr = fopen(fileName, "r");
+		return fptr != NULL;
 	}
 
-	void displayContactInfo(int index, dirInfo prsn[]) {
-		if (index != -1) {
-			std::cout << prsn[index].name << ": " << "(" << prsn[index].areacode << ") "
-				<< prsn[index].prefix << "-" << prsn[index].sbscr << std::endl;
-		}
-		else {
-			return;
-		}
+	void closeFile(void) {
+		if (fptr) fclose(fptr);
 	}
 }

@@ -1,14 +1,12 @@
-// I have done all the coding by myselfand only copied the code that my professor provided to complete my workshopsand assignments.
 #define _CRT_SECURE_NO_WARNINGS
 #include <iostream>
 #include <cstring>
-#include <string>
 
 #ifndef SDDS_PHONE_H
 #define SDDS_PHONE_H
 
+#define NUM_CONTACTS 36
 #define NAME_LEN 64
-#define MAX_CONTACTS 64
 
 namespace sdds {
 
@@ -21,11 +19,20 @@ namespace sdds {
 
 	void phoneDir(const char* programTitle, const char* fileName);
 
-	void importFileData(const char* fileName, dirInfo prsn[]);
+	bool takeUserInput(dirInfo prsn[]);
 
-	int findContact(const char* input_name, dirInfo prsn[]);
+	void displayMatches(const char* userInput, dirInfo prsn[]);
 
-	void displayContactInfo(int index, dirInfo prsn[]);
+	void display(dirInfo prsn[], int index);
+
+	bool readToStruct(char name[], int& areaCode, int& prefix, int& sbscr);
+
+	void importFileData(dirInfo prsn[]);
+
+	bool openFile(const char* fileName);
+
+	void closeFile(void);
+
 }
 
 #endif
