@@ -21,7 +21,7 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{d5e338b4-d381-4343-86bd-bc1f591acfab}</ProjectGuid>
+    <ProjectGuid>{a21bc499-49f5-4cfa-b3e7-bb0f584a974f}</ProjectGuid>
     <RootNamespace>LAB</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
@@ -127,16 +127,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Employee.cpp" />
-    <ClCompile Include="File.cpp" />
-    <ClCompile Include="main.cpp" />
+    <ClCompile Include="..\..\..\..\..\Downloads\(No subject)\Employee.cpp" />
+    <ClCompile Include="..\..\..\..\..\Downloads\(No subject)\File.cpp" />
+    <ClCompile Include="..\..\..\..\..\Downloads\(No subject)\main.cpp" />
+    <ClCompile Include="employees.csv" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Employee.h" />
-    <ClInclude Include="File.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="employees.csv" />
+    <ClInclude Include="..\..\..\..\..\Downloads\(No subject)\Employee.h" />
+    <ClInclude Include="..\..\..\..\..\Downloads\(No subject)\File.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
