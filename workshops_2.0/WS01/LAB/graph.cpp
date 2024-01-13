@@ -27,7 +27,7 @@ namespace seneca {
             samples[i] = getInt(1, 1000000);
         }
     }
- 
+
     void printGraph(int samples[], int noOfSamples, const char* label) {
         int max = findMax(samples, noOfSamples);
         labelLine(GRAPH_WIDTH + 10, label);
