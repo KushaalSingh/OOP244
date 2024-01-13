@@ -5,6 +5,9 @@
 
 namespace seneca {
 
+	const int MAX_NO_OF_SAMPLES = 20;
+	const int GRAPH_WIDTH = 65;
+
 
 
 

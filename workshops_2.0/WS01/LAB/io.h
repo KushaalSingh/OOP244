@@ -5,8 +5,16 @@
 
 namespace seneca {
 
+	const int MAX_NO_OF_SAMPLES = 20;
+	const int GRAPH_WIDTH = 65;
 
-
+	void printInt(int value, int fieldWidth);
+	int intDigits(int value);
+	int getInt(int min, int max);
+	void goBack(int n);
+	int menu(int noOfSamples);
+	void labelLine(int n, const char* label);
+	void line(int n);
 
 }
 
