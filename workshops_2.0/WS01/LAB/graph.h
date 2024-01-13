@@ -8,6 +8,10 @@ namespace seneca {
 	const int MAX_NO_OF_SAMPLES = 20;
 	const int GRAPH_WIDTH = 65;
 
+	int findMax(int samples[], int noOfSamples);
+	void getSamples(int samples[], int noOfSamples);
+	void printGraph(int samples[], int noOfSamples, const char* label);
+	void printBar(int val, int max);
 
 
 

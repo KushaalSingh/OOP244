@@ -1,5 +1,17 @@
 // I have done all the coding by myself and only copied the code that my professor provided to complete my workshops and assignments.
 
+#include <iostream>
+#include <iomanip>
+#include "io.h"
+#include "graph.h"
+
+using namespace std;
+using namespace seneca;
+
+void samplesFirst() {
+    cout << "Number of Samples must be set first!" << endl;
+}
+
 int main() {
     int noOfSamples = 0;
     int samples[MAX_NO_OF_SAMPLES] = { 0 };
@@ -37,8 +49,4 @@ int main() {
         }
     }
     return 0;
-}
-
-void samplesFirst() {
-    cout << "Number of Samples must be set first!" << endl;
 }

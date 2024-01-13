@@ -5,8 +5,6 @@
 
 namespace seneca {
 
-	const int MAX_NO_OF_SAMPLES = 20;
-	const int GRAPH_WIDTH = 65;
 
 	void printInt(int value, int fieldWidth);
 	int intDigits(int value);

@@ -26,8 +26,7 @@ namespace seneca {
             samples[i] = getInt(1, 1000000);
         }
     }
-
-    // prints a graph comparing the sample values visually 
+ 
     void printGraph(int samples[], int noOfSamples, const char* label) {
         int max = findMax(samples, noOfSamples);
         labelLine(GRAPH_WIDTH + 10, label);
@@ -37,7 +36,6 @@ namespace seneca {
         line(GRAPH_WIDTH + 10);
     }
 
-    // prints a scaled bar relevant to the maximum value in samples array
     void printBar(int val, int max) {
         int i;
         int barlength = GRAPH_WIDTH * val / max;
