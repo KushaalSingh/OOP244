@@ -4,8 +4,6 @@
 #define SENECA_IO_H
 
 namespace seneca {
-
-
 	void printInt(int value, int fieldWidth);
 	int intDigits(int value);
 	int getInt(int min, int max);
@@ -13,7 +11,6 @@ namespace seneca {
 	int menu(int noOfSamples);
 	void labelLine(int n, const char* label);
 	void line(int n);
-
 }
 
 #endif
