@@ -1,3 +1,4 @@
+// I have done all the coding by myselfand only copied the code that my professor provided to complete my workshopsand assignments.
 #ifndef SENECA_GRAPH_H
 #define SENECA_GRAPH_H
 

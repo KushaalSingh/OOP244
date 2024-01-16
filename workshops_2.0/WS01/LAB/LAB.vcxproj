@@ -22,7 +22,6 @@
     <ClCompile Include="graph.cpp" />
     <ClCompile Include="io.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Src.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="graph.h" />
