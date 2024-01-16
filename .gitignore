@@ -64,7 +64,8 @@ Debug/
 *.out
 *.app
 
-# Additions made by me
+# Additions made by me for visual studio project files
 *.vcxproj
 *.filters
 *.user
+*.sln
