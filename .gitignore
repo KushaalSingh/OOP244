@@ -63,3 +63,8 @@ Debug/
 *.exe
 *.out
 *.app
+
+# Additions made by me
+*.vcxproj
+*.filters
+*.user
