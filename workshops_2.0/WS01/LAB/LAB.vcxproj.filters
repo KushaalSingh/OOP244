@@ -15,45 +15,22 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <None Include="group1.csv">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="group2.csv">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="group3.csv">
-      <Filter>Resource Files</Filter>
-    </None>
+    <ClCompile Include="..\_LAB\graph.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\_LAB\io.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\_LAB\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="StMark.h">
+    <ClInclude Include="..\_LAB\graph.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\LAB\io.h">
+    <ClInclude Include="..\_LAB\io.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\LAB\graph.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="file.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="..\LAB\graph.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\LAB\io.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="file.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="StMark.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
 </Project>

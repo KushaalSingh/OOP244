@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{d0cce0b7-7c15-449c-88ac-84b0a4bf3e12}</ProjectGuid>
-    <RootNamespace>DIY</RootNamespace>
+    <ProjectGuid>{64d8aa6a-b2a3-4515-bd72-d418fa5df8ae}</ProjectGuid>
+    <RootNamespace>LAB</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -127,22 +127,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <None Include="group1.csv" />
-    <None Include="group2.csv" />
-    <None Include="group3.csv" />
+    <ClCompile Include="..\_LAB\graph.cpp" />
+    <ClCompile Include="..\_LAB\io.cpp" />
+    <ClCompile Include="..\_LAB\main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\LAB\graph.h" />
-    <ClInclude Include="..\LAB\io.h" />
-    <ClInclude Include="file.h" />
-    <ClInclude Include="StMark.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="..\LAB\graph.cpp" />
-    <ClCompile Include="..\LAB\io.cpp" />
-    <ClCompile Include="file.cpp" />
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="StMark.cpp" />
+    <ClInclude Include="..\_LAB\graph.h" />
+    <ClInclude Include="..\_LAB\io.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
