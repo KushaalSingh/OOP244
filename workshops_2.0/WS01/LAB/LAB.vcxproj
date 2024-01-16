@@ -18,6 +18,16 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="graph.cpp" />
+    <ClCompile Include="io.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Src.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="graph.h" />
+    <ClInclude Include="io.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
@@ -126,15 +136,6 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="..\_LAB\graph.cpp" />
-    <ClCompile Include="..\_LAB\io.cpp" />
-    <ClCompile Include="..\_LAB\main.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\_LAB\graph.h" />
-    <ClInclude Include="..\_LAB\io.h" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
