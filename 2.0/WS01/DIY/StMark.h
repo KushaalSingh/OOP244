@@ -4,10 +4,12 @@
 #ifndef SENECA_STMARK_H
 #define SENECA_STMARK_H
 
-typedef struct {
-	char name[21];
-	char surname[31];
-	int mark;
-} StMark;
+namespace seneca {
+	typedef struct {
+		char name[21];
+		char surname[31];
+		int mark;
+	} StMark;
+}
 
 #endif 
