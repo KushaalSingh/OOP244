@@ -10,6 +10,8 @@ namespace seneca {
 		char surname[31];
 		int mark;
 	} StMark;
+
+	bool printReport(const char* filename);
 }
 
 #endif 
