@@ -5,7 +5,7 @@
 
 #ifndef SENECA_IO_H
 #define SENECA_IO_H
-	
+
 namespace seneca {
 	void printInt(int value, int fieldWidth);
 	int intDigits(int value);
