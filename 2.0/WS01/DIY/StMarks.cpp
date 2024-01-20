@@ -8,6 +8,4 @@ namespace seneca {
 	bool printReport(const char* filename) {
 
 	}
-
-
 }

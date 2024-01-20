@@ -1,36 +1,20 @@
 #include <iostream>
-#include "file.h"
 #include "StMark.h"
 using namespace std;
 using namespace seneca;
-
 int main() {
-    StMark m[MAX_NO_RECS];
-    int recoredsRead = 0;
-    if (openFile("group.csv")) {
-        cout << "This should not happen!" << endl;
-    }
-    if (openFile("group1.csv")) {
-        recoredsRead = readMarks(m);
-        cout << "GROUP1: ....................." << endl;
-        for (int i = 0; i < recoredsRead; i++) {
-            cout << (i + 1) << ": " << m[i].name << " " << m[i].surname << " [" << m[i].mark << "]" << endl;
+    bool done = false;
+    char filename[256];
+    while (!done) {
+        cout << "Enter filename to generate report for or 'X' to exit:\n> ";
+        cin >> filename;
+        if ((filename[0] == 'X' || filename[0] == 'x') && filename[1] == 0) {
+            done = true;
         }
-        closeFile();
-    }
-    else {
-        cout << "This should not happen!" << endl;
-    }
-    if (openFile("group2.csv")) {
-        cout << "GROUP2: ....................." << endl;
-        recoredsRead = readMarks(m);
-        for (int i = 0; i < recoredsRead; i++) {
-            cout << (i + 1) << ": " << m[i].name << " " << m[i].surname << " [" << m[i].mark << "]" << endl;
+        else if (!printReport(filename)) {
+            cout << "Can not open \"" << filename << "\"!" << endl;
         }
-        closeFile();
     }
-    else {
-        cout << "This should not happen!" << endl;
-    }
+    cout << "Exiting program!" << endl;
     return 0;
 }
