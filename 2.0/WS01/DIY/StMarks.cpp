@@ -6,6 +6,8 @@
 namespace seneca {
 
 	bool printReport(const char* filename) {
-
+		if(openFile("group1.csv"))
 	}
+
+
 }

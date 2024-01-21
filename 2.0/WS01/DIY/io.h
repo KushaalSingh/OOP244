@@ -16,4 +16,4 @@ namespace seneca {
 	void line(int n);
 }
 
-#endif // ! IO_H
+#endif 
