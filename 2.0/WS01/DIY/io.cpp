@@ -37,6 +37,22 @@ namespace seneca {
         for (int i = 0; i < n; cout << "\b", i++);
     }
 
+    int menu(int noOfSamples) {
+        line(28);
+        cout << "| No Of Samples: ";
+        printInt(noOfSamples, 5);
+        cout << "     |" << endl;
+        line(28);
+        cout << "| 1- Set Number of Samples |" << endl;
+        cout << "| 2- Enter Samples         |" << endl;
+        cout << "| 3- Graphs                |" << endl;
+        cout << "| 0- Exit                  |" << endl;
+        cout << "\\ >                        /";
+        goBack(24);
+
+        return getInt(0, 3);
+    }
+
     void labelLine(int n, const char* label) {
         cout << "+";
         for (int i = 0; i < n - 2; cout << "-", i++);

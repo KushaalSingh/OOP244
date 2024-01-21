@@ -11,6 +11,7 @@ namespace seneca {
 	int intDigits(int value);
 	int getInt(int min, int max);
 	void goBack(int n);
+	int menu(int noOfSamples);
 	void labelLine(int n, const char* label);
 	void line(int n);
 }
