@@ -1,6 +1,5 @@
 // I have done all the coding by myself and only copied the code that my professor provided to complete my workshops and assignments.
 #include "file.h"
-#include "StMark.h"
 using namespace std;
 
 namespace seneca {
@@ -25,7 +24,8 @@ namespace seneca {
 
     int readMarks(StMark* marks) {
         int cnt = 0;
-        for (; cnt < MAX_NO_RECS && readMark(&marks[cnt]); cnt++);
+        while (cnt < MAX_NO_RECS && readMark(&marks[cnt])) cnt++;
+        //for (; cnt < MAX_NO_RECS && readMark(&marks[cnt]); cnt++);
         return cnt;
     }
 }
