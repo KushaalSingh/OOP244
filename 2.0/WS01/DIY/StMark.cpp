@@ -14,10 +14,15 @@ namespace seneca {
 		int stuNum = readMarks(stu);
 		sort(stu, stuNum);
 		labelLine(79, "Students' mark distribution");
-		for (i = 0; i < stuNum; i++) 
-		std::cout << i + 1 << " - " << stu[i].name << " " << stu[i].surname << " : " << stu[i].mark;
+		for (i = 0; i < stuNum; ++i) {
+			std::cout << i + 1;
+			if (i < 9) std::cout << "++: " << std::endl;
+			else if (i >= 9 && i < 99) std::cout << "+: " << std::endl;
+			else std::cout << ": " << std::endl;
+		}
 		
 		
+		closeFile();
 		return true;
 	}
 
@@ -26,7 +31,7 @@ namespace seneca {
 		StMark temp;
 		for (i = 0; i < numStu - 1; i++) {
 			for (k = 0; k < numStu - i - 1; k++) {
-				if (stu[k].mark > stu[k + 1].mark) {
+				if (stu[k].mark < stu[k + 1].mark) {
 					temp = stu[k];
 					stu[k] = stu[k + 1];
 					stu[k + 1] = temp;
