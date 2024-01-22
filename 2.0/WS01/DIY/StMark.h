@@ -14,6 +14,7 @@ namespace seneca {
 	} StMark;
 
 	bool printReport(const char* filename);
+	void sort(StMark* stu, int numStu);
 }
 
 #endif 

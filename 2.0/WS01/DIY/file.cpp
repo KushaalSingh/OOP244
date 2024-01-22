@@ -25,7 +25,6 @@ namespace seneca {
     int readMarks(StMark* marks) {
         int cnt = 0;
         while (cnt < MAX_NO_RECS && readMark(&marks[cnt])) cnt++;
-        //for (; cnt < MAX_NO_RECS && readMark(&marks[cnt]); cnt++);
         return cnt;
     }
 }
