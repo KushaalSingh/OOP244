@@ -16,9 +16,13 @@ namespace seneca {
 		labelLine(79, "Students' mark distribution");
 		for (i = 0; i < stuNum; ++i) {
 			std::cout << i + 1;
-			if (i < 9) std::cout << "  : " << std::endl;
-			else if (i >= 9 && i < 99) std::cout << " : " << std::endl;
-			else std::cout << ": " << std::endl;
+			if (i < 9) std::cout << "  : ";
+			else if (i >= 9 && i < 99) std::cout << " : ";
+			else std::cout << ": ";
+			std::cout << "[" << stu[i].mark;
+			if (stu[i].mark < 9) std::cout << "  ]" << std::endl;
+			else if (stu[i].mark > 9 && i < 99) std::cout << " ]" << std::endl;
+			else std::cout << "]" << std::endl;
 		}
 		
 		
