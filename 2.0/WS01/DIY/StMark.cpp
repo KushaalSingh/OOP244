@@ -20,9 +20,10 @@ namespace seneca {
 			else if (i >= 9 && i < 99) std::cout << " : ";
 			else std::cout << ": ";
 			std::cout << "[" << stu[i].mark;
-			if (stu[i].mark < 9) std::cout << "  ]" << std::endl;
-			else if (stu[i].mark > 9 && i < 99) std::cout << " ]" << std::endl;
-			else std::cout << "]" << std::endl;
+			if (stu[i].mark < 10) std::cout << "  ] ";
+			else if (stu[i].mark >= 9 && stu[i].mark <= 99) std::cout << " ] ";
+			else std::cout << "] ";
+			std::cout << stu[i].name << " " << stu[i].surname << std::endl;
 		}
 		
 		
