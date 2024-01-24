@@ -16,22 +16,8 @@ namespace seneca {
 		sort(stu, stuNum);
 		
 
-		printHistogram(stu, stuNum, "Students' mark distribution");
-		
-
-		/*
-		for (i = 0; i < stuNum; ++i) {
-			std::cout << i + 1;
-			if (i < 9) std::cout << "  : ";
-			else if (i >= 9 && i < 99) std::cout << " : ";
-			else std::cout << ": ";
-			std::cout << "[" << stu[i].mark;
-			if (stu[i].mark < 10) std::cout << "  ] ";
-			else if (stu[i].mark >= 9 && stu[i].mark <= 99) std::cout << " ] ";
-			else std::cout << "] ";
-			std::cout << stu[i].name << " " << stu[i].surname << std::endl;
-		}
-		*/
+		printGraph(stu, stuNum, "Students' mark distribution");
+		printStudentList(stu, stuNum);
 		
 		
 		return true;
@@ -48,6 +34,21 @@ namespace seneca {
 					stu[k + 1] = temp;
 				}
 			}
+		}
+	}
+
+	void printStudentList(StMark* stu, int stuNum) {
+		int i;
+		for (i = 0; i < stuNum; i++) {
+			std::cout << i + 1;
+			if (i < 9) std::cout << "  : ";
+			else if (i >= 9 && i < 99) std::cout << " : ";
+			else std::cout << ": ";
+			std::cout << "[" << stu[i].mark;
+			if (stu[i].mark < 10) std::cout << "  ] ";
+			else if (stu[i].mark >= 9 && stu[i].mark <= 99) std::cout << " ] ";
+			else std::cout << "] ";
+			std::cout << stu[i].name << " " << stu[i].surname << std::endl;
 		}
 	}
 }

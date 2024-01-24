@@ -7,7 +7,7 @@ using namespace std;
 namespace seneca {
 
 
-    void printHistogram(StMark* stu, int stuNum, const char* label) {
+    void printGraph(StMark* stu, int stuNum, const char* label) {
         int category[NUM_CATEGORIES] = { 0 };
         labelLine(79, label);
         categorizing(stu, stuNum, category);
@@ -33,7 +33,7 @@ namespace seneca {
 
     
 
-    void _printgraph(int samples[], int noofsamples, const char* label) {
+    /*void _printgraph(int samples[], int noofsamples, const char* label) {
         int max = findmax(samples, noofsamples);
         labelline(graph_width + 10, label);
         for (int i = 0; i < noofsamples; i++) {
@@ -64,5 +64,5 @@ namespace seneca {
             goBack(20);
             samples[i] = getInt(1, 1000000);
         }
-    }
+    }*/
 }
