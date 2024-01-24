@@ -3,13 +3,17 @@
 #define SENECA_GRAPH_H
 
 namespace seneca {
+	
+	const int NUM_CATEGORIES = 10;
+	const int GRAPH_WIDTH = 65;
+
 	void _printGraph(int samples[], int noOfSamples, const char* label);
-	void printBar(int val, int max);
+	void _printBar(int val, int max);
 	void getSamples(int samples[], int noOfSamples);
 	int findMax(int samples[], int noOfSamples);
 
-	void printGraph(StMark* stu, int stuNum, const char* label);
-	int cateogryWithMostStudents(StMark* stu, int stuNum, int* category);
+	void printHistogram(StMark* stu, int stuNum, const char* label);
+	void categorizing(StMark* stu, int stuNum, int* category);
 
 }
 

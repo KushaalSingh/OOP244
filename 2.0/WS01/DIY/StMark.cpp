@@ -1,19 +1,25 @@
 // I have done all the coding by myself and only copied the code that my professor provided to complete my workshops and assignments.
 #define _CRT_SECURE_NO_WARNINGS
 #include "StMark.h"
+#include "graph.h"
 #include "io.h"
 #include "file.h"
 
 namespace seneca {
 
 	bool printReport(const char* filename) {
-		int i;
 		StMark stu[MAX_NO_RECS] = { 0 };
 
 		openFile(filename);
 		int stuNum = readMarks(stu);
+		closeFile();
 		sort(stu, stuNum);
-		labelLine(79, "Students' mark distribution");
+		
+
+		printHistogram(stu, stuNum, "Students' mark distribution");
+		
+
+		/*
 		for (i = 0; i < stuNum; ++i) {
 			std::cout << i + 1;
 			if (i < 9) std::cout << "  : ";
@@ -25,9 +31,9 @@ namespace seneca {
 			else std::cout << "] ";
 			std::cout << stu[i].name << " " << stu[i].surname << std::endl;
 		}
+		*/
 		
 		
-		closeFile();
 		return true;
 	}
 

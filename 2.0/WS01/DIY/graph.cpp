@@ -5,52 +5,44 @@
 using namespace std;
 
 namespace seneca {
-    const int MAX_NO_OF_SAMPLES = 20;
-    const int GRAPH_WIDTH = 65;
 
-    void printGraph(StMark* stu, int stuNum, const char* label) {
-        int category[10] = { 0 };
+
+    void printHistogram(StMark* stu, int stuNum, const char* label) {
+        int category[NUM_CATEGORIES] = { 0 };
         labelLine(79, label);
-
-        //cateogryWithMostStudents(stu, stuNum, category);
-        for (int i = 0; i < 9; i++) {
-            std::cout << category[i] << std::endl;
-        }
+        categorizing(stu, stuNum, category);
+        int maxStudents = mostNumerousCategory(category);
     }
 
-    int cateogryWithMostStudents(StMark* stu, int stuNum, int* category) {
-        int i;
-       
+    void categorizing(StMark* stu, int stuNum, int* category) {
+        int i, k;
         for (i = 0; i < stuNum; i++) {
-            if (stu[i].mark >= 0 && stu[i].mark <= 10) category[0]++;
-            else if (stu[i].mark >= 11 && stu[i].mark <= 20) category[1]++;
-            else if (stu[i].mark >= 21 && stu[i].mark <= 30) category[2]++;
-            else if (stu[i].mark >= 31 && stu[i].mark <= 40) category[3]++;
-            else if (stu[i].mark >= 41 && stu[i].mark <= 50) category[4]++;
-            else if (stu[i].mark >= 51 && stu[i].mark <= 60) category[5]++;
-            else if (stu[i].mark >= 61 && stu[i].mark <= 70) category[6]++;
-            else if (stu[i].mark >= 71 && stu[i].mark <= 80) category[7]++;
-            else if (stu[i].mark >= 81 && stu[i].mark <= 90) category[8]++;
-            else if (stu[i].mark >= 91 && stu[i].mark <= 100) category[9]++;
+            for (k = 0; k < NUM_CATEGORIES; k++) {
+                int lowerLimit = (k == 0) ? 0 : (k * 10) + 1;
+                int upperLimit = (k + 1) * 10;
+                if (stu[i].mark >= lowerLimit && stu[i].mark <= upperLimit) category[k]++;
+            }
         }
     }
 
-
-
-
-
-
-
-    void _printGraph(int samples[], int noOfSamples, const char* label) {
-        int max = findMax(samples, noOfSamples);
-        labelLine(GRAPH_WIDTH + 10, label);
-        for (int i = 0; i < noOfSamples; i++) {
-            printBar(samples[i], max);
-        }
-        line(GRAPH_WIDTH + 10);
+    int mostNumerousCategory(int* category) {
+        int i, numStudents = 0;
+        for (i = 0; i < NUM_CATEGORIES; i++) if (category[i] > numStudents) numStudents = category[i];
+        return numStudents;
     }
 
-    void printBar(int val, int max) {
+    
+
+    void _printgraph(int samples[], int noofsamples, const char* label) {
+        int max = findmax(samples, noofsamples);
+        labelline(graph_width + 10, label);
+        for (int i = 0; i < noofsamples; i++) {
+            printbar(samples[i], max);
+        }
+        line(graph_width + 10);
+    }
+
+    void _printBar(int val, int max) {
         int i;
         int barlength = GRAPH_WIDTH * val / max;
         cout << "| ";
@@ -72,14 +64,5 @@ namespace seneca {
             goBack(20);
             samples[i] = getInt(1, 1000000);
         }
-    }
-
-    int findMax(int samples[], int noOfSamples) {
-        int max = samples[0];
-        int i;
-        for (i = 1; i < noOfSamples; i++) {
-            if (max < samples[i]) max = samples[i];
-        }
-        return max < GRAPH_WIDTH ? GRAPH_WIDTH : max;
     }
 }
