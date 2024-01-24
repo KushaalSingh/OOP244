@@ -41,5 +41,6 @@ namespace seneca {
 			printInt(students[i].mark, 3, "] ");
 			std::cout << students[i].name << " " << students[i].surname << std::endl;
 		}
+		std::cout << "----------------------------------------" << std::endl;
 	}
 }
