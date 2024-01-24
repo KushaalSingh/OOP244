@@ -11,8 +11,8 @@ namespace seneca {
 	void _printBar(int val, int max);
 	void getSamples(int samples[], int noOfSamples);*/
 
-	void printHistogram(StMark* stu, int stuNum, const char* label);
-	void categorizing(StMark* stu, int stuNum, int* category);
+	void printGraph(StMark* students, int numberOfStudents, const char* label);
+	void categorizing(StMark* students, int numberOfStudents, int* category);
 	int mostNumerousCategory(int* category);
 
 }

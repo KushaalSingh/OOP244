@@ -7,20 +7,20 @@ using namespace std;
 namespace seneca {
 
 
-    void printGraph(StMark* stu, int stuNum, const char* label) {
+    void printGraph(StMark* students, int numberOfStudents, const char* label) {
         int category[NUM_CATEGORIES] = { 0 };
         labelLine(79, label);
-        categorizing(stu, stuNum, category);
-        int maxStudents = mostNumerousCategory(category);
+        categorizing(students, numberOfStudents, category);
+        int mostStudentsCategory = mostNumerousCategory(category);
     }
 
-    void categorizing(StMark* stu, int stuNum, int* category) {
+    void categorizing(StMark* students, int numberOfStudents, int* category) {
         int i, k;
-        for (i = 0; i < stuNum; i++) {
+        for (i = 0; i < numberOfStudents; i++) {
             for (k = 0; k < NUM_CATEGORIES; k++) {
                 int lowerLimit = (k == 0) ? 0 : (k * 10) + 1;
                 int upperLimit = (k + 1) * 10;
-                if (stu[i].mark >= lowerLimit && stu[i].mark <= upperLimit) category[k]++;
+                if (students[i].mark >= lowerLimit && students[i].mark <= upperLimit) category[k]++;
             }
         }
     }
