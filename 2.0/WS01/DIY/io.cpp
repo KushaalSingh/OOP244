@@ -2,7 +2,7 @@
 #include "io.h"
 using namespace std;
 namespace seneca {
-    void printInt(int value, int fieldWidth, const char* symbol) {
+    void printInt(int value, int fieldWidth, const char* symbol) {  // Moded
         cout << value;
         for (int i = 0; i < fieldWidth - intDigits(value); i++) {
             cout << " ";
