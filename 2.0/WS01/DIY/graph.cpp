@@ -8,10 +8,19 @@ namespace seneca {
 
 
     void printGraph(StMark* students, int numberOfStudents, const char* label) {
-        int category[NUM_CATEGORIES] = { 0 };
+        int i, category[NUM_CATEGORIES] = { 0 };
         labelLine(79, label);
         categorizing(students, numberOfStudents, category);
         int mostStudentsCategory = mostNumerousCategory(category);
+
+
+        for (i = NUM_CATEGORIES - 1; i >= 0; i--) {
+            printInt((i + 1) * 10, 4, "| ");
+            printBar(category[i], mostStudentsCategory);
+            std::cout << category[i] << std::endl;
+        }
+        // for (int i = NUM_CATEGORIES - 1; i >= 0; i--) std::cout << category[i] << std::endl;
+        
     }
 
     void categorizing(StMark* students, int numberOfStudents, int* category) {
@@ -31,17 +40,13 @@ namespace seneca {
         return numStudents;
     }
 
-    
-
-    /*void _printgraph(int samples[], int noofsamples, const char* label) {
-        int max = findmax(samples, noofsamples);
-        labelline(graph_width + 10, label);
-        for (int i = 0; i < noofsamples; i++) {
-            printbar(samples[i], max);
-        }
-        line(graph_width + 10);
+    void printBar(int val, int max) {
+        int barLength = GRAPH_WIDTH * val / max;
+        for (int i = 0; i < barLength; i++) std::cout << "*";
+        std::cout << " ";
     }
 
+    /*
     void _printBar(int val, int max) {
         int i;
         int barlength = GRAPH_WIDTH * val / max;
@@ -53,16 +58,5 @@ namespace seneca {
         printInt(val, (GRAPH_WIDTH + 6 - barlength));
         cout << "|" << endl;
     }
-
-    void getSamples(int samples[], int noOfSamples) {
-        int i;
-        for (i = 0; i < noOfSamples; i++) {
-            line(28);
-            cout << "\\ " << (i + 1) << "/";
-            printInt(noOfSamples, 2);
-            cout << ":                    /";
-            goBack(20);
-            samples[i] = getInt(1, 1000000);
-        }
     }*/
 }
