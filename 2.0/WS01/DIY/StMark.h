@@ -6,7 +6,6 @@
 #define SENECA_STMARK_H
 
 namespace seneca {
-
 	typedef struct {
 		char name[21];
 		char surname[31];
