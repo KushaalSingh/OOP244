@@ -5,8 +5,6 @@
 using namespace std;
 
 namespace seneca {
-
-
     void printGraph(StMark* students, int numberOfStudents, const char* label) {
         int i, category[NUM_CATEGORIES] = { 0 };
         categorizing(students, numberOfStudents, category);
