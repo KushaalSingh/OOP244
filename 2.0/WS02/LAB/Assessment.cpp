@@ -28,4 +28,15 @@ namespace seneca {
 		return false;
 	}
 
+	void freeMem(Assessment*& aptr, int size) {
+		for (int i = 0; i < size; ++i) {
+			delete aptr[i].m_mark;
+			delete[] aptr[i].m_title;
+		}
+		delete[] aptr;
+	}
+
+	int read(Assessment*& aptr, FILE* fptr) {
+
+	}
 }
