@@ -37,6 +37,25 @@ namespace seneca {
 	}
 
 	int read(Assessment*& aptr, FILE* fptr) {
+		int i, numRecords;
+		if (!read(numRecords, fptr)) return 0;
 
+		aptr = new Assessment[numRecords];
+
+		int numReads = 0;
+		for (i = 0; i < numRecords; ++i) {
+			if (!read(aptr[i], fptr)) {
+				freeMem(aptr, i);
+				return 0;
+			}
+			++numReads;
+		}
+
+		if (numReads != numRecords) {
+			freeMem(aptr, numRecords);
+			return 0;
+		}
+
+		return numRecords;
 	}
 }
