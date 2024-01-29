@@ -14,6 +14,12 @@ namespace seneca {
 		char* m_title;
 	} Assessment;
 
+	bool read(int& value, FILE* fptr);
+	bool read(double& value, FILE* fptr);
+	bool read(char* cstr, FILE* fptr);
+	bool read(Assessment& assess, FILE* fptr);
+	void freeMem(Assessment*& aptr, int size);
+	int read(Assessment*& aptr, FILE* fptr);
 
 }
 
