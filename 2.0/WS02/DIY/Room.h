@@ -10,6 +10,8 @@ namespace seneca {
 		int m_noOfGuests;
 		Guest* m_guests;
 	} Room;
+
+	void set(Room& room, int numberOfGuests, const char* roomNumber);
 }
 
 #endif
