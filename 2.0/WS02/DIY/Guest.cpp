@@ -17,7 +17,7 @@ namespace seneca {
 	void print(const Guest& guest) {
 		if (guest.m_firstName != nullptr && guest.m_lastName != nullptr) {
 			std::cout << guest.m_firstName << " " << guest.m_lastName << " ";
-			if (!guest.m_adult) std::cout << "(child)" << std::endl;
+			if (!guest.m_adult) std::cout << "(Child)" << std::endl;
 		}
 		else std::cout << "Vacated!" << std::endl;
 	}
