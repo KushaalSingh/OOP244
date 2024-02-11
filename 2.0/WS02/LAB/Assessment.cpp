@@ -3,11 +3,11 @@
 namespace seneca {
 
 	bool read(int& value, FILE* fptr) {
-		return fscanf(fptr, "%d", &value);
+		return fscanf(fptr, "%d", &value) == 1;
 	}
 
 	bool read(double& value, FILE* fptr) {
-		return fscanf(fptr, "%lf", &value);
+		return fscanf(fptr, "%lf", &value) == 1;
 	}
 
 	bool read(char* cstr, FILE* fptr) {
@@ -37,14 +37,14 @@ namespace seneca {
 
 	int read(Assessment*& aptr, FILE* fptr) {
 		int i, size, count = 0;
-		read(size, fptr);
+		if (!read(size, fptr)) return 0;
 		aptr = new Assessment[size];
 		for (i = 0; i < size; i++) {
-			if (!read(aptr, fptr)) break;
-			++count;
+			if (!read(aptr[i], fptr)) break;
+			else count++;
 		}
 		if (size != count) {
-			delete[] aptr;
+			freeMem(aptr, count);
 			return 0;
 		}
 		return size;
