@@ -15,6 +15,10 @@ namespace seneca {
 		bool m_adult;
 	} Guest;
 
+	void set(Guest& guest, const char* first, const char* last, int age);
+	void print(const Guest& guest);
+	void book(Guest& guest);
+	void vacate(Guest& guest)
 
 }
 
