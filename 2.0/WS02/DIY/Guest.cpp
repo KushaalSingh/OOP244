@@ -2,8 +2,8 @@
 
 namespace seneca {
 
-	void set(Guest& guest, const char* first, const char* last, int age) {
-		guest.m_adult = age >= 18 ? true : false;
+	/*void set(Guest& guest, const char* first, const char* last, int age) {
+		guest.m_adult = (age >= 18);
 		if (validateName(first, last)) {
 			guest.m_firstName = new char[strlen(first) + 1];
 			guest.m_lastName = new char[strlen(last) + 1];
@@ -11,6 +11,19 @@ namespace seneca {
 			strcpy(guest.m_lastName, last);
 		}
 		else nullifyName(guest);
+	}*/
+
+	void set(Guest& guest, const char* first, const char* last, int age) {
+		guest.m_adult = (age >= 18);
+		if (validateName(first, last)) {
+			guest.m_firstName = new char[strlen(first) + 1];
+			strcpy(guest.m_firstName, first);
+			guest.m_lastName = new char[strlen(last) + 1];
+			strcpy(guest.m_lastName, last);
+		}
+		if (guest.m_firstName != nullptr && guest.m_lastName != nullptr && !validateName(first, last)) {
+			nullifyName(guest);
+		}
 	}
 
 	void print(const Guest& guest) {
@@ -46,6 +59,11 @@ namespace seneca {
 	}
 
 	bool validateName(const char* fn, const char* ln) {
-		return (fn != nullptr) && (fn != "") && (ln != nullptr) && (ln != "");
+		return (fn != nullptr) && (fn != "") && (ln != nullptr) && (ln != "");	
+	}
+
+	bool alreadyVacant(Guest& guest) {
+		return guest.m_firstName == nullptr || !guest.m_firstName || 
+			guest.m_lastName == nullptr || !guest.m_lastName;
 	}
 }
