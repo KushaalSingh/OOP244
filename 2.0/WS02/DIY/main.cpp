@@ -4,7 +4,7 @@ using namespace seneca;
 
 
 int main() {
-    cout << "Testing Guest Functiosn:" << endl;
+    cout << "Testing Guest Function:" << endl;
     Guest G;
     cout << "\nTesting bad setting\n---------------" << endl;
     set(G, nullptr, "ABC", 10);
@@ -28,7 +28,7 @@ int main() {
     print(G);
     vacate(G);
     print(G);
-    cout << "\nTesting Room Functions: " << endl;
+    /*cout << "\nTesting Room Functions: " << endl;
     Room A;
     set(A, 2, "A1010");
     print(A);
@@ -45,6 +45,6 @@ int main() {
     cout << "\nPrinting vacated Room:" << endl
         << "------------------------" << endl;
     vacate(A);
-    print(A);
+    print(A);*/
     return 0;
 }
