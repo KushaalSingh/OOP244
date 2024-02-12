@@ -1,5 +1,6 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <iostream>
+#include <cstring>
 
 #ifndef SENECA_GUEST_H
 #define SENECA_GUEST_H
@@ -18,7 +19,9 @@ namespace seneca {
 	void set(Guest& guest, const char* first, const char* last, int age);
 	void print(const Guest& guest);
 	void book(Guest& guest);
-	void vacate(Guest& guest)
+	void vacate(Guest& guest);
+	void nullifyNames(Guest& guest);
+	bool validateName(const char* fn, const char* ln);
 
 }
 
