@@ -12,6 +12,7 @@ namespace seneca {
 	} Room;
 
 	void set(Room& room, int numberOfGuests, const char* roomNumber);
+	void print(const Room& room);
 }
 
 #endif

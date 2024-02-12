@@ -9,14 +9,17 @@ namespace seneca {
 
 	void print(const Room& room) {
 		int i;
-		std::cout << "Room number" << room.m_roomNumber << ": " << std::endl;
+		std::cout << "Room number" << ": " << room.m_roomNumber << std::endl;
 		for (i = 0; i < room.m_noOfGuests; i++) {
 			std::cout << "    ";
 			print(room.m_guests[i]);
 		}
 	}
 
+	void book(Room& room) {
+		std::cout << "Room number"
 
+	}
 
 
 
