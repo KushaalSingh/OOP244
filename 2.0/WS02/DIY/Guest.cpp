@@ -1,6 +1,6 @@
 #include "Room.h"
 
-namespace seneca {
+namespace wrk {
 
 	void set(Guest& guest, const char* first, const char* last, int age) {
 		guest.m_adult = (age >= 18);
@@ -10,9 +10,7 @@ namespace seneca {
 			guest.m_lastName = new char[strlen(last) + 1];
 			strcpy(guest.m_lastName, last);
 		}
-		if (guest.m_firstName != nullptr && guest.m_lastName != nullptr && !validateName(first, last)) {
-			nullifyName(guest);
-		}
+		if (guest.m_firstName != nullptr && guest.m_lastName != nullptr && !validateName(first, last)) nullifyName(guest);
 	}
 
 	void print(const Guest& guest) {
@@ -27,6 +25,7 @@ namespace seneca {
 	void book(Guest& guest) {
 		char name[FIRST_NAME], surName[LAST_NAME];
 		int age;
+
 		std::cout << "Name: ";
 		std::cin.getline(name, FIRST_NAME);
 		std::cout << "Lastname: ";
@@ -34,6 +33,7 @@ namespace seneca {
 		std::cout << "Age: ";
 		std::cin >> age;
 		set(guest, name, surName, age);
+
 	}
 
 	void vacate(Guest& guest) {

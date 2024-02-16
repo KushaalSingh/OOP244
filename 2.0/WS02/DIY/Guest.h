@@ -2,10 +2,10 @@
 #include <iostream>
 #include <cstring>
 
-#ifndef SENECA_GUEST_H
-#define SENECA_GUEST_H
+#ifndef GUEST_H
+#define GUEST_H
 
-namespace seneca {
+namespace wrk {
 
 	const int FIRST_NAME = 32;
 	const int LAST_NAME = 64;
@@ -22,7 +22,6 @@ namespace seneca {
 	void vacate(Guest& guest);
 	void nullifyName(Guest& guest);
 	bool validateName(const char* fn, const char* ln);
-
 	bool alreadyVacant(Guest& guest);
 
 }

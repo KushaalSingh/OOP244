@@ -1,10 +1,10 @@
 #include "Guest.h"
 
-#ifndef SENECA_ROOM_H
-#define SENECA_ROOM_H
+#ifndef ROOM_H
+#define ROOM_H
 
-namespace seneca {
-	
+namespace wrk {
+
 	typedef struct {
 		char m_roomNumber[6];
 		int m_noOfGuests;
@@ -16,5 +16,4 @@ namespace seneca {
 	void book(Room& room);
 	void vacate(Room& room);
 }
-
 #endif
