@@ -17,6 +17,8 @@ namespace seneca {
 		double m_cost;
 	public:
 		bool isEmpty() const;
+		void setEmpty();
+		
 	};
 
 
