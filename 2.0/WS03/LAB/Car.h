@@ -21,17 +21,11 @@ namespace seneca {
 		void deallocateMemory();
 		void set(const char plateNo[], const char* carMakeModel, const char* serviceDesc, double serviceCost);
 		void display() const;
-
 		void setDynamicPointersToNull();
 	};
 
 	bool validLicencePlate(const char* plate);
 	void displayAttribute(const char* attribute, const char* value);
-
-
-
-
-
 
 }
 
