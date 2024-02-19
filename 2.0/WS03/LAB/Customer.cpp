@@ -9,7 +9,7 @@ namespace seneca {
 	void Customer::setEmpty() {
 		m_id = 0;
 		m_name = nullptr;
-		m_car = nullptr;
+		m_car = nullptr; 
 	}
 
 	void Customer::deallocateMemory() {
@@ -19,7 +19,7 @@ namespace seneca {
 	void Customer::set(int customerId, const char* name, const Car* car) {
 		deallocateMemory();
 		setEmpty();
-		if (validName(name) && m_car != nullptr) {
+		if (validName(name) && car != nullptr) {
 			m_id = customerId;
 			m_car = car;
 			m_name = new char[strlen(name) + 1];
