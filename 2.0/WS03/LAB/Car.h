@@ -26,7 +26,7 @@ namespace seneca {
 	};
 
 	bool validLicencePlate(const char* plate);
-
+	void displayAttribute(const char* attribute, const char* value);
 
 
 
