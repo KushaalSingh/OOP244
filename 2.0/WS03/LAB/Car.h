@@ -18,8 +18,13 @@ namespace seneca {
 	public:
 		bool isEmpty() const;
 		void setEmpty();
-		
+		void deallocateMemory();
+		void set(const char plateNo[], const char* carMakeModel, const char* serviceDesc, double serviceCost);
+
+		void setDynamicPointersToNull();
 	};
+
+	bool validLicencePlate(const char plate);
 
 
 
@@ -29,4 +34,4 @@ namespace seneca {
 
 }
 
-#endif // !
+#endif 
