@@ -21,10 +21,36 @@ namespace seneca {
 	void Car::set(const char plateNo[], const char* carMakeModel, const char* serviceDesc, double serviceCost) {
 		deallocateMemory();
 		if (!isEmpty() && validLicencePlate(plateNo)) {
-
+			m_cost = serviceCost;
+			strcpy(m_licencePlate, plateNo);
+			m_makeModel = new char[strlen(carMakeModel) + 1];
+			strcpy(m_makeModel, carMakeModel);
+			m_serviceDesc = new char[strlen(serviceDesc) + 1];
+			strcpy(m_serviceDesc, serviceDesc);
 		}
 		else setEmpty();
+	}
 
+	void Car::display() const {
+		displayAttribute("Licence Plate:", m_licencePlate);
+		displayAttribute("Model:", m_makeModel);
+		displayAttribute("Service Name:", m_serviceDesc);
+		std::cout.width(15);
+		std::cout.setf(std::ios::left);
+		std::cout << "Service Cost:";
+		std::cout.width(20);
+		std::cout.setf(std::ios::right);
+		std::cout.precision(2);
+		std::cout << m_cost << std::endl;
+	}
+
+	void displayAttribute(const char* attribute, const char* value) {
+		std::cout.width(15);
+		std::cout.setf(std::ios::left);
+		std::cout << attribute;
+		std::cout.width(20);
+		std::cout.setf(std::ios::right);
+		std::cout << value << std::endl;
 	}
 
 	void Car::setDynamicPointersToNull() {
