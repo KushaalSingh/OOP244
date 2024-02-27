@@ -1,6 +1,6 @@
 #include "Room.h"
 
-namespace wrk {
+namespace seneca {
 
 	void set(Room& room, int numberOfGuests, const char* roomNumber) {
 		int i;

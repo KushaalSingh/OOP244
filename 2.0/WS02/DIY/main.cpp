@@ -1,6 +1,6 @@
 #include "Room.h"
 using namespace std;
-using namespace wrk;
+using namespace seneca;
 
 
 int main() {

@@ -1,6 +1,6 @@
 #include "Room.h"
 
-namespace wrk {
+namespace seneca {
 
 	void set(Guest& guest, const char* first, const char* last, int age) {
 		guest.m_adult = (age >= 18);

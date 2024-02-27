@@ -2,10 +2,10 @@
 #include <iostream>
 #include <cstring>
 
-#ifndef GUEST_H
-#define GUEST_H
+#ifndef SENECA_GUEST_H
+#define SENECA_GUEST_H
 
-namespace wrk {
+namespace seneca {
 
 	const int FIRST_NAME = 32;
 	const int LAST_NAME = 64;

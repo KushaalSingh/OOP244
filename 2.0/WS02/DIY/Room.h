@@ -1,9 +1,9 @@
 #include "Guest.h"
 
-#ifndef ROOM_H
-#define ROOM_H
+#ifndef SENECA_ROOM_H
+#define SENECA_ROOM_H
 
-namespace wrk {
+namespace seneca {
 
 	typedef struct {
 		char m_roomNumber[6];
