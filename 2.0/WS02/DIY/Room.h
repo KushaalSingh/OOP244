@@ -4,7 +4,7 @@
 #define SENECA_ROOM_H
 
 namespace seneca {
-	
+
 	typedef struct {
 		char m_roomNumber[6];
 		int m_noOfGuests;
@@ -16,5 +16,4 @@ namespace seneca {
 	void book(Room& room);
 	void vacate(Room& room);
 }
-
 #endif

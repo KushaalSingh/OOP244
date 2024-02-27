@@ -3,14 +3,14 @@
 namespace seneca {
 
 	void set(Guest& guest, const char* first, const char* last, int age) {
-		guest.m_adult = age >= 18 ? true : false;
+		guest.m_adult = (age >= 18);
 		if (validateName(first, last)) {
 			guest.m_firstName = new char[strlen(first) + 1];
-			guest.m_lastName = new char[strlen(last) + 1];
 			strcpy(guest.m_firstName, first);
+			guest.m_lastName = new char[strlen(last) + 1];
 			strcpy(guest.m_lastName, last);
 		}
-		else nullifyName(guest);
+		if (guest.m_firstName != nullptr && guest.m_lastName != nullptr && !validateName(first, last)) nullifyName(guest);
 	}
 
 	void print(const Guest& guest) {
@@ -25,6 +25,7 @@ namespace seneca {
 	void book(Guest& guest) {
 		char name[FIRST_NAME], surName[LAST_NAME];
 		int age;
+
 		std::cout << "Name: ";
 		std::cin.getline(name, FIRST_NAME);
 		std::cout << "Lastname: ";
@@ -32,6 +33,7 @@ namespace seneca {
 		std::cout << "Age: ";
 		std::cin >> age;
 		set(guest, name, surName, age);
+
 	}
 
 	void vacate(Guest& guest) {
@@ -46,6 +48,11 @@ namespace seneca {
 	}
 
 	bool validateName(const char* fn, const char* ln) {
-		return (fn != nullptr) && (fn != "") && (ln != nullptr) && (ln != "");
+		return (fn != nullptr) && (fn != "") && (ln != nullptr) && (ln != "");	
+	}
+
+	bool alreadyVacant(Guest& guest) {
+		return guest.m_firstName == nullptr || !guest.m_firstName || 
+			guest.m_lastName == nullptr || !guest.m_lastName;
 	}
 }

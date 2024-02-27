@@ -4,7 +4,7 @@ using namespace seneca;
 
 
 int main() {
-    cout << "Testing Guest Functiosn:" << endl;
+    cout << "Testing Guest Function:" << endl;
     Guest G;
     cout << "\nTesting bad setting\n---------------" << endl;
     set(G, nullptr, "ABC", 10);

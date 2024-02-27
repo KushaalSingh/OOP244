@@ -20,8 +20,9 @@ namespace seneca {
 	void print(const Guest& guest);
 	void book(Guest& guest);
 	void vacate(Guest& guest);
-	void nullifyNames(Guest& guest);
+	void nullifyName(Guest& guest);
 	bool validateName(const char* fn, const char* ln);
+	bool alreadyVacant(Guest& guest);
 
 }
 
