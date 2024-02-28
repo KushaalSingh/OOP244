@@ -21,11 +21,10 @@ namespace seneca {
 	};
 
 	void displayMenu();
-	void displayDouble(double num, int _width);
 	int getInt(const char* statement, int uprBnd, int lwrBnd);
 	bool getvanillaWafer();
-	
 	double calculateTotal(int numberOfScoops, bool isChoco, bool vanillaWafer);
+	void displayDouble(double num, int _width);
 	bool validYesOrNo(const char* str);
 }
 
