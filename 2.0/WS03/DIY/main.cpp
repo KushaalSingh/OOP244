@@ -1,11 +1,10 @@
-#include "IceCream.h"
+#include "Vendor.h"
+using namespace seneca;
 int main() {
-	seneca::Icecream I;
-	// test one
-	I.getOrder();
-	I.printOrder();
-	// test two
-	I.getOrder();
-	I.printOrder();
-	return 0;
+    Vendor vendor;
+    vendor.setEmpty();
+    vendor.takeOrders();
+    vendor.displayOrders();
+    vendor.clearData();
+    return 0;
 }
