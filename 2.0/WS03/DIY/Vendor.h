@@ -9,9 +9,14 @@ namespace seneca {
 	private:
 		int numberOfOrders;
 		Icecream* icecream;
+		double subTotal;
+		double tax;
+		double total;
 	public:
 		void setEmpty();
 		void takeOrders();
+		void displayOrders();
+		void clearData();
 	};
 
 	void displayHeader();

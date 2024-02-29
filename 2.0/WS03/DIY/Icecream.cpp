@@ -20,7 +20,7 @@ namespace seneca {
 			std::cout << "Chocolate flavour:";
 			displayDouble(numberOfScoops * 1.00, 17);
 		}
-		else std::cout << flavour << "flavour" << std::endl;
+		else std::cout << flavour << " flavour" << std::endl;
 		std::cout << "Vanilla Wafer:";
 		if (vanillaWafer) displayDouble(5.00, 21);
 		else displayDouble(0.00, 21);
@@ -106,6 +106,10 @@ namespace seneca {
 		}
 	}
 
+	void Icecream::deallocate() {
+		delete[] flavour;
+	}
+
 	double calculateTotal(int numberOfScoops, bool isChoco, bool vanillaWafer) {
 		double total = 0;
 		total += numberOfScoops * 5.00;
@@ -128,5 +132,8 @@ namespace seneca {
 		return (str[0] == 'y' || str[0] == 'Y' || str[0] == 'n' || str[0] == 'N') && str[1] == '\0';
 	}
 
+	double Icecream::returnTotal() {
+		return total;
+	}
 
 }

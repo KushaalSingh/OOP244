@@ -18,6 +18,8 @@ namespace seneca {
 		void printOrder();
 		void setOrderToEmpty();
 		void assignFlavour();
+		void deallocate();
+		double returnTotal();
 	};
 
 	void displayMenu();
