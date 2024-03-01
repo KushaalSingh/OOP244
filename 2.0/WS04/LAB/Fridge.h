@@ -10,6 +10,15 @@
 
 namespace seneca {
 
+	class Fridge {
+	private:
+		Food m_foods[FRIDGE_CAP];
+		int m_numFoods;
+		char* m_model;
+	public:
+		Fridge();
+		Fridge(Food farr[], int nf, const char* mod);
+	};
 
 	class Food {
 	private:

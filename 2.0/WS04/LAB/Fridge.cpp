@@ -2,6 +2,17 @@
 
 namespace seneca {
 
+
+    Fridge::Fridge() {
+        m_numFoods = 0;
+        m_model = nullptr;
+    }
+
+    Fridge::Fridge(Food farr[], int nf, const char* mod) {
+
+    }
+
+
     Food::Food() {}
 
     Food::Food(const char* nm, int wei) {
