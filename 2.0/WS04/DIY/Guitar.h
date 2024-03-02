@@ -28,10 +28,13 @@ namespace seneca {
 		GuitarStr* m_strings;
 		int m_numStrings;
 		char m_model[MOD_LEN];
+		void setEmpty();
 	public:
+		Guitar();
 		Guitar(const char* mod = "Stratocaster");
 		Guitar(GuitarStr strs[], int ns, const char* mod);
 		~Guitar();
+		bool changeString(const GuitarStr& gs, int sn);
 	};
 
 }

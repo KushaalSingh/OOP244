@@ -17,6 +17,10 @@ namespace seneca {
         return m_gauge;
     }
 
+    Guitar::Guitar() {
+        setEmpty();
+    }
+
     Guitar::Guitar(const char* mod) {
         m_strings = nullptr;
         m_numStrings = 0;
@@ -31,7 +35,16 @@ namespace seneca {
     }
 
     Guitar::~Guitar() {
+        delete[] m_strings;
+    }
 
+    bool Guitar::changeString(const GuitarStr& gs, int sn) {
+
+    }
+
+    void Guitar::setEmpty() {
+        m_strings = nullptr;
+        m_numStrings = 0;
     }
 
 }
