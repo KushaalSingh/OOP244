@@ -29,13 +29,14 @@ namespace seneca {
 		int m_numStrings;
 		char m_model[MOD_LEN];
 		void setEmpty();
+		void deallocateMemory();
 	public:
 		Guitar();
 		Guitar(const char* mod = "Stratocaster");
 		Guitar(GuitarStr strs[], int ns, const char* mod);
 		~Guitar();
 		bool changeString(const GuitarStr& gs, int sn);
-
+		void reString(GuitarStr strs[], int ns);
 		bool isEmpty();
 	};
 

@@ -39,12 +39,25 @@ namespace seneca {
     }
 
     bool Guitar::changeString(const GuitarStr& gs, int sn) {
+        if (sn >= 0 && sn <= m_numStrings) {
+            m_strings[sn] = gs;
+            return true;
+        }
+        else return false;
+    }
+
+    void Guitar::reString(GuitarStr strs[], int ns) {
 
     }
 
     void Guitar::setEmpty() {
         m_strings = nullptr;
         m_numStrings = 0;
+    }
+
+    void Guitar::deallocateMemory() {
+        delete[] m_strings;
+        m_strings = nullptr;
     }
 
     bool Guitar::isEmpty() {
