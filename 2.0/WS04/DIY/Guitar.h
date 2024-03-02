@@ -35,6 +35,8 @@ namespace seneca {
 		Guitar(GuitarStr strs[], int ns, const char* mod);
 		~Guitar();
 		bool changeString(const GuitarStr& gs, int sn);
+
+		bool isEmpty();
 	};
 
 }

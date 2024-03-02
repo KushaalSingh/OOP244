@@ -47,4 +47,8 @@ namespace seneca {
         m_numStrings = 0;
     }
 
+    bool Guitar::isEmpty() {
+        return !m_strings && m_numStrings == 0;
+    }
+
 }
