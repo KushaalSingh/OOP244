@@ -17,10 +17,6 @@ namespace seneca {
         return m_gauge;
     }
 
-    Guitar::Guitar() {
-        setEmpty();
-    }
-
     Guitar::Guitar(const char* mod) {
         m_strings = nullptr;
         m_numStrings = 0;
@@ -75,14 +71,15 @@ namespace seneca {
     std::ostream& Guitar::display(std::ostream& os) const {
         if (m_numStrings > 0) {
             os << "Guitar Mode: " << m_model << std::endl;
-            os << "Strings:: " << m_numStrings << std::endl;
+            os << "Strings: " << m_numStrings << std::endl;
             if (strung()) {
                 for (int i = 0; i < m_numStrings; i++) {
+                    os << "#" << i + 1 << " ";
                     os.width(MAT_LEN);
                     os.setf(std::ios::right);
                     os.setf(std::ios::fixed);
                     os.precision(1);
-                    os << "#" << i + 1 << " " << m_strings[i].material() << " | " << m_strings[i].gauge();
+                    os << m_strings[i].material() << " | " << m_strings[i].gauge() << std::endl;
                     os.unsetf(std::ios::right);
                     os.unsetf(std::ios::fixed);
                 }

@@ -30,7 +30,6 @@ namespace seneca {
 		char m_model[MOD_LEN];
 		void setEmpty();
 	public:
-		Guitar();
 		Guitar(const char* mod = "Stratocaster");
 		Guitar(GuitarStr strs[], int ns, const char* mod);
 		~Guitar();
