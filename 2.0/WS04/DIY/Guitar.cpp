@@ -67,4 +67,11 @@ namespace seneca {
         return m_strings;
     }
 
+    bool Guitar::matchGauge(double ga) const {
+        for (int i = 0; i < m_numStrings; i++) if (ga == m_strings[i].gauge()) return true;
+        return false;
+    }
+
+
+
 }
