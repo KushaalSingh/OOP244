@@ -1,6 +1,5 @@
-// I have done all the coding by myselfand only copied the code that my professor provided to complete my workshopsand assignments.
-#ifndef SENECA_GRAPH_H
-#define SENECA_GRAPH_H
+#ifndef GRAPH_H
+#define GRAPH_H
 
 namespace seneca {
 	const int NUM_CATEGORIES = 10;
