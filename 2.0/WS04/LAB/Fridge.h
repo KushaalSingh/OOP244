@@ -22,8 +22,6 @@ namespace seneca {
         int weight()const;
     };
 
-    ////////////// Class Functions //////////////
-
     class Fridge {
     private:
         Food m_foods[FRIDGE_CAP];
@@ -36,6 +34,7 @@ namespace seneca {
         Fridge(Food farr[], int nf);
         Fridge(Food farr[], int nf, const char* mod);
         ~Fridge();
+
         bool addFood(const Food& f);
         void changeModel(const char* m);
         bool fullFridge() const;

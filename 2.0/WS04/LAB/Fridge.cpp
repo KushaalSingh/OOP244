@@ -9,18 +9,17 @@ namespace seneca {
 		m_weight = wei;
 	}
 
-	const char* Food::name() const { return m_name; }
-
-	int Food::weight() const { return m_weight; }
-
-	////////////// Provided Functions //////////////
-
-	void Fridge::setEmpty() {
-		m_model = nullptr;
-		m_numFoods = 0;
+	const char* Food::name() const { 
+		return m_name; 
 	}
 
-	Fridge::Fridge() { setEmpty(); }
+	int Food::weight() const { 
+		return m_weight; 
+	}
+
+	Fridge::Fridge() { 
+		setEmpty(); 
+	}
 
 	Fridge::Fridge(Food farr[], int nf) {
 		setEmpty();
@@ -47,7 +46,9 @@ namespace seneca {
 		}
 	}
 
-	Fridge::~Fridge() { deallocateMod(); }
+	Fridge::~Fridge() { 
+		deallocateMod(); 
+	}
 
 	bool Fridge::addFood(const Food& f) {
 		if (m_numFoods < FRIDGE_CAP) {
@@ -65,7 +66,9 @@ namespace seneca {
 		}
 	}
 
-	bool Fridge::fullFridge() const { return m_numFoods == FRIDGE_CAP; }
+	bool Fridge::fullFridge() const { 
+		return m_numFoods == FRIDGE_CAP; 
+	}
 
 	bool Fridge::findFood(const char* f) const {
 		if (validString(f)) {
@@ -88,11 +91,18 @@ namespace seneca {
 		return os;
 	}
 
+	void Fridge::setEmpty() {
+		m_model = nullptr;
+		m_numFoods = 0;
+	}
+
 	void Fridge::deallocateMod() {
 		delete[] m_model;
 		m_model = nullptr;
 	}
 
-	bool validString(const char* str) { return str && str[0] != '\0'; }
+	bool validString(const char* str) { 
+		return str && str[0] != '\0'; 
+	}
 
 }
