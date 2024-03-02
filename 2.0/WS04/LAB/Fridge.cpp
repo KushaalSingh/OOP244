@@ -20,8 +20,17 @@ namespace seneca {
 		m_numFoods = 0;
 	}
 
-	Fridge::Fridge() {
+	Fridge::Fridge() { setEmpty(); }
+
+	Fridge::Fridge(Food farr[], int nf) {
 		setEmpty();
+		m_numFoods = nf;
+		if (nf > 0) {
+			m_numFoods = nf;
+			m_model = new char[strlen("Ice Age") + 1];
+			strcpy(m_model, "Ice Age");
+			for (int i = 0; i < nf && i < FRIDGE_CAP; i++) m_foods[i] = farr[i];
+		}
 	}
 
 	Fridge::Fridge(Food farr[], int nf, const char* mod) {
@@ -38,9 +47,7 @@ namespace seneca {
 		}
 	}
 
-	Fridge::~Fridge() {
-		deallocateMod();
-	}
+	Fridge::~Fridge() { deallocateMod(); }
 
 	bool Fridge::addFood(const Food& f) {
 		if (m_numFoods < FRIDGE_CAP) {
@@ -58,9 +65,7 @@ namespace seneca {
 		}
 	}
 
-	bool Fridge::fullFridge() const {
-		return m_numFoods == FRIDGE_CAP;
-	}
+	bool Fridge::fullFridge() const { return m_numFoods == FRIDGE_CAP; }
 
 	bool Fridge::findFood(const char* f) const {
 		if (validString(f)) {
@@ -69,8 +74,8 @@ namespace seneca {
 		return false;
 	}
 
-	std::ostream& Fridge::display(std::ostream& os = std::cout) const {
-		if (!validString(m_model) || !strcmp(m_model, "Ice Age")) return os;
+	std::ostream& Fridge::display(std::ostream& os) const {
+		if (!validString(m_model)) return os;
 		os << "Fridge Model: " << m_model << std::endl;
 		os << "Food count: " << m_numFoods << " Capacity: " << FRIDGE_CAP << std::endl;
 		os << "List of Foods" << std::endl;
@@ -88,8 +93,6 @@ namespace seneca {
 		m_model = nullptr;
 	}
 
-	bool validString(const char* str) {
-		return str && str[0] != '\0';
-	}
+	bool validString(const char* str) { return str && str[0] != '\0'; }
 
 }

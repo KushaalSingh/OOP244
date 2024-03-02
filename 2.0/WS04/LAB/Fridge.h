@@ -33,6 +33,7 @@ namespace seneca {
         void deallocateMod();
     public:
         Fridge();
+        Fridge(Food farr[], int nf);
         Fridge(Food farr[], int nf, const char* mod);
         ~Fridge();
         bool addFood(const Food& f);
