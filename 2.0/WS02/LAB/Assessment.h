@@ -3,8 +3,8 @@
 #include <cstdio>
 #include <cstring>
 
-#ifndef SENECA_ASSESSMENT_H
-#define SENECA_ASSESSMENT_H
+#ifndef ASSESSMENT_H
+#define ASSESSMENT_H
 
 namespace seneca {
 
