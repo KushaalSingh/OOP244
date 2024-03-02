@@ -29,7 +29,7 @@ namespace seneca {
 		int m_numStrings;
 		char m_model[MOD_LEN];
 		void setEmpty();
-		void deallocateMemory();
+		void deString();
 	public:
 		Guitar();
 		Guitar(const char* mod = "Stratocaster");
@@ -37,7 +37,7 @@ namespace seneca {
 		~Guitar();
 		bool changeString(const GuitarStr& gs, int sn);
 		void reString(GuitarStr strs[], int ns);
-		bool isEmpty();
+		bool strung();
 	};
 
 }

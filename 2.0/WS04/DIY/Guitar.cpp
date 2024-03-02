@@ -35,7 +35,7 @@ namespace seneca {
     }
 
     Guitar::~Guitar() {
-        delete[] m_strings;
+        deString();
     }
 
     bool Guitar::changeString(const GuitarStr& gs, int sn) {
@@ -47,7 +47,10 @@ namespace seneca {
     }
 
     void Guitar::reString(GuitarStr strs[], int ns) {
-
+        deString();
+        m_numStrings = ns;
+        m_strings = new GuitarStr[m_numStrings];
+        for (int i = 0; i < m_numStrings; i++) m_strings[i] = strs[i];
     }
 
     void Guitar::setEmpty() {
@@ -55,13 +58,13 @@ namespace seneca {
         m_numStrings = 0;
     }
 
-    void Guitar::deallocateMemory() {
+    void Guitar::deString() {
         delete[] m_strings;
         m_strings = nullptr;
     }
 
-    bool Guitar::isEmpty() {
-        return !m_strings && m_numStrings == 0;
+    bool Guitar::strung() {
+        return m_strings;
     }
 
 }
