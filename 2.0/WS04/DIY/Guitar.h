@@ -29,7 +29,6 @@ namespace seneca {
 		int m_numStrings;
 		char m_model[MOD_LEN];
 		void setEmpty();
-		void deString();
 	public:
 		Guitar();
 		Guitar(const char* mod = "Stratocaster");
@@ -37,6 +36,7 @@ namespace seneca {
 		~Guitar();
 		bool changeString(const GuitarStr& gs, int sn);
 		void reString(GuitarStr strs[], int ns);
+		void deString();
 		bool strung() const;
 		bool matchGauge(double ga) const;
 		std::ostream& display(std::ostream& os = std::cout) const;

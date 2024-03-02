@@ -89,6 +89,7 @@ namespace seneca {
             }
         }
         else os << "***Empty Guitar***" << std::endl;
+        return os;
     }
 
 }
