@@ -7,7 +7,7 @@ void displayAllAccts(void);
 void notifyFailure(void);
 
 // create global bank accounts for testing
-bankAccount joe, cindy, raya, rohan, ira;
+BankAccount joe, cindy, raya, rohan, ira;
 
 int main()
 {

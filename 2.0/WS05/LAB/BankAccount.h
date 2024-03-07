@@ -19,7 +19,7 @@ namespace seneca {
 
 	class BankAccount {
 	private:
-		char m_username[MAXLEN_USER];
+		char m_userName[MAXLEN_USER];
 		double m_funds;
 		bool m_checking;
 		int m_monthlyTransactions;
