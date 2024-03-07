@@ -7,9 +7,15 @@
 #include <cstring>
 #include <cstdio>
 
+namespace seneca {
+
 #define MAXLEN_USER 16
 
-namespace seneca {
+#define TRANS_FEE_CHECK 1.25
+#define TRANS_FEE_SAVNG 3.30
+
+#define INT_RATE_CHECK 0.50
+#define INT_RATE_SAVNG 2.50
 
 	class BankAccount {
 	private:
