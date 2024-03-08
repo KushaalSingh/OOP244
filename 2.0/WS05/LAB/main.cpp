@@ -1,4 +1,4 @@
-#include "bankaccount.h"
+#include "BankAccount.h"
 
 using namespace std;
 using namespace seneca;
@@ -97,8 +97,8 @@ int main()
 	if (joe == rohan)
 		notifyFailure();
 
-	bankAccount twin1("Lian Zhou", false);
-	bankAccount twin2("Lian Zhou", false);
+	BankAccount twin1("Lian Zhou", false);
+	BankAccount twin2("Lian Zhou", false);
 	twin1 += 5; twin2 += 5;
 	if (!(twin1 == twin2))
 		notifyFailure();
