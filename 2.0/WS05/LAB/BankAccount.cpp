@@ -45,13 +45,16 @@ namespace seneca {
 		if (isOpen()) {
 			m_funds += value;
 			++m_monthlyTransactions;
+			std::cout.setf(std::ios::fixed);
+			std::cout.precision(2);
+			std::cout << "Deposit $" << value << " for " << m_userName << std::endl;
 			return true;
 		}
 		return false;
 	}
 
 	bool BankAccount::operator-=(double value) {
-		if (isOpen()) return *this += value * -1;
+		if (isOpen() && (*this += value * -1)) return *this += value * -1;
 		return false;
 	}
 
@@ -69,11 +72,9 @@ namespace seneca {
 		return false;
 	}
 
-	bool BankAccount::operator<<(BankAccount& src) { // Comeback to this function and solve the modifiable value issue
+	bool BankAccount::operator<<(BankAccount& src) {
 		if (src.isOpen() && isOpen() && src.m_funds > 0) {
-			bool transfer_1 = src -= src.m_funds;
-			bool transfer_2 = *this += src.m_funds;
-			if (transfer_1 && transfer_2) {
+			if ((src -= src.m_funds) && (*this += src.m_funds)) {
 				std::cout << "Transfer $" << src.m_funds << " from " << src.m_userName << " to " << m_userName << std::endl;
 				return true;
 			}
