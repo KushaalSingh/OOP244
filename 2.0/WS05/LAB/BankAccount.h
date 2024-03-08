@@ -10,7 +10,6 @@
 
 namespace seneca {
 
-#define EMPTY 0
 #define MAXLEN_USER 16
 
 #define TRANS_FEE_CHECK 1.25
@@ -38,6 +37,8 @@ namespace seneca {
 		bool operator==(const BankAccount& src) const;
 		bool operator<=(double value) const;
 		bool operator>(double value) const;
+		bool operator<<(BankAccount& src);
+		void display() const;
 	};
 
 	

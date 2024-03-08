@@ -12,9 +12,9 @@ namespace seneca {
 		if (name == nullptr) return false;
 
 		strcpy(m_userName, name);
-		m_monthlyTransactions = EMPTY;
+		m_monthlyTransactions = 0;
 		m_checking = checking;
-		m_funds = EMPTY;
+		m_funds = 0;
 		return true;
 	}
 
@@ -65,7 +65,26 @@ namespace seneca {
 	}
 
 	bool BankAccount::operator<=(double value) const {
+		if (isOpen()) return !*this > value;
+		return false;
+	}
 
+	bool BankAccount::operator<<(BankAccount& src) { // Comeback to this function and solve the modifiable value issue
+		if (src.isOpen() && isOpen() && src.m_funds > 0) {
+			bool transfer_1 = src -= src.m_funds;
+			bool transfer_2 = *this += src.m_funds;
+			if (transfer_1 && transfer_2) {
+				std::cout << "Transfer $" << src.m_funds << " from " << src.m_userName << " to " << m_userName << std::endl;
+				return true;
+			}
+		}
+		return false;
+	}
+
+	void BankAccount::display() const {
+		if (isOpen()) {
+
+		}
 	}
 
 }
