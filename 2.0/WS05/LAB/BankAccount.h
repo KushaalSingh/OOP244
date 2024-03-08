@@ -33,9 +33,11 @@ namespace seneca {
 		operator double() const;
 		BankAccount& operator++();
 		BankAccount& operator--();
-		bool operator+= (double value);
-		bool operator-= (double value);
-		bool operator== (const BankAccount& src) const;
+		bool operator+=(double value);
+		bool operator-=(double value);
+		bool operator==(const BankAccount& src) const;
+		bool operator<=(double value) const;
+		bool operator>(double value) const;
 	};
 
 	

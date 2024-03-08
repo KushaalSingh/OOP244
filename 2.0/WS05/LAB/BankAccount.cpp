@@ -59,4 +59,13 @@ namespace seneca {
 		return !strcmp(src.m_userName, m_userName) && src.m_checking == m_checking && std::abs(src.m_funds - m_funds) < 0.001;
 	}
 
+	bool BankAccount::operator>(double value) const {
+		if (isOpen()) return m_funds > value;
+		return false;
+	}
+
+	bool BankAccount::operator<=(double value) const {
+
+	}
+
 }
