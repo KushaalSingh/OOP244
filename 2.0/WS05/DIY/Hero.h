@@ -19,6 +19,7 @@ namespace seneca {
 		Hero(const char* name, Power _power[], int powerCount);
 		std::ostream& displayHeroInfo(std::ostream& print = std::cout) const;
 		Hero& operator+=(Power& pwr);
+		Hero& operator-=(int decrement);
 	};
 
 	int updatePowerLevel(Power* pwr, int power_count);

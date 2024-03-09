@@ -28,6 +28,11 @@ namespace seneca {
 		return *this;
 	}
 
+	Hero& Hero::operator-=(int decrement) {
+		power_level -= decrement;
+		return *this;
+	}
+
 	void Hero::setEmpty() {
 		name[0] = '\0';
 		power_count = 0;
