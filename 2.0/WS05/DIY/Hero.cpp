@@ -20,6 +20,7 @@ namespace seneca {
 		print << "List of available powers:" << NL;
 		for (int i = 0; i < power_count; i++) print << "  " << power[i].checkName() << NL;
 		print << "Power Level:" << power_level;
+		return print;
 	}
 
 	Hero& Hero::operator+=(Power& pwr) {
