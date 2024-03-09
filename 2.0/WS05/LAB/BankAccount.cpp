@@ -47,7 +47,7 @@ namespace seneca {
 			++m_monthlyTransactions;
 			std::cout.setf(std::ios::fixed);
 			std::cout.precision(2);
-			std::cout << "Deposit $" << value << " for " << m_userName << std::endl;
+			if (value > -1) std::cout << "Deposit $" << value << " for " << m_userName << std::endl;
 			return true;
 		}
 		return false;
