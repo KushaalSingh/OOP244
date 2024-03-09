@@ -32,6 +32,16 @@ namespace seneca {
 		power_level -= decrement;
 		return *this;
 	}
+	
+	bool Hero::operator<(Hero& src) {
+		return power_level < src.power_level;
+	}
+
+	bool Hero::operator>(Hero& src) {
+		return power_level > src.power_level;
+	}
+
+
 
 	void Hero::setEmpty() {
 		name[0] = '\0';
