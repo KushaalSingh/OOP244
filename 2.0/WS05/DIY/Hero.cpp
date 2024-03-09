@@ -15,13 +15,6 @@ namespace seneca {
 		power_level = updatePowerLevel(power, power_count);
 	}
 
-	void Hero::setEmpty() {
-		name[0] = '\0';
-		power_count = 0;
-		power_level = 0;
-		power = nullptr;
-	}
-
 	std::ostream& Hero::displayHeroInfo(std::ostream& print) const {
 		print << "Name: " << name << NL;
 		print << "List of available powers:" << NL;
@@ -33,6 +26,13 @@ namespace seneca {
 		power[power_count++] = pwr;
 		power_level = updatePowerLevel(power, power_count);
 		return *this;
+	}
+
+	void Hero::setEmpty() {
+		name[0] = '\0';
+		power_count = 0;
+		power_level = 0;
+		power = nullptr;
 	}
 
 	int updatePowerLevel(Power* pwr, int power_count) {
