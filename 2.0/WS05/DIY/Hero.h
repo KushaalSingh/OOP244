@@ -22,7 +22,8 @@ namespace seneca {
 		Hero& operator-=(int decrement);
 		bool operator<(Hero& src);
 		bool operator>(Hero& src);
-		Hero& operator>>(const Power& pwr);
+		Hero& operator>>(Power& pwr);
+		Hero& operator<<(Power& pwr);
 	};
 
 	int updatePowerLevel(Power* pwr, int power_count);

@@ -52,16 +52,16 @@ int main() {
 	cout << "----------------------------------------" << endl;
 	Power testing1 = { "Phasing through objects", 10 };
 	herolist[1] += testing1;
-	herolist[1].display() << endl;
+	herolist[1].displayHeroInfo() << endl;
 	herolist[2] += testing1;
-	herolist[2].display() << endl;
+	herolist[2].displayHeroInfo() << endl;
 	cout << "----------------------------------------" << endl << endl;
 	// Test 3
 	cout << "----------------------------------------" << endl;
 	cout << "3. Testing the -= operator" << endl;
 	cout << "----------------------------------------" << endl;
 	herolist[1] -= 10;
-	herolist[1].display() << endl;
+	herolist[1].displayHeroInfo() << endl;
 	cout << "----------------------------------------" << endl << endl;
 	// Test 4
 	cout << "----------------------------------------" << endl;
@@ -69,9 +69,9 @@ int main() {
 	cout << "----------------------------------------" << endl;
 	Power testing2 = { "Regeneration", 5 };
 	testing2 >> herolist[4];
-	herolist[4].display() << endl;
+	herolist[4].displayHeroInfo() << endl;
 	herolist[0] << testing2;
-	herolist[0].display() << endl;
+	herolist[0].displayHeroInfo() << endl;
 	cout << "----------------------------------------" << endl << endl;
 	// Test 5
 	cout << "----------------------------------------" << endl;
@@ -91,6 +91,6 @@ int main() {
 void displayDetails(const Hero* heroes, int size) {
 	cout << "Details of our heroes are as follow: " << endl;
 	for (int i = 0; i < size; i++) {
-		heroes[i].display() << endl;
+		heroes[i].displayHeroInfo() << endl;
 	}
 }
