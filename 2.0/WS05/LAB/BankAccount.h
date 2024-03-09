@@ -13,7 +13,7 @@ namespace seneca {
 #define MAXLEN_USER 16
 
 #define TRANS_FEE_CHECK 1.25
-#define TRANS_FEE_SAVNG 3.30
+#define TRANS_FEE_SAVNG 3.50
 
 #define INTR_RATE_CHECK 0.50
 #define INTR_RATE_SAVNG 2.50

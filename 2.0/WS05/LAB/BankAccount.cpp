@@ -77,10 +77,10 @@ namespace seneca {
 
 	bool BankAccount::operator<<(BankAccount& src) {
 		if (src.isOpen() && isOpen() && src.m_funds > 0) {
-			if ((src -= src.m_funds) && (*this += src.m_funds)) {
-				std::cout << "Transfer $" << src.m_funds << " from " << src.m_userName << " to " << m_userName << std::endl;
-				return true;
-			}
+			std::cout << "Transfer $" << src.m_funds << " from " << src.m_userName << " to " << m_userName << std::endl;
+			*this += src.m_funds;
+			src -= src.m_funds;
+			return true;
 		}
 		return false;
 	}
@@ -91,6 +91,7 @@ namespace seneca {
 			std::cout.width(16);
 			std::cout.fill('-');
 			std::cout << m_userName << " | ";
+			std::cout.fill(' ');
 			std::cout.width(8);
 			if (m_checking) std::cout << "Checking" << " | " ;
 			else std::cout << "Savings" << " | ";
@@ -107,7 +108,7 @@ namespace seneca {
 	}
 
 	bool operator>(double lhs, const BankAccount& rhs) {
-		if (rhs) return (lhs > rhs);
+		if ((bool)rhs) return (lhs > (double)rhs);
 		else return false;
 	}
 
