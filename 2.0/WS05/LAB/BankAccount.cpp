@@ -32,7 +32,7 @@ namespace seneca {
 	}
 
 	BankAccount& BankAccount::operator++() {
-		if (m_funds > 0 && isOpen()) m_funds += m_checking ? (INTR_RATE_CHECK * m_funds) : (INTR_RATE_SAVNG * m_funds);
+		if (m_funds > 0 && isOpen()) m_funds += m_checking ? (INTR_RATE_CHECK * m_funds)/100 : (INTR_RATE_SAVNG * m_funds)/100;
 		return *this;
 	}
 
