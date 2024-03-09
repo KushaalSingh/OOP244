@@ -41,6 +41,8 @@ namespace seneca {
 		void display() const;
 	};
 
+	bool operator>(double lhs, const BankAccount& rhs);
+	bool operator<=(double lhs, const BankAccount& rhs);
 	
 }
 

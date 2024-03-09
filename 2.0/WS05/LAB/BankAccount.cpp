@@ -54,7 +54,10 @@ namespace seneca {
 	}
 
 	bool BankAccount::operator-=(double value) {
-		if (isOpen() && (*this += value * -1)) return *this += value * -1;
+		if (isOpen() && (*this += value * -1)) {
+			std::cout << "Withdrew $" << value << " for " << m_userName << std::endl;
+			return true;
+		}
 		return false;
 	}
 
@@ -68,7 +71,7 @@ namespace seneca {
 	}
 
 	bool BankAccount::operator<=(double value) const {
-		if (isOpen()) return !*this > value;
+		if (isOpen()) return !(*this > value);
 		return false;
 	}
 
@@ -84,8 +87,32 @@ namespace seneca {
 
 	void BankAccount::display() const {
 		if (isOpen()) {
-
+			std::cout << "Display Account -> User:";
+			std::cout.width(16);
+			std::cout.fill('-');
+			std::cout << m_userName << " | ";
+			std::cout.width(8);
+			if (m_checking) std::cout << "Checking" << " | " ;
+			else std::cout << "Savings" << " | ";
+			std::cout << "Balance: $";
+			std::cout.width(8);
+			std::cout.setf(std::ios::fixed);
+			std::cout.precision(2);
+			std::cout << m_funds << " | " << "Transactions:";
+			std::cout.width(3);
+			std::cout.fill('0');
+			std::cout << m_monthlyTransactions << std::endl;
 		}
+		else std::cout << "Display Account -> User:------- NOT OPEN" << std::endl;
+	}
+
+	bool operator>(double lhs, const BankAccount& rhs) {
+		if (rhs) return (lhs > rhs);
+		else return false;
+	}
+
+	bool operator<=(double lhs, const BankAccount& rhs) {
+		return !(lhs > rhs);
 	}
 
 }
