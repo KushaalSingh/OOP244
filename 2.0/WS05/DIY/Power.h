@@ -1,5 +1,5 @@
-#ifndef SENECA_POWER_H
-#define SENECA_POWER_H
+#ifndef POWER_H
+#define POWER_H
 
 #define _CRT_SECURE_NO_WARNINGS
 #include<iostream>
