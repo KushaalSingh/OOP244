@@ -20,15 +20,15 @@ namespace seneca {
 		std::ostream& displayHeroInfo(std::ostream& print = std::cout) const;
 		Hero& operator+=(Power& pwr);
 		Hero& operator-=(int decrement);
-		bool operator<(Hero& src);
-		bool operator>(Hero& src);
-		Hero& operator>>(Power& pwr);
-		Hero& operator<<(Power& pwr);
+		int returnLevel();
 	};
 
+	bool operator<(Hero& lhs, Hero& rhs);
+	bool operator>(Hero& lhs, Hero& rhs);
+	void operator>>(Power& power, Hero& hero);
+	void operator<<(Hero& hero, Power& power);
+
 	int updatePowerLevel(Power* pwr, int power_count);
-
-
 }
 
 #endif

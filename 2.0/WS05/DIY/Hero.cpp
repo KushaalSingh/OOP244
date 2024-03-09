@@ -34,20 +34,20 @@ namespace seneca {
 		return *this;
 	}
 	
-	bool Hero::operator<(Hero& src) {
-		return power_level < src.power_level;
+	bool operator<(Hero& lhs, Hero& rhs) {
+		return lhs.returnLevel() < rhs.returnLevel();
 	}
 
-	bool Hero::operator>(Hero& src) {
-		return power_level > src.power_level;
+	bool operator>(Hero& lhs, Hero& rhs) {
+		return lhs.returnLevel() > rhs.returnLevel();
 	}
 
-	Hero& Hero::operator>>(Power& pwr) {
-		return *this += pwr;
+	void operator>>(Power& power, Hero& hero) {
+		hero += power;
 	}
 
-	Hero& Hero::operator<<(Power& pwr) {
-		return *this += pwr;
+	void operator<<(Hero& hero, Power& power) {
+		hero += power;
 	}
 
 	void Hero::setEmpty() {
@@ -55,6 +55,10 @@ namespace seneca {
 		power_count = 0;
 		power_level = 0;
 		power = nullptr;
+	}
+
+	int Hero::returnLevel() {
+		return power_level;
 	}
 
 	int updatePowerLevel(Power* pwr, int power_count) {
