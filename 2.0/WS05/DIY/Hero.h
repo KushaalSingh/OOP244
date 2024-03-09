@@ -29,6 +29,7 @@ namespace seneca {
 	void operator<<(Hero& hero, Power& power);
 
 	int updatePowerLevel(Power* pwr, int power_count);
+
 }
 
 #endif

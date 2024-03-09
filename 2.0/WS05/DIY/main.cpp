@@ -1,7 +1,9 @@
 #include "Hero.h"
 using namespace std;
 using namespace seneca;
+
 void displayDetails(const Hero* heroes, int size);
+
 int main() {
 
 	Power powerlist1[4] = {
@@ -82,8 +84,6 @@ int main() {
 	cout << ((herolist[4] < herolist[3]) ? "Green-Lantern is weaker than Aquaman" : "Double check your < operator");
 	cout << endl;
 	cout << "----------------------------------------" << endl << endl;
-
-
 
 	return 0;
 }

@@ -18,8 +18,9 @@ namespace seneca {
 	std::ostream& Hero::displayHeroInfo(std::ostream& print) const {
 		print << "Name: " << name << NL;
 		print << "List of available powers:" << NL;
-		for (int i = 0; i < power_count; i++) print << "  " << power[i].checkName() << NL;
-		print << "Power Level:" << power_level;
+		for (int i = 0; i < power_count; i++) print << "  " << "Name: " 
+			<< power[i].checkName() << ", Rarity: " << power[i].checkRarity() << NL;
+		print << "Power Level: " << power_level;
 		return print;
 	}
 
