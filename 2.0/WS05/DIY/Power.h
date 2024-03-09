@@ -1,9 +1,7 @@
-#define _CRT_SECURE_NO_WARNINGS
-
-
 #ifndef SENECA_POWER_H
 #define SENECA_POWER_H
 
+#define _CRT_SECURE_NO_WARNINGS
 #include<iostream>
 #include <cstring>
 
