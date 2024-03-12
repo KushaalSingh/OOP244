@@ -1,8 +1,8 @@
 /*
 Citation and Sources...
 Final Project Milestone 1
-Module: Utils
-Filename: Utils.cpp
+Module: Time
+Filename: Time.cpp
 Version  1.0
 Author   Kushaal Singh
 Revision History
@@ -37,9 +37,10 @@ namespace seneca {
 		out << hours << ":";
 		out.width(2);
 		out << mints << std::endl;
+		return out;
 	}
 
-	std::istream& Time::read(std::istream& in = std::cin) {
+	std::istream& Time::read(std::istream& in) {
 		uint32_t hours = 0, mints = 0;
 		char divd;
 		in >> hours >> divd >> mints;
@@ -68,8 +69,15 @@ namespace seneca {
 
 	Time Time::operator-(const Time& T) const {
 		Time temp;
-		temp -= T;
-		return temp;
+		return temp -= T;
+	}
+
+	std::ostream& Time::operator<<(std::ostream& out) const {
+		return write(out);
+	}
+
+	std::istream& Time::operator>>(std::istream& in) {
+		return read(in);
 	}
 
 }

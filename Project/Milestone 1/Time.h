@@ -1,8 +1,8 @@
 /*
 Citation and Sources...
 Final Project Milestone 1
-Module: Utils
-Filename: Utils.cpp
+Module: Time
+Filename: Time.h
 Version  1.0
 Author   Kushaal Singh
 Revision History
@@ -35,6 +35,8 @@ namespace seneca {
 		Time& operator*= (int val);
 		Time& operator-= (const Time& D);
 		Time operator-(const Time& T)const;
+		std::ostream& operator<<(std::ostream& out) const;
+		std::istream& operator>>(std::istream& in);
 	};
 
 }
