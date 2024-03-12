@@ -26,14 +26,15 @@ namespace seneca {
 	class Time {
 	private:
 		uint32_t minutes;
-		Time& reset();
 	public:
+		Time& reset();
 		Time(unsigned int min = 0u);
 		std::ostream& write(std::ostream& out = std::cout) const;
 		std::istream& read(std::istream& in = std::cin);
 		operator unsigned int() const;
 		Time& operator*= (int val);
 		Time& operator-= (const Time& D);
+		Time operator-(const Time& T)const;
 	};
 
 }

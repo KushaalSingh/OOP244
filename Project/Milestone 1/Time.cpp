@@ -55,9 +55,21 @@ namespace seneca {
 		return minutes;
 	}
 
-	Time& Time::operator*= (int val) {
+	Time& Time::operator*=(int val) {
 		minutes += val;
 		return *this;
+	}
+
+	Time& Time::operator-=(const Time& D) {
+		if (minutes <= D.minutes) minutes = (minutes + 1440) - D.minutes;	// Check <= if any error appear.
+		else minutes = minutes - D.minutes;
+		return *this;
+	}
+
+	Time Time::operator-(const Time& T) const {
+		Time temp;
+		temp -= T;
+		return temp;
 	}
 
 }
