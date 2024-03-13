@@ -43,25 +43,14 @@ namespace seneca {
 	std::istream& Time::read(std::istream& in) {
 		unsigned int hour, mins;
 		char input[32];
-		in.getline(input, 32, '\n');
-		if (!validateAndSetInput(input, hour, mins)) {
+		in >> input;
+		if (!(validateAndSetInput(input, hour, mins))) {
 			in.setstate(std::ios::failbit);
 			return in;
 		}
 		else minutes = hour * 60 + mins;
 		return in;
 	}
-
-
-	/*unsigned int hours = 0, mints = 0;
-	char divd;
-	in >> hours >> divd >> mints;
-	if (divd != ':') {
-		in.setstate(std::ios::failbit);
-		return in;
-	}
-	else minutes = hours * 60 + mints;
-	return in;*/
 
 	Time::operator unsigned int() const {
 		return minutes;

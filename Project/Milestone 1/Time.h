@@ -40,7 +40,7 @@ namespace seneca {
 
 	std::ostream& operator<<(std::ostream& out, const Time& src);
 	std::istream& operator>>(std::istream& in, Time& src);
-	
+	bool validateAndSetInput(const char* input, unsigned int& hour, unsigned int& mins);
 }
 
 #endif 
