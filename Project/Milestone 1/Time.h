@@ -25,7 +25,7 @@ namespace seneca {
 
 	class Time {
 	private:
-		uint32_t minutes;
+		unsigned int minutes;
 	public:
 		Time& reset();
 		Time(unsigned int min = 0u);
@@ -35,10 +35,11 @@ namespace seneca {
 		Time& operator*= (int val);
 		Time& operator-= (const Time& D);
 		Time operator-(const Time& T)const;
-		std::ostream& operator<<(std::ostream& out) const;
-		std::istream& operator>>(std::istream& in);
 	};
 
+	std::ostream& operator<<(std::ostream& out, const Time& src);
+	std::istream& operator>>(std::istream& in, Time& src);
+	
 }
 
 #endif 

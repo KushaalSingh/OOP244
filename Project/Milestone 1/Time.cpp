@@ -30,21 +30,21 @@ namespace seneca {
 	}
 
 	std::ostream& Time::write(std::ostream& out) const {
-		uint32_t hours = minutes / 60;
-		uint32_t mints = minutes % 60;
+		unsigned int hours = minutes / 60;
+		unsigned int mints = minutes % 60;
 		out.width(2);
 		out.fill('0');
 		out << hours << ":";
 		out.width(2);
-		out << mints << std::endl;
+		out << mints;
 		return out;
 	}
 
 	std::istream& Time::read(std::istream& in) {
-		uint32_t hours = 0, mints = 0;
+		unsigned int hours = 0, mints = 0;
 		char divd;
 		in >> hours >> divd >> mints;
-		if (divd != ':') {
+		if (divd != ':') { 
 			in.setstate(std::ios::failbit);
 			return in;
 		}
@@ -57,27 +57,28 @@ namespace seneca {
 	}
 
 	Time& Time::operator*=(int val) {
-		minutes += val;
+		minutes *= val;
 		return *this;
 	}
 
 	Time& Time::operator-=(const Time& D) {
-		if (minutes <= D.minutes) minutes = (minutes + 1440) - D.minutes;	// Check <= if any error appear.
+		if (minutes <= D.minutes) minutes = (minutes + 1440) - D.minutes;
 		else minutes = minutes - D.minutes;
 		return *this;
 	}
 
 	Time Time::operator-(const Time& T) const {
-		Time temp;
-		return temp -= T;
+		int difference = minutes - T.minutes;
+		if (difference < 0) difference += 1440;
+		return Time(difference);
 	}
 
-	std::ostream& Time::operator<<(std::ostream& out) const {
-		return write(out);
+	std::ostream& operator<<(std::ostream& out, const Time& src) {
+		return src.write(out);
 	}
 
-	std::istream& Time::operator>>(std::istream& in) {
-		return read(in);
+	std::istream& operator>>(std::istream& in, Time& src) {
+		return src.read(in);
 	}
 
 }
