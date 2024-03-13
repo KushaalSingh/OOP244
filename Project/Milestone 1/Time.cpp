@@ -41,9 +41,15 @@ namespace seneca {
 	}
 
 	std::istream& Time::read(std::istream& in) {
+		unsigned int hour, mins;
 		char input[32];
 		in.getline(input, 32, '\n');
-
+		if (!validateAndSetInput(input, hour, mins)) {
+			in.setstate(std::ios::failbit);
+			return in;
+		}
+		else minutes = hour * 60 + mins;
+		return in;
 	}
 
 
@@ -86,10 +92,10 @@ namespace seneca {
 		return src.read(in);
 	}
 
-	bool validateInput(const char* input, unsigned int& hour, unsigned int& mins) {
-		char hourStr[8];
+	bool validateAndSetInput(const char* input, unsigned int& hour, unsigned int& mins) {
+		char hourStr[32];
 		hourStr[0] = '\0';
-		char minStr[8];
+		char minStr[32];
 		minStr[0] = '\0';
 		int divd = 0, i;
 		if (std::strchr(input, ':') == nullptr) return false;
@@ -97,7 +103,14 @@ namespace seneca {
 			if (input[i] != ':') hourStr[i] = input[i];
 			else if (input[i] == ':') divd = i;
 		}
-		for (i = divd + 1; i <= strlen(input); i++) minStr[i] == input[i];		// IF ERROR OCCUR, CHECK FOR '<='
+		for (i = divd + 1; i < strlen(input); i++) minStr[i - divd - 1] = input[i];
+		hour = atoi(hourStr);
+		mins = atoi(minStr);
+		if (hourStr[0] == '0' && minStr[0] == '0') return true;
+		else if (hourStr[0] == '0' && minStr[0] != '0' && mins) return true;
+		else if (hourStr[0] != '0' && minStr[0] == '0' && hour) return true;
+		else if (hour && mins) return true;
+		return false;
 	}
 
 }
