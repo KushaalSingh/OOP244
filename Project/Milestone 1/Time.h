@@ -20,6 +20,7 @@ that my professor provided to complete my workshops and assignments.
 #define SENECA_TIME_CPP
 
 #include "Utils.h"
+#include <cstring>
 
 namespace seneca {
 

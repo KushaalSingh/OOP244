@@ -41,16 +41,21 @@ namespace seneca {
 	}
 
 	std::istream& Time::read(std::istream& in) {
-		unsigned int hours = 0, mints = 0;
-		char divd;
-		in >> hours >> divd >> mints;
-		if (divd != ':') { 
-			in.setstate(std::ios::failbit);
-			return in;
-		}
-		else minutes = hours * 60 + mints;
+		char input[32];
+		in.getline(input, 32, '\n');
+
+	}
+
+
+	/*unsigned int hours = 0, mints = 0;
+	char divd;
+	in >> hours >> divd >> mints;
+	if (divd != ':') {
+		in.setstate(std::ios::failbit);
 		return in;
 	}
+	else minutes = hours * 60 + mints;
+	return in;*/
 
 	Time::operator unsigned int() const {
 		return minutes;
@@ -79,6 +84,20 @@ namespace seneca {
 
 	std::istream& operator>>(std::istream& in, Time& src) {
 		return src.read(in);
+	}
+
+	bool validateInput(const char* input, unsigned int& hour, unsigned int& mins) {
+		char hourStr[8];
+		hourStr[0] = '\0';
+		char minStr[8];
+		minStr[0] = '\0';
+		int divd = 0, i;
+		if (std::strchr(input, ':') == nullptr) return false;
+		for (i = 0; i < strlen(input); i++) {
+			if (input[i] != ':') hourStr[i] = input[i];
+			else if (input[i] == ':') divd = i;
+		}
+		for (i = divd + 1; i <= strlen(input); i++) minStr[i] == input[i];		// IF ERROR OCCUR, CHECK FOR '<='
 	}
 
 }
