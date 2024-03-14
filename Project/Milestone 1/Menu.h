@@ -35,6 +35,7 @@ namespace seneca {
 		Menu(const Menu& src) = delete;
 		Menu& operator=(const Menu& src) = delete;
 		std::ostream& display(std::ostream& out = std::cout);
+		int& operator>>(int& Selection);
 	};
 
 }
