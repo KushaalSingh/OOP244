@@ -99,7 +99,7 @@ namespace seneca {
 		else if (hourStr[0] == '0' && minStr[0] != '0' && mins) return true;
 		else if (hourStr[0] != '0' && minStr[0] == '0' && hour) return true;
 		else if (hour && mins) return true;
-		return false;
+		else return false;
 	}
 
 }

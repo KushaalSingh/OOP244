@@ -16,8 +16,8 @@ that my professor provided to complete my workshops and assignments.
 -----------------------------------------------------------
 */
 
-#ifndef SENECA_TIME_CPP
-#define SENECA_TIME_CPP
+#ifndef SENECA_TIME_H
+#define SENECA_TIME_H
 
 #include "Utils.h"
 #include <cstring>
