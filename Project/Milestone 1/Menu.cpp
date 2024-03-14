@@ -45,11 +45,21 @@ namespace seneca {
 		m_text = nullptr;
 	}
 
-	std::ostream& Menu::display(std::ostream& out) {
+	std::ostream& Menu::display(std::ostream& out) const{
 		for (int i = 0; i < strlen(m_text); i++) {
 			for (int k = 0; k < m_numberOfTabs * 3 && (i == 0 || m_text[i - 1] == '\n'); std::cout << " ", k++);
 			std::cout << m_text[i];
 		}
 		std::cout << "0- Exit" << std::endl << "> ";
+	}
+
+	int& Menu::operator>>(int& Selection) {
+		int selection, stst = 1;
+		display();
+		while (stst) {
+			if (std::cin >> selection) {
+				// Complete this
+			}
+		}
 	}
 }
