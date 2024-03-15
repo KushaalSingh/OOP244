@@ -88,11 +88,11 @@ namespace seneca {
 		minStr[0] = '\0';
 		int divd = 0, i;
 		if (std::strchr(input, ':') == nullptr) return false;
-		for (i = 0; i < strlen(input); i++) {
+		for (i = 0; i < (int)strlen(input); i++) {
 			if (input[i] != ':') hourStr[i] = input[i];
 			else if (input[i] == ':') divd = i;
 		}
-		for (i = divd + 1; i < strlen(input); i++) minStr[i - divd - 1] = input[i];
+		for (i = divd + 1; i < (int)strlen(input); i++) minStr[i - divd - 1] = input[i];
 		hour = atoi(hourStr);
 		mins = atoi(minStr);
 		if (hourStr[0] == '0' && minStr[0] == '0') return true;

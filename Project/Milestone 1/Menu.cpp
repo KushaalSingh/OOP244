@@ -30,7 +30,7 @@ namespace seneca {
 
 	int Menu::returnNumOptions(const char* str) const {
 		int options = 0;
-		for (int i = 0; i < strlen(str); i++) if (str[i] == '\n') options++;
+		for (int i = 0; i < (int)strlen(str); i++) if (str[i] == '\n') options++;
 		return options;
 	}
 
@@ -46,7 +46,7 @@ namespace seneca {
 	}
 
 	std::ostream& Menu::display(std::ostream& out) const {
-		for (int i = 0; i < strlen(m_text); i++) {
+		for (int i = 0; i < (int)strlen(m_text); i++) {
 			for (int k = 0; k < m_numberOfTabs * 3 && (i == 0 || m_text[i - 1] == '\n'); std::cout << " ", k++);
 			std::cout << m_text[i];
 		}
@@ -109,7 +109,7 @@ namespace seneca {
 	}
 
 	bool isNegative(const char* str) {
-		for (int i = 0; i < strlen(str); i++) if (str[i] >= 48 && str[i] <= 57 && str[i - 1] == '-') return true;
+		for (int i = 0; i < (int)strlen(str); i++) if (str[i] >= 48 && str[i] <= 57 && str[i - 1] == '-') return true;
 		return false;
 	}
 
