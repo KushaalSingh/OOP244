@@ -28,7 +28,7 @@ namespace seneca {
 		m_numOptions = returnNumOptions(menuContent);
 	}
 
-	int Menu::returnNumOptions(const char* str) {
+	int Menu::returnNumOptions(const char* str) const {
 		int options = 0;
 		for (int i = 0; i < strlen(str); i++) if (str[i] == '\n') options++;
 		return options;
@@ -71,7 +71,7 @@ namespace seneca {
 					break;
 				case 2: 
 					if (value < 0 || value > m_numOptions) {
-						std::cout << "Invalid value enterd, retry[0 <= value <= " << m_numOptions - 1 << "]: ";
+						std::cout << "Invalid value enterd, retry[0 <= value <= " << m_numOptions << "]: ";
 					}
 					else {
 						sel = value;
