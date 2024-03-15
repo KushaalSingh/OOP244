@@ -11,8 +11,8 @@ Date      Reason
 2023/?/?  Preliminary release
 2023/?/?  Debugged DMA
 -----------------------------------------------------------
-I have done all the coding by myself and only copied the code
-that my professor provided to complete my workshops and assignments.
+This module was provided for by professor so I have not added
+any of it's contents.
 -----------------------------------------------------------
 */
 #include <iostream>
