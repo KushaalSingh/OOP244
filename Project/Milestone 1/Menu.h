@@ -19,6 +19,7 @@ that my professor provided to complete my workshops and assignments.
 #define SENECA_MENU_H
 
 #include "Time.h"
+#include <cctype>
 
 namespace seneca {
 
@@ -35,8 +36,12 @@ namespace seneca {
 		Menu(const Menu& src) = delete;
 		Menu& operator=(const Menu& src) = delete;
 		std::ostream& display(std::ostream& out = std::cout) const;
+		std::istream& read(int& sel, std::istream& in = std::cin);
 		int& operator>>(int& Selection);
+		
 	};
+
+	int hasNonDigit(const char* str, int& value);
 
 }
 

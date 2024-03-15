@@ -50,16 +50,83 @@ namespace seneca {
 			for (int k = 0; k < m_numberOfTabs * 3 && (i == 0 || m_text[i - 1] == '\n'); std::cout << " ", k++);
 			std::cout << m_text[i];
 		}
-		std::cout << "0- Exit" << std::endl << "> ";
+		std::cout << std::endl << "0- Exit" << std::endl << "> ";
+		return out;
+	}
+
+	std::istream& Menu::read(int& sel, std::istream& in) {
+		char str[32];
+		int value, stst = 1;
+		while (stst) {
+			in.getline(str, 32, '\n');
+			int result = hasNonDigit(str, value);
+			switch (result) {
+				case 0:
+					std::cout << "Bad integer value, try again: ";
+					break;
+				case 1:
+					std::cout << "Only enter an integer, try again: ";
+					break;
+				case 2: 
+					if (value < 0 || value > m_numOptions)
+						std::cout << "Invalid value enterd, retry[0 <= value <= " << value << "]: ";
+					else sel = value;
+					stst = 0;
+					return in;
+					break;
+				case -1:
+					std::cerr << "ERROR: This should not happen";
+					break;
+			}
+		}
+		return in;
 	}
 
 	int& Menu::operator>>(int& Selection) {
-		int selection, stst = 1;
 		display();
-		while (stst) {
-			if (std::cin >> selection) {
-				// Complete this
-			}
-		}
+		read(Selection, std::cin);
+		for (int k = 0; k < m_numberOfTabs * 3; std::cout << " ", k++);
+		//const char* selStr = numberString(Selection);
+		return Selection;
 	}
+
+	int hasNonDigit(const char* str, int& value) {
+		int digit = 0;
+		int str_len = (int)strlen(str);
+		for (int i = 0; i < str_len; i++) if (str[i] >= 48 && str[i] <= 57) digit++;	// Uses the ASCII value.
+		if (digit == 0) return 0;
+		else if (digit < str_len) return 1;
+		else if (digit == str_len) {
+			value = atoi(str);
+			return 2;
+		}
+		else return -1;
+	}
+
+	/*const char* numberString(int num) {
+		switch (num) {
+			case 1:
+				return "one";
+			case 2:
+				return "two";
+			case 3:
+				return "three";
+			case 4:
+				return "four";
+			case 5:
+				return "five";
+			case 6:
+				return "six";
+			case 7:
+				return "seven";
+			case 8:
+				return "eight";
+			case 9:
+				return "nine";
+			case 10:
+				return "ten";
+			default:
+				return "<SELECTION NUMBER>";
+		}
+	}*/
 }

@@ -36,11 +36,11 @@ namespace seneca {
 		Time& operator*= (int val);
 		Time& operator-= (const Time& D);
 		Time operator-(const Time& T)const;
+		bool validateAndSetInput(const char* input, unsigned int& hour, unsigned int& mins);
 	};
 
 	std::ostream& operator<<(std::ostream& out, const Time& src);
 	std::istream& operator>>(std::istream& in, Time& src);
-	bool validateAndSetInput(const char* input, unsigned int& hour, unsigned int& mins);
 }
 
 #endif 

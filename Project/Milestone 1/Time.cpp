@@ -81,7 +81,7 @@ namespace seneca {
 		return src.read(in);
 	}
 
-	bool validateAndSetInput(const char* input, unsigned int& hour, unsigned int& mins) {
+	bool Time::validateAndSetInput(const char* input, unsigned int& hour, unsigned int& mins) {
 		char hourStr[32];
 		hourStr[0] = '\0';
 		char minStr[32];
