@@ -30,19 +30,20 @@ namespace seneca {
 		int m_numberOfTabs;
 		void setEmpty();
 		int returnNumOptions(const char* str);
+		std::ostream& indent() const;
 	public:
 		Menu(const char* menuContent, int numberOfTabs = 0);
 		~Menu();
 		Menu(const Menu& src) = delete;
 		Menu& operator=(const Menu& src) = delete;
 		std::ostream& display(std::ostream& out = std::cout) const;
-		std::istream& read(int& sel, std::istream& in = std::cin);
+		std::istream& read(int& sel, std::istream& in = std::cin) const;
 		int& operator>>(int& Selection);
 		
 	};
 
 	int hasNonDigit(const char* str, int& value);
-
+	bool isNegative(const char* str);
 }
 
 
