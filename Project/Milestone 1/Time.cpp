@@ -82,10 +82,8 @@ namespace seneca {
 	}
 
 	bool Time::validateAndSetInput(const char* input, unsigned int& hour, unsigned int& mins) {
-		char hourStr[32];
-		hourStr[0] = '\0';
-		char minStr[32];
-		minStr[0] = '\0';
+		char hourStr[32] = { '\0' };
+		char minStr[32] = { '\0' };
 		int divd = 0, i;
 		if (std::strchr(input, ':') == nullptr) return false;
 		for (i = 0; i < (int)strlen(input); i++) {
