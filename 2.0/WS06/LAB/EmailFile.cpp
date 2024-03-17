@@ -197,6 +197,12 @@ namespace seneca {
     }
 
     EmailFile::~EmailFile() {
-        setEmpty();
+        int i;
+        for (i = 0; i < m_noOfEmails; i++) {
+            delete[] m_emailLines[i].m_email;
+            delete[] m_emailLines[i].m_name;
+        }
+        delete[] m_emailLines;
+        delete[] m_filename;
     }
 }
