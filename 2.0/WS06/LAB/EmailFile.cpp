@@ -195,4 +195,8 @@ namespace seneca {
             setFilename(name);
         }
     }
+
+    EmailFile::~EmailFile() {
+        setEmpty();
+    }
 }

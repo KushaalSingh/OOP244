@@ -39,6 +39,7 @@ namespace seneca {
 		EmailFile();
 		EmailFile(const char* filename);
 		EmailFile(const EmailFile& src);
+		~EmailFile();
 		EmailFile& operator=(const EmailFile& src);
 		std::ostream& view(std::ostream& ostr) const;
 		bool saveToFile(const char* filename) const;
