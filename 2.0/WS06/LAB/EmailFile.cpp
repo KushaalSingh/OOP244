@@ -180,16 +180,16 @@ namespace seneca {
         Email* merged;
         merged = new Email[total_emails];
         for (i = 0; i < m_noOfEmails; i++) merged[i] = m_emailLines[i];
-        for (i = 0; i < obj.m_noOfEmails; i++) {
-            if (i + m_noOfEmails < total_emails) merged[i + m_noOfEmails] = obj.m_emailLines[i];
-            else std::cout << "CROSSING BOUNDS" << std::endl;
-        }
+        for (i = 0; i < obj.m_noOfEmails; i++) merged[i + m_noOfEmails] = obj.m_emailLines[i];
+
         delete[] m_emailLines;
         m_emailLines = nullptr;
         m_emailLines = new Email[total_emails];
         for (i = 0; i < total_emails; i++) m_emailLines[i] = merged[i];
         delete[] merged;
         m_noOfEmails = total_emails;
+        saveToFile(m_filename);
+        saveToFile(obj.m_filename);
         if (name) {
             if (rename(m_filename, name)) std::cout << "ERROR renameing the file." << std::endl;
             setFilename(name);
