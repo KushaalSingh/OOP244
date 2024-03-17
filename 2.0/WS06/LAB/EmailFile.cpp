@@ -177,16 +177,7 @@ namespace seneca {
         int i;
         if (!*this || !obj) return;
         int total_emails = m_noOfEmails + obj.m_noOfEmails;
-
-        EmailFile* merged;
-        merged->setEmpty();
-        merged->m_emailLines = new Email[total_emails];
-        merged->setFilename(m_filename);
-        for (i = 0; i < m_noOfEmails; i++) {
-            merged->m_emailLines[i] = m_emailLines[i];
-        }
-
-        /*Email* merged;
+        Email* merged;
         merged = new Email[total_emails];
         for (i = 0; i < m_noOfEmails; i++) merged[i] = m_emailLines[i];
         for (i = 0; i < obj.m_noOfEmails; i++) {
@@ -198,7 +189,7 @@ namespace seneca {
         m_emailLines = new Email[total_emails];
         for (i = 0; i < total_emails; i++) m_emailLines[i] = merged[i];
         delete[] merged;
-        m_noOfEmails = total_emails;*/
+        m_noOfEmails = total_emails;
         if (name) {
             if (rename(m_filename, name)) std::cout << "ERROR renameing the file." << std::endl;
             setFilename(name);
