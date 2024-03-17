@@ -125,8 +125,7 @@ namespace seneca {
         m_emailLines = nullptr;
         m_emailLines = new Email[m_noOfEmails];
         std::ifstream fistr(m_filename);
-        for (int i = 0; i < m_noOfEmails; i++) if (!m_emailLines[i].load(fistr))
-            std::cerr << "Error reading from the file." << std::endl;
+        for (int i = 0; i < m_noOfEmails; i++) m_emailLines[i].load(fistr);
     }
 
     EmailFile::operator bool() const {
@@ -141,7 +140,7 @@ namespace seneca {
     EmailFile::EmailFile(const char* filename) {
         if (filename == nullptr) setEmpty();
         setFilename(filename);
-        if (setNoOfEmails()) std::cout << "Error, could not set m_noOfEmails" << std::endl;
+        setNoOfEmails();
         loadEmails();
     }
 
@@ -167,23 +166,41 @@ namespace seneca {
             std::cout << "Error: Could not open file: " << filename << std::endl;
             return false;
         }
-        for (int i = 0; i < m_noOfEmails; i++) fostr << m_emailLines[i].m_email << ", " << 
-            m_emailLines[i].m_name << ", " << m_emailLines[i].m_year << std::endl;
+        for (int i = 0; i < m_noOfEmails; i++) {
+            fostr << m_emailLines[i].m_email << "," << m_emailLines[i].m_name << "," << m_emailLines[i].m_year;
+            if (i != m_noOfEmails - 1) fostr << "\n";
+        }
         return true;
     }
 
-    void EmailFile::fileCat(const EmailFile& obj, const char* name = nullptr) {
+    void EmailFile::fileCat(const EmailFile& obj, const char* name) {
+        int i;
         if (!*this || !obj) return;
         int total_emails = m_noOfEmails + obj.m_noOfEmails;
-        Email* merged;
+
+        EmailFile* merged;
+        merged->setEmpty();
+        merged->m_emailLines = new Email[total_emails];
+        merged->setFilename(m_filename);
+        for (i = 0; i < m_noOfEmails; i++) {
+            merged->m_emailLines[i] = m_emailLines[i];
+        }
+
+        /*Email* merged;
         merged = new Email[total_emails];
-        for (int i = 0; i < m_noOfEmails; i++) merged[i] = m_emailLines[i];
-        for (int i = 0; i < obj.m_noOfEmails; i++) merged[m_noOfEmails + i] = obj.m_emailLines[i];
+        for (i = 0; i < m_noOfEmails; i++) merged[i] = m_emailLines[i];
+        for (i = 0; i < obj.m_noOfEmails; i++) {
+            if (i + m_noOfEmails < total_emails) merged[i + m_noOfEmails] = obj.m_emailLines[i];
+            else std::cout << "CROSSING BOUNDS" << std::endl;
+        }
         delete[] m_emailLines;
-        m_emailLines = merged;
-        m_noOfEmails = total_emails;
+        m_emailLines = nullptr;
+        m_emailLines = new Email[total_emails];
+        for (i = 0; i < total_emails; i++) m_emailLines[i] = merged[i];
+        delete[] merged;
+        m_noOfEmails = total_emails;*/
         if (name) {
-            delete[] m_filename;
+            if (rename(m_filename, name)) std::cout << "ERROR renameing the file." << std::endl;
             setFilename(name);
         }
     }
