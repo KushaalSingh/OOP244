@@ -1,5 +1,3 @@
-#include <iostream>
-#include <fstream>
 #include "EmailFile.h"
 using namespace seneca;
 using namespace std;
