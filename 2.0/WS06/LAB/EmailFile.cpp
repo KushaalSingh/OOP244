@@ -196,7 +196,8 @@ namespace seneca {
         }
     }
 
-    EmailFile::~EmailFile() {
+    /*EmailFile::~EmailFile() {
+        std::cout << "DESTRUCTOR CALLED" << std::endl;
         int i;
         for (i = 0; i < m_noOfEmails; i++) {
             delete[] m_emailLines[i].m_email;
@@ -204,5 +205,5 @@ namespace seneca {
         }
         delete[] m_emailLines;
         delete[] m_filename;
-    }
+    }*/
 }
