@@ -22,7 +22,7 @@ namespace seneca {
 
 	public:
 		BankAccount(const char* name, Date openDate, DepositInfo depInfo, double balance);
-		std::ostream& write(std::ostream& out);
+		std::ostream& write(std::ostream& out = std::cout);
 		std::istream& read(std::istream& in);
 	};
 

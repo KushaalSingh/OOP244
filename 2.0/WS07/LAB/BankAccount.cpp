@@ -12,7 +12,19 @@ namespace seneca {
 	}
 
 	void BankAccount::writeCurrency(std::ostream& out, double amount) const {
-
+		out.setf(std::ios::fixed);
+		out.precision(2);
+		out << "$" << amount;
 	}
 
+	BankAccount::BankAccount(const char* name, Date openDate, DepositInfo depInfo, double balance) {
+		strcpy(m_name, name);
+		m_openDate = openDate;
+		m_depInfo = depInfo;
+		m_balance = balance;
+	}
+
+	std::ostream& BankAccount::write(std::ostream & out) {
+
+	}
 }
