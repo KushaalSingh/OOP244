@@ -7,5 +7,12 @@ namespace seneca {
 		return m_balance;
 	}
 
+	void BankAccount::setBalance(double balance) {
+		m_balance = balance;
+	}
+
+	void BankAccount::writeCurrency(std::ostream& out, double amount) const {
+
+	}
 
 }
