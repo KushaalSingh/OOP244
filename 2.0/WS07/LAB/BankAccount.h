@@ -4,7 +4,7 @@
 
 #include "DepositUtility.h"
 
-const int NAME_LEN = 50;
+#define NAME_LEN 50
 
 namespace seneca {
 
@@ -22,7 +22,7 @@ namespace seneca {
 
 	public:
 		BankAccount(const char* name, Date openDate, DepositInfo depInfo, double balance);
-		std::ostream& write(std::ostream& out = std::cout);
+		std::ostream& write(std::ostream& out = std::cout) const;
 		std::istream& read(std::istream& in);
 	};
 

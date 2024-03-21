@@ -24,7 +24,28 @@ namespace seneca {
 		m_balance = balance;
 	}
 
-	std::ostream& BankAccount::write(std::ostream & out) {
+	std::ostream& BankAccount::write(std::ostream& out) const {
+		out << ">> " << m_name << " | ";
+		writeCurrency(std::cout, m_balance);
+		out << " | " << m_openDate << " | " << m_depInfo << std::endl;
+	}
 
+	std::istream& BankAccount::read(std::istream& in) {
+		std::cout << "Name: ";
+		in.getline(m_name, NAME_LEN);
+		std::cout << "Opening Balance: ";
+		in >> m_balance;
+		std::cout << "Date Opened ";
+		m_openDate.read(in);
+		m_depInfo.read(in);
+		return in;
+	}
+
+	std::istream& operator>>(std::istream& in, BankAccount& acct) {
+		return acct.read(in);
+	}
+
+	std::ostream& operator<<(std::ostream& out, const BankAccount& acct) {
+		return acct.write(out);
 	}
 }
