@@ -3,7 +3,9 @@
 
 namespace seneca {
 
-
+	double BankAccount::getBalance() const {
+		return m_balance;
+	}
 
 
 }
