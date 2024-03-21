@@ -15,7 +15,11 @@ namespace seneca {
 	public:
 		SavingsAccount(const char* name, Date openDate, DepositInfo depInfo, double balance, double interest, Date interestDate);
 		void applyInterest(Date& dt);
+		std::ostream& write(std::ostream& out);
+		std::istream& read(std::istream & in);
 	};
+
+	std::istream& operator>>(std::istream& in, SavingsAccount& acct);
 
 }
 
