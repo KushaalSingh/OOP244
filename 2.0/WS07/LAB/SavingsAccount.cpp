@@ -10,7 +10,8 @@ namespace seneca {
 		out << m_interest << "%";
 	}
 
-	SavingsAccount::SavingsAccount(const char* name, Date openDate, DepositInfo depInfo, double balance, double interest, Date interestDate) : BankAccount(name, openDate, depInfo, balance) {
+	SavingsAccount::SavingsAccount(const char* name, Date openDate, DepositInfo depInfo, double balance, double interest, Date interestDate) 
+		: BankAccount(name, openDate, depInfo, balance) {
 		m_interest = interest;
 		m_interestDate = interestDate;
 	}
