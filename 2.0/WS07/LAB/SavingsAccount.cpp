@@ -43,7 +43,9 @@ namespace seneca {
 	}
 
 	std::istream& SavingsAccount::read(std::istream& in) {
+		in.ignore();
 		BankAccount::read(in);
+		std::cout << "Interest Date ";
 		in >> m_interestDate;
 		std::cout << "Interest Rate: ";
 		in >> m_interest;

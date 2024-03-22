@@ -33,7 +33,7 @@ namespace seneca {
 
 	std::istream& BankAccount::read(std::istream& in) {
 		std::cout << "Name: ";
-		in.ignore();
+		//in.ignore();
 		in.getline(m_name, NAME_LEN);
 		std::cout << "Opening Balance: ";
 		in >> m_balance;
