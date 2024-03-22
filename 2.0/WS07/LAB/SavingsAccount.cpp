@@ -53,7 +53,7 @@ namespace seneca {
 	}
 
 	std::istream& operator>>(std::istream& in, SavingsAccount& acct) {
-		return acct.read(in)
+		return acct.read(in);
 	}
 
 	std::ostream& operator<<(std::ostream& out, const SavingsAccount& acct) {
