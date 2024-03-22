@@ -27,8 +27,23 @@ namespace seneca {
 		m_interestDate = dt;
 	}
 
-	std::ostream& write(std::ostream& out) {
-
+	std::ostream& SavingsAccount::write(std::ostream& out) const {
+		BankAccount::write(std::cout);
+		out << " | ";
+		writeInterest(std::cout);
+		out << " | " << m_interestDate;
 	}
 
+	std::istream& SavingsAccount::read(std::istream& in) {
+		BankAccount::read(in);
+		in >> m_interest >> m_interestDate;
+	}
+
+	std::istream& operator>>(std::istream& in, SavingsAccount& acct) {
+		return acct.read(in);
+	}
+
+	std::ostream& operator<<(std::ostream& out, const SavingsAccount& acct) {
+		return acct.write(out);
+	}
 }
