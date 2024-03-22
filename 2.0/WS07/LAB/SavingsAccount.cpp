@@ -19,12 +19,18 @@ namespace seneca {
 	void SavingsAccount::applyInterest(Date& dt) {
 		double orgBal = getBalance();
 		double intBal = orgBal * m_interest;
+		std::cout.setf(std::ios::fixed);
+		std::cout.precision(2);
 		setBalance(orgBal + intBal);
-		std::cout << "   " << orgBal << " + " << intBal << " (";
+		std::cout << "   ";
+		writeCurrency(std::cout, orgBal);
+		std::cout << " + ";
+		writeCurrency(std::cout, intBal);
+		std::cout << " (";
 		writeInterest(std::cout);
 		std::cout << ") = ";
 		writeCurrency(std::cout, getBalance());
-		std::cout << " | " << m_interestDate << " => " << dt;
+		std::cout << " | " << m_interestDate << " => " << dt << std::endl;
 		m_interestDate = dt;
 	}
 
@@ -33,11 +39,15 @@ namespace seneca {
 		out << " | ";
 		writeInterest(std::cout);
 		out << " | " << m_interestDate;
+		return out;
 	}
 
 	std::istream& SavingsAccount::read(std::istream& in) {
 		BankAccount::read(in);
-		in >> m_interest >> m_interestDate;
+		in >> m_interestDate;
+		std::cout << "Interest Rate: ";
+		in >> m_interest;
+		return in;
 	}
 
 	std::istream& operator>>(std::istream& in, SavingsAccount& acct) {

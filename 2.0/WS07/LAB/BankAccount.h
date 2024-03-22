@@ -4,7 +4,7 @@
 
 #include "DepositUtility.h"
 
-#define NAME_LEN 50
+const int NAME_LEN = 50;
 
 namespace seneca {
 

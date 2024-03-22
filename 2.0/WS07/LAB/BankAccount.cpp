@@ -28,10 +28,12 @@ namespace seneca {
 		out << ">> " << m_name << " | ";
 		writeCurrency(std::cout, m_balance);
 		out << " | " << m_openDate << " | " << m_depInfo;
+		return out;
 	}
 
 	std::istream& BankAccount::read(std::istream& in) {
 		std::cout << "Name: ";
+		in.ignore();
 		in.getline(m_name, NAME_LEN);
 		std::cout << "Opening Balance: ";
 		in >> m_balance;
