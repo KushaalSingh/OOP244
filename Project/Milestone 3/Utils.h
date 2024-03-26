@@ -32,6 +32,7 @@ namespace seneca {
     public:
         void setDebugTime(int hour, int min);
         int getTime();
+        int strcmp(const char* s1, const char* s2) const;
     };
 
     extern bool debug;

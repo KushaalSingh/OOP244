@@ -42,4 +42,9 @@ namespace seneca {
         m_testMins = hour * 60 + min;
     }
 
+    int Utils::strcmp(const char* s1, const char* s2)const {
+        int i;
+        for (i = 0; s1[i] && s2[i] && s1[i] == s2[i]; i++);
+        return s1[i] - s2[i];
+    }
 }
