@@ -30,8 +30,8 @@ namespace seneca {
 		virtual ~IOAble() {};
 	};
 
-	std::ostream& operator<<(std::ostream& out, const IOAble& src);
-	std::istream& operator>>(std::istream& in, IOAble& src);
+	std::ostream& operator<< (std::ostream& out, const IOAble& src);
+	std::istream& operator>> (std::istream& in, IOAble& src);
 }
 
 

@@ -45,5 +45,11 @@ namespace seneca {
 		return (type() == ch);
 	}
 
+	bool Patient::operator== (const Patient& src) const {
+		if (strCmp(m_name, src.m_name) && m_OHIP == src.m_OHIP) {
+
+		}
+	}
+
 
 }

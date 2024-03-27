@@ -19,11 +19,11 @@ that my professor provided to complete my workshops and assignments.
 
 namespace seneca {
 
-	std::ostream& operator<<(std::ostream& out, const IOAble& src) {
+	std::ostream& operator<< (std::ostream& out, const IOAble& src) {
 		return src.write(out);
 	}
 
-	std::istream& operator>>(std::istream& in, IOAble& src) {
+	std::istream& operator>> (std::istream& in, IOAble& src) {
 		return src.read(in);
 	}
 }

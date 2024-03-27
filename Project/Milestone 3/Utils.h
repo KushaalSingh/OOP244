@@ -44,6 +44,7 @@ namespace seneca {
     /////////////////////////////
 
     void copyString(char*& str, const char* src, int len);
+    bool compareStrings(const char* str1, const char* str2);
 
 }
 #endif

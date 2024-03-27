@@ -60,5 +60,11 @@ namespace seneca {
         }
     }
 
+    bool strCmp(const char* str1, const char* str2) {
+        if (str1 == nullptr || str2 == nullptr) return false;
+        else if (!strcmp(str1, str2)) return true;
+        return false;
+    }
+
 
 }
