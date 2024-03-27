@@ -35,7 +35,7 @@ namespace seneca {
 		Patient(int ticketNum);
 		~Patient();
 		Patient(const Patient& src);
-		virtual int type() const = 0;
+		virtual char type() const = 0;
 		bool operator== (char ch) const;
 	};
 
