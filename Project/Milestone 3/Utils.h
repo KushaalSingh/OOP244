@@ -21,6 +21,7 @@ any of it's contents.
 
 #define _CRT_SECURE_NO_WARNINGS
 #include <iostream>
+#include <cstring>
 #include <cstdlib>
 #include <ctime>
 
@@ -37,6 +38,12 @@ namespace seneca {
 
     extern bool debug;
     extern Utils U;
+
+    /////////////////////////////
+    //// MY CUSTOM FUNCTIONS ////
+    /////////////////////////////
+
+    void copyString(char*& str, const char* src, int len);
 
 }
 #endif

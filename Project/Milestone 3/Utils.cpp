@@ -47,4 +47,18 @@ namespace seneca {
         for (i = 0; s1[i] && s2[i] && s1[i] == s2[i]; i++);
         return s1[i] - s2[i];
     }
+
+    void copyString(char*& str, const char* src, int len) {
+        if (strlen(src) >= len) {
+            str = new char[len + 1];
+            strncpy(str, src, len);
+            str[len] = '\0';
+        }
+        else {
+            str = new char[strlen(src) + 1];
+            strcpy(str, src);
+        }
+    }
+
+
 }
