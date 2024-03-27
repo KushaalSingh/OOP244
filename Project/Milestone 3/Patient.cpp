@@ -26,20 +26,24 @@ namespace seneca {
 		m_OHIP = 0;
 	}
 
-	Patient::~Patient() {
-		deleteName();
-	}
-
 	Patient::Patient(const Patient& src) : m_ticket(src.m_ticket) {
 		deleteName();
 		copyString(m_name, src.m_name, NAME_LEN);
 		m_OHIP = src.m_OHIP;
 	}
 
-
+	Patient::~Patient() {
+		deleteName();
+	}
 
 	void Patient::deleteName() {
 		delete[] m_name;
 		m_name = nullptr;
 	}
+
+	bool Patient::operator== (char ch) const {
+		return (type() == ch);
+	}
+
+
 }
