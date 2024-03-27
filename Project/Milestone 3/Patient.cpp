@@ -47,9 +47,17 @@ namespace seneca {
 
 	bool Patient::operator== (const Patient& src) const {
 		if (strCmp(m_name, src.m_name) && m_OHIP == src.m_OHIP) {
-
+			if (m_ticket.number() == src.m_ticket.number()) {
+				if ((unsigned int)m_ticket.time() == (unsigned int)m_ticket.time()) return true;
+			}
 		}
 	}
 
+	bool Patient::operator== (const Patient& src) const {
+		return (type() == src.type());
+	}
 
+	void Patient::setArrivalTime() {
+		m_ticket.resetTime();
+	}
 }

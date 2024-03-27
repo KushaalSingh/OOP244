@@ -31,6 +31,7 @@ namespace seneca {
 		int m_OHIP;
 		Ticket m_ticket;
 		void deleteName();
+
 	public:
 		Patient(int ticketNum);
 		~Patient();
@@ -38,6 +39,7 @@ namespace seneca {
 		virtual char type() const = 0;
 		bool operator== (char ch) const;
 		bool operator== (const Patient& src) const;
+		void setArrivalTime();
 	};
 
 
