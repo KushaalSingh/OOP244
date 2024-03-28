@@ -6,7 +6,8 @@
 namespace seneca {
 
 	class Account : public iAccount {
-
+	private:
+		double m_balance;
 
 		
 	};
