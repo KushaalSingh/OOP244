@@ -14,6 +14,7 @@ namespace seneca {
 		bool credit(double amount) override;
 		bool debit(double amount) override;
 		
+	protected:
 	};
 
 
