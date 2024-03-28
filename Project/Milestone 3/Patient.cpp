@@ -99,9 +99,9 @@ namespace seneca {
 
 	std::istream& Patient::read(std::istream& in) {
 		char name_str[NAME_LEN + 1];
-		std::cout << "Name: ";
-		deleteName();
 		if (&in == &std::cin) {
+			deleteName();
+			std::cout << "Name: ";
 			in.get(name_str, NAME_LEN, '\n');
 			copyString(m_name, name_str, NAME_LEN);
 			std::cout << "OHIP: ";
@@ -109,12 +109,11 @@ namespace seneca {
 			m_OHIP = getIntInRange(100000000, 999999999);
 		}
 		else {
-			in.get(name_str, NAME_LEN, ',');
+			in.get(name_str, NAME_LEN + 1, ',');
 			copyString(m_name, name_str, NAME_LEN);
 			in.ignore(10000, ',');
-			std::cout << "OHIP: ";
-			in.ignore();
-			m_OHIP = getIntInRange(100000000, 999999999);
+			in >> m_OHIP;
+			in.ignore(10000, ',');
 			m_ticket.read(in);
 		}
 		return in;
