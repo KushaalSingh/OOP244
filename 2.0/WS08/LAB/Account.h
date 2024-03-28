@@ -15,6 +15,7 @@ namespace seneca {
 		bool debit(double amount) override;
 		
 	protected:
+		double balance() const;
 	};
 
 

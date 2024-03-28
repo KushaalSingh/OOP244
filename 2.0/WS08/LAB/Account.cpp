@@ -19,5 +19,10 @@ namespace seneca {
 		return true;
 	}
 
+	double Account::balance() const {
+		return m_balance;
+	}
+
+
 
 }

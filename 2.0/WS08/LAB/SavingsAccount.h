@@ -7,7 +7,11 @@
 namespace seneca {
 
 	class SavingsAccount : public Account {
+	private:
+		double m_interestRate;
 
+	public:
+		SavingsAccount(double balance, double interestRate);
 	};
 
 }
