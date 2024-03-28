@@ -11,7 +11,8 @@ namespace seneca {
 
 	public:
 		Account(double amount = 0.00);
-
+		bool credit(double amount) override;
+		bool debit(double amount) override;
 		
 	};
 

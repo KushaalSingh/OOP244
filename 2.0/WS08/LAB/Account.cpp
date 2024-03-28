@@ -7,5 +7,11 @@ namespace seneca {
 		else m_balance = amount;
 	}
 
+	bool Account::credit(double amount) {
+		if (amount < 1.00) return false;
+		else m_balance += amount;
+		return true;
+	}
+
 
 }
