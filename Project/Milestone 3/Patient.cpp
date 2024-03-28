@@ -46,18 +46,56 @@ namespace seneca {
 	}
 
 	bool Patient::operator== (const Patient& src) const {
-		if (strCmp(m_name, src.m_name) && m_OHIP == src.m_OHIP) {
-			if (m_ticket.number() == src.m_ticket.number()) {
-				if ((unsigned int)m_ticket.time() == (unsigned int)m_ticket.time()) return true;
-			}
-		}
-	}
-
-	bool Patient::operator== (const Patient& src) const {
 		return (type() == src.type());
 	}
 
 	void Patient::setArrivalTime() {
 		m_ticket.resetTime();
 	}
+
+	Time Patient::time() const {
+		return m_ticket.time();
+	}
+
+	int Patient::number() const {
+		return m_ticket.number();
+	}
+
+	Patient::operator bool() const {
+		return m_name;
+	}
+
+	Patient::operator const char* () const {
+		return m_name;
+	}
+
+	std::ostream& Patient::write(std::ostream& out) const {
+		if (&out == &std::clog) {
+			if (!m_name) out << "Invalid Patient Record" << std::endl;
+			else {
+				out.width(53);
+				out.setf(std::ios::left);
+				out.fill('.');
+				out << m_name;
+				out << m_OHIP;
+				out.width(5);
+				out.setf(std::ios::right);
+				out << m_ticket.number() << " " << m_ticket.time();
+				return out;
+			}
+		}
+		else if (&out == &std::cout) {
+			if (!m_name) out << "Invalid Patient Record" << std::endl;
+			else {
+				out << m_ticket << std::endl;
+				out << m_name << ", OHIP: " << m_OHIP << std::endl;
+				return out;
+			}
+		}
+		else {
+
+		}
+	}
+
+
 }

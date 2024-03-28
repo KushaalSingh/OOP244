@@ -40,6 +40,13 @@ namespace seneca {
 		bool operator== (char ch) const;
 		bool operator== (const Patient& src) const;
 		void setArrivalTime();
+		Time time() const;
+		int number() const;
+		operator bool() const;
+		operator const char* () const;
+
+		std::ostream& write(std::ostream& ostr) const override;
+		std::istream& read(std::istream& istr) override;
 	};
 
 
