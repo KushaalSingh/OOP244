@@ -9,6 +9,9 @@ namespace seneca {
 	private:
 		double m_balance;
 
+	public:
+		Account(double amount = 0.00);
+
 		
 	};
 
