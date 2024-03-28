@@ -80,6 +80,7 @@ namespace seneca {
 				out << m_OHIP;
 				out.width(5);
 				out.setf(std::ios::right);
+				out.fill(' ');
 				out << m_ticket.number() << " " << m_ticket.time();
 				return out;
 			}
@@ -92,10 +93,8 @@ namespace seneca {
 				return out;
 			}
 		}
-		else {
-			out << type() << "," << m_name << "," << m_OHIP << m_ticket << std::endl;
-			return out;
-		}
+		else out << type() << "," << m_name << "," << m_OHIP << "," << m_ticket;
+		return out;
 	}
 
 	std::istream& Patient::read(std::istream& in) {
@@ -105,15 +104,19 @@ namespace seneca {
 		if (&in == &std::cin) {
 			in.get(name_str, NAME_LEN, '\n');
 			copyString(m_name, name_str, NAME_LEN);
+			std::cout << "OHIP: ";
+			in.ignore();
+			m_OHIP = getIntInRange(100000000, 999999999);
 		}
 		else {
 			in.get(name_str, NAME_LEN, ',');
 			copyString(m_name, name_str, NAME_LEN);
 			in.ignore(10000, ',');
+			std::cout << "OHIP: ";
+			in.ignore();
+			m_OHIP = getIntInRange(100000000, 999999999);
+			m_ticket.read(in);
 		}
-		std::cout << "OHIP: ";
-		m_OHIP = getIntInRange(100000000, 999999999);
-		m_ticket.read(in);
 		return in;
 	}
 }

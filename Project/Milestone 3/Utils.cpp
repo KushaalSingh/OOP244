@@ -90,7 +90,7 @@ namespace seneca {
         char str[32];
         int value, stst = 1;
         while (stst) {
-            std::cin.getline(str, 32, '\n');
+            std::cin.getline(str, 32);
             int result = hasNonDigit(str, value);
             switch (result) {
             case 0:
@@ -103,13 +103,16 @@ namespace seneca {
                 if (value < lwLm || value > upLm) {
                     std::cout << "Invalid value enterd, retry[" << lwLm << " <= value <= " << upLm << "]: ";
                 }
-                else return value;
+                else {
+                    return value;
+                }
                 break;
             case -1:
                 std::cerr << "ERROR: This should not happen";
                 break;
             }
         }
+        return -1;
     }
 
 }
