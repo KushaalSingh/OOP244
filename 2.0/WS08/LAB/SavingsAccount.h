@@ -10,6 +10,7 @@ namespace seneca {
 	private:
 		double m_interestRate;
 		double calculateInterest() const;
+		double formattedInterestRate() const;
 	public:
 		SavingsAccount(double balance, double interestRate);
 		void monthEnd() override;

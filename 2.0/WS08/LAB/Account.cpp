@@ -2,7 +2,7 @@
 
 namespace seneca {
 
-	Account::Account(double amount) : m_balance(amount < 1.00 ? 0.00 : amount) {}
+	Account::Account(double amount) : m_balance(amount <= 0.00 ? 0.00 : amount) {}
 
 	bool Account::credit(double amount) {
 		if (amount < 1.00) return false;
