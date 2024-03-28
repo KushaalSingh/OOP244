@@ -100,7 +100,6 @@ namespace seneca {
 	std::istream& Patient::read(std::istream& in) {
 		char name_str[NAME_LEN + 1];
 		if (&in == &std::cin) {
-			deleteName();
 			std::cout << "Name: ";
 			in.get(name_str, NAME_LEN, '\n');
 			copyString(m_name, name_str, NAME_LEN);
