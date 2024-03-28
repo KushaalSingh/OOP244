@@ -8,6 +8,10 @@ namespace seneca {
 		credit(calculateInterest());
 	}
 
+	void SavingsAccount::display(std::ostream&) const {
+
+	}
+
 	double SavingsAccount::calculateInterest() const {
 		return m_interestRate * balance();
 	}
