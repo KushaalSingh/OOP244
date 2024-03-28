@@ -13,7 +13,7 @@ namespace seneca {
 	public:
 		SavingsAccount(double balance, double interestRate);
 		void monthEnd() override;
-		void display(std::ostream&) const override;
+		void display(std::ostream& out = std::cout) const override;
 	};
 
 }

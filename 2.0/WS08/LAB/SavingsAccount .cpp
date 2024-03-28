@@ -8,8 +8,12 @@ namespace seneca {
 		credit(calculateInterest());
 	}
 
-	void SavingsAccount::display(std::ostream&) const {
-
+	void SavingsAccount::display(std::ostream& out) const {
+		out << "Account Type: Savings";
+		out.setf(std::ios::fixed);
+		out.precision(2);
+		out << "Balance: $" << balance() << std::endl;
+		out << "Interest Rate (%): " << m_interestRate << std::endl;
 	}
 
 	double SavingsAccount::calculateInterest() const {
