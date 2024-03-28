@@ -45,8 +45,8 @@ namespace seneca {
 		operator bool() const;
 		operator const char* () const;
 
-		std::ostream& write(std::ostream& ostr) const override;
-		std::istream& read(std::istream& istr) override;
+		std::ostream& write(std::ostream& out) const override;
+		std::istream& read(std::istream& in) override;
 	};
 
 

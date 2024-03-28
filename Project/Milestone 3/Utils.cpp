@@ -66,5 +66,50 @@ namespace seneca {
         return false;
     }
 
+    int hasNonDigit(const char* str, int& value) {
+        int digit = 0;
+        int str_len = (int)strlen(str);
+        bool isNgtv = isNegative(str);
+        if (isNgtv) digit++;
+        for (int i = 0; i < str_len; i++) if (str[i] >= 48 && str[i] <= 57) digit++;
+        if (digit == 0) return 0;
+        else if (digit < str_len) return 1;
+        else if (digit == str_len) {
+            value = atoi(str);
+            return 2;
+        }
+        else return -1;
+    }
+
+    bool isNegative(const char* str) {
+        for (int i = 0; i < (int)strlen(str); i++) if (str[i] >= 48 && str[i] <= 57 && str[i - 1] == '-') return true;
+        return false;
+    }
+
+    int getIntInRange(int lwLm, int upLm) {
+        char str[32];
+        int value, stst = 1;
+        while (stst) {
+            std::cin.getline(str, 32, '\n');
+            int result = hasNonDigit(str, value);
+            switch (result) {
+            case 0:
+                std::cout << "Bad integer value, try again: ";
+                break;
+            case 1:
+                std::cout << "Only enter an integer, try again: ";
+                break;
+            case 2:
+                if (value < lwLm || value > upLm) {
+                    std::cout << "Invalid value enterd, retry[" << lwLm << " <= value <= " << upLm << "]: ";
+                }
+                else return value;
+                break;
+            case -1:
+                std::cerr << "ERROR: This should not happen";
+                break;
+            }
+        }
+    }
 
 }
