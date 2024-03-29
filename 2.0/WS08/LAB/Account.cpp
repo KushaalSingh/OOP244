@@ -6,13 +6,13 @@ namespace seneca {
 	Account::Account(double amount) : m_balance(isValid(amount)) {}
 
 	bool Account::credit(double amount) {
-		if (isValid(amount)) return false;
+		if (amount <= 0.00) return false;
 		else m_balance += amount;
 		return true;
 	}
 
 	bool Account::debit(double amount) {
-		if (isValid(amount)) return false;
+		if (amount <= 0.00) return false;
 		else m_balance -= amount;
 		return true;
 	}

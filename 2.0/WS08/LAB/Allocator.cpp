@@ -24,3 +24,4 @@ namespace seneca {
 		}
 		return account;
 	}
+}
