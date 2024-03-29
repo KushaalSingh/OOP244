@@ -10,7 +10,7 @@ namespace seneca {
 	}
 
 	void SavingsAccount::display(std::ostream& out) const {
-		out << "Account Type: Savings" << std::endl;
+		out << "Account type: Savings" << std::endl;
 		out.setf(std::ios::fixed);
 		out.precision(2);
 		out << "Balance: $" << balance() << std::endl;
