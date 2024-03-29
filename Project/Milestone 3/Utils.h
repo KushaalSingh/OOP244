@@ -43,7 +43,8 @@ namespace seneca {
     //// MY CUSTOM FUNCTIONS ////
     /////////////////////////////
 
-    void copyString(char*& str, const char* src, int len);
+    bool copyString(char*& str, const char* src);
+    void copyString_maxSize(char*& str, const char* src, int len);
     bool strCmp(const char* str1, const char* str2);
     int hasNonDigit(const char* str, int& value);
     bool isNegative(const char* str);

@@ -28,7 +28,7 @@ namespace seneca {
 
 	Patient::Patient(const Patient& src) : m_ticket(src.m_ticket) {
 		deleteName();
-		copyString(m_name, src.m_name, NAME_LEN);
+		copyString(m_name, src.m_name);
 		m_OHIP = src.m_OHIP;
 	}
 
@@ -103,14 +103,14 @@ namespace seneca {
 		if (&in == &std::cin) {
 			std::cout << "Name: ";
 			in.get(name_str, NAME_LEN, '\n');
-			copyString(m_name, name_str, NAME_LEN);
+			copyString_maxSize(m_name, name_str, NAME_LEN);
 			std::cout << "OHIP: ";
 			in.ignore();
 			m_OHIP = getIntInRange(100000000, 999999999);
 		}
 		else {
-			in.get(name_str, NAME_LEN, ',');
-			copyString(m_name, name_str, NAME_LEN);
+			in.get(name_str, NAME_LEN + 1, ',');
+			copyString(m_name, name_str);
 			in.ignore(10000, ',');
 			in >> m_OHIP;
 			in.ignore(10000, ',');
