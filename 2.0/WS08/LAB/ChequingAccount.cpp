@@ -13,6 +13,14 @@ namespace seneca {
 		return false;
 	}
 
+	bool ChequingAccount::debit(double amount) {
+		if (Account::debit(amount)) {
+			Account::debit(m_transactionFee);
+			return true;
+		}
+		return false;
+	}
+
 	void ChequingAccount::monthEnd() {
 		Account::debit(m_monthlyFee);
 	}
