@@ -16,8 +16,6 @@ namespace seneca {
 	};
 
 	iAccount* CreateAccount(const char*, double);
-
-
 }
 
 #endif

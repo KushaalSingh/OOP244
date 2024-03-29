@@ -24,5 +24,4 @@ namespace seneca {
 	double SavingsAccount::formattedInterestRate() const {
 		return m_interestRate * 100;
 	}
-
 }

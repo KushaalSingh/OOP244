@@ -24,5 +24,4 @@ namespace seneca {
 	double Account::isValid(double value) const {
 		return value <= 0.00 ? 0.00 : value;
 	}
-
 }

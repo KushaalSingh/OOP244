@@ -25,5 +25,4 @@ namespace seneca {
 		out << "Per Transaction Fee: " << m_transactionFee << std::endl;
 		out << "Monthly Fee: " << m_monthlyFee << std::endl;
 	}
-
 }

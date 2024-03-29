@@ -19,8 +19,6 @@ namespace seneca {
 		double balance() const;
 		double isValid(double value) const;
 	};
-
-
 }
 
 #endif
