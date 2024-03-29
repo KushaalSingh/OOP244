@@ -48,7 +48,7 @@ namespace seneca {
 
     std::istream& Ticket::read(std::istream& istr) {
         istr >> m_number;
-        istr.ignore();
+        istr.ignore(10000, ',');
         return istr >> m_time;
     }
 }

@@ -99,6 +99,7 @@ namespace seneca {
 
 	std::istream& Patient::read(std::istream& in) {
 		char name_str[NAME_LEN + 1];
+		deleteName();
 		if (&in == &std::cin) {
 			std::cout << "Name: ";
 			in.get(name_str, NAME_LEN, '\n');
@@ -108,7 +109,7 @@ namespace seneca {
 			m_OHIP = getIntInRange(100000000, 999999999);
 		}
 		else {
-			in.get(name_str, NAME_LEN + 1, ',');
+			in.get(name_str, NAME_LEN, ',');
 			copyString(m_name, name_str, NAME_LEN);
 			in.ignore(10000, ',');
 			in >> m_OHIP;
