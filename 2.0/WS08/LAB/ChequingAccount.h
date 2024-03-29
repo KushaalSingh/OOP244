@@ -15,7 +15,7 @@ namespace seneca {
 	public:
 		ChequingAccount(double balance, double transactionFee, double monthlyFee);
 		bool credit(double amount) override;
-		bool debit(double amount);
+		bool debit(double amount) override;
 		void monthEnd() override;
 		void display(std::ostream& out = std::cout) const override;
 	};
