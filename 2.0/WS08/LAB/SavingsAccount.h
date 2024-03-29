@@ -1,3 +1,4 @@
+// I have done all the coding by myself and only copied the code that my professor provided to complete my workshops and assignments.
 #ifndef SENECA_SAVINGS_ACCOUNT_H
 #define SENECA_SAVINGS_ACCOUNT_H
 
@@ -11,6 +12,7 @@ namespace seneca {
 		double m_interestRate;
 		double calculateInterest() const;
 		double formattedInterestRate() const;
+
 	public:
 		SavingsAccount(double balance, double interestRate);
 		void monthEnd() override;

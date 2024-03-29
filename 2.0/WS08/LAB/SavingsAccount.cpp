@@ -2,7 +2,7 @@
 
 namespace seneca {
 
-	SavingsAccount::SavingsAccount(double balance, double interestRate) : Account(balance), m_interestRate(interestRate <= 0.00 ? 0.00 : interestRate) {}
+	SavingsAccount::SavingsAccount(double balance, double interestRate) : Account(balance), m_interestRate(isValid(interestRate)) {}
 
 	void SavingsAccount::monthEnd() {
 		credit(calculateInterest());
