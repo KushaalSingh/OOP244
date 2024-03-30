@@ -27,7 +27,7 @@ namespace seneca {
 	}
 
 	Patient::Patient(const Patient& src) : m_ticket(src.m_ticket) {
-		deleteName();
+		//deleteName();
 		copyString(m_name, src.m_name);
 		m_OHIP = src.m_OHIP;
 	}
