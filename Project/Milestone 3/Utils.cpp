@@ -59,7 +59,7 @@ namespace seneca {
     }
 
     void copyString_maxSize(char*& str, const char* src, int len) {
-        if (strlen(src) >= len) {
+        if ((int)strlen(src) >= len) {
             str = new char[len + 1];
             strncpy(str, src, len);
             str[len] = '\0';
