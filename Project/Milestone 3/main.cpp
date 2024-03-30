@@ -75,7 +75,7 @@ int main() {
     cout << "Reading the remaining 4 and save it in ms3out.csv:" << endl;
     int i = 0;
     while (csvfile >> W) {
-        p[i++] = W;
+        //p[i++] = W;
         csvoutfile << W << endl;
     }
     cout << "Sorting based on patient's name" << endl;

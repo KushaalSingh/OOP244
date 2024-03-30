@@ -102,8 +102,8 @@ namespace seneca {
 		deleteName();
 		if (&in == &std::cin) {
 			std::cout << "Name: ";
-			in.get(name_str, NAME_LEN, '\n');
-			copyString_maxSize(m_name, name_str, NAME_LEN);
+			in.get(name_str, NAME_LEN + 1, '\n');
+			copyString(m_name, name_str);
 			std::cout << "OHIP: ";
 			in.ignore();
 			m_OHIP = getIntInRange(100000000, 999999999);
