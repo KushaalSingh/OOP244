@@ -36,6 +36,14 @@ namespace seneca {
         m_time.reset();
     }
 
+    void Ticket::setNumber(int number) {
+        m_number = number;
+    }
+
+    void Ticket::setTime(const Time& time) {
+        m_time = time;
+    }
+
     std::ostream& Ticket::write(std::ostream& ostr) const {
         if (&ostr != &std::cout) {
             ostr << m_number << "," << m_time;

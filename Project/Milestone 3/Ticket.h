@@ -33,6 +33,8 @@ namespace seneca {
         Time time()const;
         int number()const;
         void resetTime();
+        void setNumber(int number);
+        void setTime(const Time& time);
         std::ostream& write(std::ostream& ostr) const;
         std::istream& read(std::istream& istr);
     };

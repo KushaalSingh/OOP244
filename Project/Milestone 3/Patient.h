@@ -44,7 +44,7 @@ namespace seneca {
 		int number() const;
 		operator bool() const;
 		operator const char* () const;
-
+		Patient& operator= (const Patient& src);
 		std::ostream& write(std::ostream& out) const override;
 		std::istream& read(std::istream& in) override;
 	};

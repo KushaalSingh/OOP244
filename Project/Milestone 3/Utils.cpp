@@ -49,10 +49,10 @@ namespace seneca {
     }
 
     bool copyString(char*& str, const char* src) {
-        if (strlen(src) == 0) {
+        /*if (strlen(src) == 0) {
             str = nullptr;
             return false;
-        }
+        }*/
         str = new char[strlen(src) + 1];
         strcpy(str, src);
         return true;

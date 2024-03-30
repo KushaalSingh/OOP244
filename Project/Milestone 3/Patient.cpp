@@ -97,10 +97,72 @@ namespace seneca {
 		return out;
 	}
 
+	Patient& Patient::operator= (const Patient& src) {
+		delete[] m_name;
+		m_name = new char[strlen(src.m_name) + 1];
+		strcpy(m_name, src.m_name);
+		m_OHIP = src.m_OHIP;
+		m_ticket.setNumber(src.number());
+		m_ticket.setTime(src.m_ticket.time());
+		return *this;
+	}
+
 	std::istream& Patient::read(std::istream& in) {
-		char name_str[NAME_LEN + 1];
-		deleteName();
 		if (&in == &std::cin) {
+			char input_str[NAME_LEN + 1];
+			std::cout << "Name: ";
+			in.get(input_str, (NAME_LEN + 1), '\n');
+			delete[] m_name;
+			m_name = new char[strlen(input_str) + 1];
+			strcpy(m_name, input_str);
+			in.ignore(10000, '\n');
+			std::cout << "OHIP: ";
+			m_OHIP = getIntInRange(100000000, 999999999);
+			return in;
+		}
+		else {
+			char input_str[NAME_LEN + 1];
+			if (!in.get(input_str, (NAME_LEN + 1), ',')) {
+				delete[] m_name;
+				m_name = nullptr;
+				return in;
+			}
+			delete[] m_name;
+			m_name = new char[strlen(input_str) + 1];
+			strcpy(m_name, input_str);
+			in.ignore(10000, ',');
+			in >> m_OHIP;
+			in.ignore(10000, ',');
+			m_ticket.read(in);
+			return in;
+		}
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	/*std::istream& Patient::read(std::istream& in) {
+		if (&in == &std::cin) {
+			char name_str[NAME_LEN + 1];
+			deleteName();
 			std::cout << "Name: ";
 			in.get(name_str, NAME_LEN + 1, '\n');
 			copyString(m_name, name_str);
@@ -109,7 +171,8 @@ namespace seneca {
 			m_OHIP = getIntInRange(100000000, 999999999);
 		}
 		else {
-			in.get(name_str, NAME_LEN + 1, ',');
+			char name_str[NAME_LEN + 1];
+			if (!in.get(name_str, NAME_LEN + 1, ',')) deleteName();
 			copyString(m_name, name_str);
 			in.ignore(10000, ',');
 			in >> m_OHIP;
@@ -117,5 +180,5 @@ namespace seneca {
 			m_ticket.read(in);
 		}
 		return in;
-	}
+	}*/
 }
