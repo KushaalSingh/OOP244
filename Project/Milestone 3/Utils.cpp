@@ -48,35 +48,14 @@ namespace seneca {
         return s1[i] - s2[i];
     }
 
-    bool copyString(char*& str, const char* src) {
-        /*if (strlen(src) == 0) {
-            str = nullptr;
-            return false;
-        }*/
+    bool Utils::allocStringCopy(char*& str, const char* src) {
+        delete[] str;
         str = new char[strlen(src) + 1];
         strcpy(str, src);
         return true;
     }
 
-    void copyString_maxSize(char*& str, const char* src, int len) {
-        if ((int)strlen(src) >= len) {
-            str = new char[len + 1];
-            strncpy(str, src, len);
-            str[len] = '\0';
-        }
-        else {
-            str = new char[strlen(src) + 1];
-            strcpy(str, src);
-        }
-    }
-
-    bool strCmp(const char* str1, const char* str2) {
-        if (str1 == nullptr || str2 == nullptr) return false;
-        else if (!strcmp(str1, str2)) return true;
-        return false;
-    }
-
-    int hasNonDigit(const char* str, int& value) {
+    int Utils::hasNonDigit(const char* str, int& value) {
         int digit = 0;
         int str_len = (int)strlen(str);
         bool isNgtv = isNegative(str);
@@ -91,12 +70,12 @@ namespace seneca {
         else return -1;
     }
 
-    bool isNegative(const char* str) {
+    bool Utils::isNegative(const char* str) {
         for (int i = 0; i < (int)strlen(str); i++) if (str[i] >= 48 && str[i] <= 57 && str[i - 1] == '-') return true;
         return false;
     }
 
-    int getIntInRange(int lwLm, int upLm) {
+    int Utils::getIntInRange(int lwLm, int upLm) {
         char str[32];
         int value, stst = 1;
         while (stst) {
