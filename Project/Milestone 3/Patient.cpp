@@ -23,9 +23,8 @@ namespace seneca {
 
 	Patient::Patient(int ticketNum) : m_name(nullptr), m_OHIP(0), m_ticket(ticketNum) {}
 
-	Patient::Patient(const Patient& src) : m_ticket(src.m_ticket) {
+	Patient::Patient(const Patient& src) : m_name(nullptr), m_OHIP(src.m_OHIP), m_ticket(src.m_ticket) {
 		U.allocStringCopy(m_name, src.m_name);
-		m_OHIP = src.m_OHIP;
 	}
 
 	Patient::~Patient() {
