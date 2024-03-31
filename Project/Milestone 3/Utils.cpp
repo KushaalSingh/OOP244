@@ -48,11 +48,10 @@ namespace seneca {
         return s1[i] - s2[i];
     }
 
-    bool Utils::allocStringCopy(char*& str, const char* src) {
+    void Utils::allocStringCopy(char*& str, const char* src) {
         delete[] str;
         str = new char[strlen(src) + 1];
         strcpy(str, src);
-        return true;
     }
 
     int Utils::hasNonDigit(const char* str, int& value) {

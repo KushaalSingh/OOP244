@@ -35,8 +35,9 @@ namespace seneca {
         int getTime();
         int strcmp(const char* s1, const char* s2) const;
 
+        //// MY CUSTOM FUNCTIONS ////
 
-        bool allocStringCopy(char*& str, const char* src);
+        void allocStringCopy(char*& str, const char* src);
         int hasNonDigit(const char* str, int& value);
         bool isNegative(const char* str);
         int getIntInRange(int lwLm, int upLm);
@@ -44,10 +45,5 @@ namespace seneca {
 
     extern bool debug;
     extern Utils U;
-
-    /////////////////////////////
-    //// MY CUSTOM FUNCTIONS ////
-    /////////////////////////////
-
 }
 #endif

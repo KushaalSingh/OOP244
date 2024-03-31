@@ -21,10 +21,7 @@ that my professor provided to complete my workshops and assignments.
 
 namespace seneca {
 
-	Patient::Patient(int ticketNum) : m_ticket(ticketNum) {
-		m_name = nullptr;
-		m_OHIP = 0;
-	}
+	Patient::Patient(int ticketNum) : m_name(nullptr), m_OHIP(0), m_ticket(ticketNum) {}
 
 	Patient::Patient(const Patient& src) : m_ticket(src.m_ticket) {
 		U.allocStringCopy(m_name, src.m_name);
@@ -97,9 +94,7 @@ namespace seneca {
 	}
 
 	Patient& Patient::operator= (const Patient& src) {
-		delete[] m_name;
-		m_name = new char[strlen(src.m_name) + 1];
-		strcpy(m_name, src.m_name);
+		U.allocStringCopy(m_name, src.m_name);
 		m_OHIP = src.m_OHIP;
 		m_ticket.setNumber(src.number());
 		m_ticket.setTime(src.m_ticket.time());
