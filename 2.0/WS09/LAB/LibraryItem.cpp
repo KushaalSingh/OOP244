@@ -4,7 +4,25 @@
 
 namespace seneca {
 
+	LibraryItem::LibraryItem() : m_title(nullptr), m_year(0) {}
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+    void allocStringCopy(char*& str, const char* src) {
+        delete[] str;
+        str = new char[strlen(src) + 1];
+        strcpy(str, src);
+    }
 
 }

@@ -3,6 +3,10 @@
 #ifndef SENECA_LIBRARY_ITEM_H
 #define SENECA_LIBRARY_ITEM_H
 
+#define _CRT_SECURE_NO_WARNINGS
+#include <iostream>
+#include <cstring>
+
 namespace seneca {
 
 	class LibraryItem {
@@ -14,6 +18,8 @@ namespace seneca {
 		LibraryItem();
 	};
 
+
+	void allocStringCopy(char*& str, const char* src);
 }
 
 #endif 
