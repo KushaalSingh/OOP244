@@ -22,7 +22,7 @@ namespace seneca {
     }
 
     std::ostream& LibraryItem::display(std::ostream& ostr) const {
-        ostr << "Title: " << m_title << " (" << m_year << ") ";
+        ostr << "Title: " << m_title << " (" << m_year << ")";
         return ostr;
     }
 
