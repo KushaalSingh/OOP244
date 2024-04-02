@@ -20,8 +20,6 @@ namespace seneca {
 		std::ostream& display(std::ostream& ostr = std::cout) const override;
 		bool operator> (const Book& src) const;
 	};
-
-
 }
 
 #endif
