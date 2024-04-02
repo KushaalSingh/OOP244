@@ -34,8 +34,9 @@ namespace seneca {
         m_title = nullptr;
     }
 
-    void allocStr(char*& str, const char* src) {
+    char* allocStr(char*& str, const char* src) {
         str = new char[strlen(src) + 1];
         strcpy(str, src);
+        return str;
     }
 }

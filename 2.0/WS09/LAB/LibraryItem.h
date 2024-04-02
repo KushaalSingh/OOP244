@@ -24,7 +24,7 @@ namespace seneca {
 		virtual std::ostream& display(std::ostream& ostr = std::cout) const;
 	};
 
-	void allocStr(char*& str, const char* src);
+	char* allocStr(char*& str, const char* src);
 }
 
 #endif 
