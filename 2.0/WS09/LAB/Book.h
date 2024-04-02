@@ -15,7 +15,10 @@ namespace seneca {
 	public:
 		Book(const char* title, int year, const char* author);
 		Book(const Book& src);
+		~Book();
 		Book& operator= (const Book& src);
+		std::ostream& display(std::ostream& ostr = std::cout) const override;
+		bool operator> (const Book& src) const;
 	};
 
 
