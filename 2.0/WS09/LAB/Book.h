@@ -10,11 +10,12 @@ namespace seneca {
 	class Book : public LibraryItem {
 	private:
 		char* m_author;
+		void deallocMemory() override;
 
 	public:
 		Book(const char* title, int year, const char* author);
 		Book(const Book& src);
-		Book& operator 
+		Book& operator= (const Book& src);
 	};
 
 

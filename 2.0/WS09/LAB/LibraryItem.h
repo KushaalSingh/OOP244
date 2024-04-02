@@ -27,6 +27,7 @@ namespace seneca {
 		int year() const;
 		virtual void deallocMemory();
 		void setYear(int year);
+		char*& titleAdd();
 	};
 
 	char* allocStr(char*& str, const char* src);
