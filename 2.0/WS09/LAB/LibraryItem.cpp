@@ -6,7 +6,7 @@ namespace seneca {
 
 	LibraryItem::LibraryItem() : m_title(nullptr), m_year(0) {}
 
-    LibraryItem::LibraryItem(const char* title, int year) : m_title(allocStr(m_title, m_title)), m_year(year) {}
+    LibraryItem::LibraryItem(const char* title, int year) : m_title(allocStr(m_title, title)), m_year(year) {}
 
     LibraryItem::LibraryItem(const LibraryItem& src) : m_title(allocStr(m_title, src.m_title)), m_year(src.m_year) {}
 
@@ -21,8 +21,8 @@ namespace seneca {
         deallocMemory();
     }
 
-    std::ostream& LibraryItem::display(std::ostream& ostr = std::cout) const {
-        std::cout << "Title: " << m_title << " (" << m_year << ") ";
+    std::ostream& LibraryItem::display(std::ostream& ostr) const {
+        ostr << "Title: " << m_title << " (" << m_year << ") ";
         return ostr;
     }
 

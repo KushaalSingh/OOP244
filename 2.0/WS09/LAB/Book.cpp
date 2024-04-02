@@ -13,6 +13,7 @@ namespace seneca {
 		deallocMemory();
 		allocStr(m_author, src.m_author);
 		allocStr(titleAdd(), src.title());
+		return *this;
 	}
 
 	Book::~Book() {
@@ -20,8 +21,9 @@ namespace seneca {
 		m_author = nullptr;
 	}
 
-	std::ostream& Book::display(std::ostream& ostr = std::cout) const {
+	std::ostream& Book::display(std::ostream& ostr) const {
 		LibraryItem::display() << std::endl << "Author: " << m_author;
+		return ostr;
 	}
 
 	bool Book::operator> (const Book& src) const {
