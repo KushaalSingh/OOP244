@@ -13,13 +13,16 @@ namespace seneca {
 	private:
 		char* m_title;
 		int m_year;
+		void deallocMemory();
 
 	public:
 		LibraryItem();
+		LibraryItem(const char* title, int year);
+		LibraryItem(const LibraryItem& src);
+		LibraryItem& operator= (const LibraryItem& src);
+		~LibraryItem();
+		virtual std::ostream& display(std::ostream& ostr = std::cout) const;
 	};
-
-
-	void allocStringCopy(char*& str, const char* src);
 }
 
 #endif 
