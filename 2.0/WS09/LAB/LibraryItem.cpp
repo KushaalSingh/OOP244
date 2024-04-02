@@ -32,10 +32,13 @@ namespace seneca {
         return ostr;
     }
 
-
     void LibraryItem::deallocMemory() {
         delete[] m_title;
         m_title = nullptr;
     }
 
+    void allocStr(char*& str, const char* src) {
+        str = new char[strlen(src) + 1];
+        strcpy(str, src);
+    }
 }

@@ -23,6 +23,8 @@ namespace seneca {
 		~LibraryItem();
 		virtual std::ostream& display(std::ostream& ostr = std::cout) const;
 	};
+
+	void allocStr(char*& str, const char* src)
 }
 
 #endif 
