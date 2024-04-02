@@ -7,20 +7,17 @@ namespace seneca {
 	LibraryItem::LibraryItem() : m_title(nullptr), m_year(0) {}
 
     LibraryItem::LibraryItem(const char* title, int year) : m_year(year) {
-        m_title = new char(strlen(title) + 1);
-        strcpy(m_title, title);
+        allocStr(m_title, m_title);
     }
 
     LibraryItem::LibraryItem(const LibraryItem& src) : m_year(src.m_year) {
-        m_title = new char(strlen(src.m_title) + 1);
-        strcpy(m_title, src.m_title);
+        allocStr(m_title, src.m_title);
     }
 
     LibraryItem& LibraryItem::operator= (const LibraryItem& src) {
-        deallocMemory();
         m_year = src.m_year;
-        m_title = new char(strlen(src.m_title) + 1);
-        strcpy(m_title, src.m_title);
+        deallocMemory();
+        allocStr(m_title, src.m_title);
     }
 
     LibraryItem::~LibraryItem() {
