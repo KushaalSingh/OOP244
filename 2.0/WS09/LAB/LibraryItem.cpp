@@ -39,6 +39,10 @@ namespace seneca {
         m_title = nullptr;
     }
 
+    void LibraryItem::setYear(int year) {
+        m_year = year;
+    }
+
     char* allocStr(char*& str, const char* src) {
         str = new char[strlen(src) + 1];
         strcpy(str, src);
