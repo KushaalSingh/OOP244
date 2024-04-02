@@ -25,6 +25,14 @@ namespace seneca {
         return ostr;
     }
 
+    char* LibraryItem::title() const {
+        return m_title;
+    }
+
+    int LibraryItem::year() const {
+        return m_year;
+    }
+
     void LibraryItem::deallocMemory() {
         delete[] m_title;
         m_title = nullptr;

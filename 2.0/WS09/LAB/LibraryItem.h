@@ -22,6 +22,10 @@ namespace seneca {
 		LibraryItem& operator= (const LibraryItem& src);
 		~LibraryItem();
 		virtual std::ostream& display(std::ostream& ostr = std::cout) const;
+
+	protected:
+		char* title() const;
+		int year() const;
 	};
 
 	char* allocStr(char*& str, const char* src);

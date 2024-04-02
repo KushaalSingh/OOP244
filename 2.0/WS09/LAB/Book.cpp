@@ -6,6 +6,6 @@ namespace seneca {
 
 	Book::Book(const char* title, int year, const char* author) : LibraryItem(title, year), m_author(allocStr(m_author, author)) {}
 
-	Book::Book()
+	Book::Book(const Book& src) : LibraryItem(src.title(), src.year()), m_author(allocStr(m_author, src.m_author)) {}
 
 }
