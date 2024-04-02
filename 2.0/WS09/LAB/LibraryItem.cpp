@@ -6,13 +6,9 @@ namespace seneca {
 
 	LibraryItem::LibraryItem() : m_title(nullptr), m_year(0) {}
 
-    LibraryItem::LibraryItem(const char* title, int year) : m_year(year) {
-        allocStr(m_title, m_title);
-    }
+    LibraryItem::LibraryItem(const char* title, int year) : m_title(allocStr(m_title, m_title)), m_year(year) {}
 
-    LibraryItem::LibraryItem(const LibraryItem& src) : m_year(src.m_year) {
-        allocStr(m_title, src.m_title);
-    }
+    LibraryItem::LibraryItem(const LibraryItem& src) : m_title(allocStr(m_title, src.m_title)), m_year(src.m_year) {}
 
     LibraryItem& LibraryItem::operator= (const LibraryItem& src) {
         m_year = src.m_year;
