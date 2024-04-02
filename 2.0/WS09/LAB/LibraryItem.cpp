@@ -14,6 +14,7 @@ namespace seneca {
         m_year = src.m_year;
         deallocMemory();
         allocStr(m_title, src.m_title);
+        return *this;
     }
 
     LibraryItem::~LibraryItem() {

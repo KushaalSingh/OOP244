@@ -8,4 +8,5 @@ namespace seneca {
 
 	Book::Book(const Book& src) : LibraryItem(src.title(), src.year()), m_author(allocStr(m_author, src.m_author)) {}
 
+
 }

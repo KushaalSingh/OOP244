@@ -14,6 +14,7 @@ namespace seneca {
 	public:
 		Book(const char* title, int year, const char* author);
 		Book(const Book& src);
+		Book& operator 
 	};
 
 
