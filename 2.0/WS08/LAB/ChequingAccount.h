@@ -19,7 +19,6 @@ namespace seneca {
 		void monthEnd() override;
 		void display(std::ostream& out = std::cout) const override;
 	};
-
 }
 
 
