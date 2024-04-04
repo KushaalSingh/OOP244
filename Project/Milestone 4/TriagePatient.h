@@ -23,12 +23,19 @@ that my professor provided to complete my workshops and assignments.
 
 namespace seneca {
 
+	const int SYM_LEN = 512;
+
 	class TriagePatient : public Patient {
 	private:
 		char* m_symptoms;
+		void deleteSymp();
 
-
-
+	public:
+		TriagePatient();
+		~TriagePatient();
+		char type() const override;
+		std::ostream& write(std::ostream& out) const override;
+		std::istream& read(std::istream& in) override;
 	};
 
 	extern int nextTriageTicket;
