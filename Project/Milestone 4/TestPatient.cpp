@@ -28,10 +28,8 @@ namespace seneca {
 	}
 
 	std::ostream& TestPatient::write(std::ostream& out) const {
-		if (&out == &std::cout) {
-			out << "Contagion TEST" << std::endl;
-			Patient::write(out);
-		}
+		if (&out == &std::cout) out << "Contagion TEST" << std::endl;
+		Patient::write(out);
 		return out;
 	}
 

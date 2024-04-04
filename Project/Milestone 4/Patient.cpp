@@ -77,6 +77,7 @@ namespace seneca {
 				out.setf(std::ios::right);
 				out.fill(' ');
 				out << m_ticket.number() << " " << m_ticket.time();
+				out.unsetf(std::ios::right);
 				return out;
 			}
 		}
