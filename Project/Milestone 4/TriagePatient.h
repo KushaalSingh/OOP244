@@ -15,3 +15,23 @@ I have done all the coding by myself and only copied the code
 that my professor provided to complete my workshops and assignments.
 -----------------------------------------------------------
 */
+
+#ifndef SENECA_TRIAGE_PATIENT_H
+#define SENECA_TRIAGE_PATIENT_H
+
+#include "Patient.h"
+
+namespace seneca {
+
+	class TriagePatient : public Patient {
+	private:
+		char* m_symptoms;
+
+
+
+	};
+
+	extern int nextTriageTicket;
+}
+
+#endif
