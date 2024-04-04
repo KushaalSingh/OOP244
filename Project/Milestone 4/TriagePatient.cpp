@@ -29,10 +29,14 @@ namespace seneca {
 	}
 
 	std::ostream& TriagePatient::write(std::ostream& out) const {
-		if (&out == &std::cout) out << "TRIAGE" << std::endl;
-		Patient::write(out);
-		if (&out == &std::clog) out << "Symptoms: " << m_symptoms << std::endl;
-		else out << "," << m_symptoms << std::endl;
+		if (&out == &std::cout) {
+			out << "TRIAGE" << std::endl;
+			Patient::write(out) << "Symptoms: " << m_symptoms << std::endl;
+		}
+		else if (&out != &std::clog) {
+			Patient::write(out) << "," << m_symptoms << std::endl;
+		}
+		else Patient::write(out);
 		return out;
 	}
 
@@ -42,6 +46,16 @@ namespace seneca {
 		if (&in != &std::cin) {
 			char symptoms[SYM_LEN];
 			in.ignore(',');
+			if (!in.get(symptoms, (SYM_LEN - 1), '\n')) {
+				deleteSymp();
+				return in;
+			}
+			U.allocStringCopy(m_symptoms, symptoms);
+			nextTriageTicket = number() + 1;
+		}
+		else {
+			char symptoms[SYM_LEN];
+			std::cout << "Symptoms: ";
 			if (!in.get(symptoms, (SYM_LEN - 1), '\n')) {
 				deleteSymp();
 				return in;
