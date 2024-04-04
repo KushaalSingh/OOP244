@@ -18,8 +18,10 @@ namespace seneca {
 		return out;
 	}
 
-	std::istream& read(std::istream& in) {
-
+	std::istream& TestPatient::read(std::istream& in) {
+		Patient::read(in);
+		if (&in != &std::cin) nextTestTicket = number() + 1;
+		return in;
 	}
 
 }
