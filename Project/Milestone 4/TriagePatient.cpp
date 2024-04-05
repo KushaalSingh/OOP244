@@ -28,30 +28,44 @@ namespace seneca {
 		return 'T';
 	}
 
+	TriagePatient::TriagePatient(const TriagePatient& src) : Patient(src), m_symptoms(nullptr) {
+		m_symptoms = new char[strlen(src.symptoms()) + 1];
+		strcpy(m_symptoms, src.symptoms());
+	}
+
+	TriagePatient& TriagePatient::operator= (const TriagePatient& src) {
+		deleteSymp();
+		m_symptoms = new char[strlen(src.symptoms()) + 1];
+		strcpy(m_symptoms, src.symptoms());
+		Patient::operator=(src);
+		return *this;
+	}
+
 	std::ostream& TriagePatient::write(std::ostream& out) const {
 		if (&out == &std::cout) {
 			out << "TRIAGE" << std::endl;
 			Patient::write(out) << "Symptoms: " << m_symptoms << std::endl;
 		}
 		else if (&out != &std::clog) {
-			Patient::write(out) << "," << m_symptoms << std::endl;
+			Patient::write(out) << "," << m_symptoms;
 		}
 		else Patient::write(out);
 		return out;
 	}
 
 	std::istream& TriagePatient::read(std::istream& in) {
-		delete[] m_symptoms;
 		Patient::read(in);
+		char symptoms[SYM_LEN];
 		if (&in != &std::cin) {
-			char symptoms[SYM_LEN];
-			in.ignore(',');
-			if (!in.get(symptoms, (SYM_LEN - 1), '\n')) {
-				deleteSymp();
+			deleteSymp();
+			in.ignore();
+			if (!in.get(symptoms, 511, '\n')) {
 				return in;
 			}
-			U.allocStringCopy(m_symptoms, symptoms);
+			m_symptoms = new char[strlen(symptoms) + 1];
+			strcpy(m_symptoms, symptoms);
 			nextTriageTicket = number() + 1;
+			in.ignore();
 		}
 		else {
 			char symptoms[SYM_LEN];
@@ -61,6 +75,7 @@ namespace seneca {
 				return in;
 			}
 			U.allocStringCopy(m_symptoms, symptoms);
+			in.ignore();
 		}
 		return in;
 	}
@@ -72,6 +87,10 @@ namespace seneca {
 	void TriagePatient::deleteSymp() {
 		delete[] m_symptoms;
 		m_symptoms = nullptr;
+	}
+
+	const char* TriagePatient::symptoms() const {
+		return m_symptoms;
 	}
 
 }

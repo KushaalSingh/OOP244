@@ -42,8 +42,8 @@ namespace seneca {
 
 	std::istream& Time::read(std::istream& in) {
 		unsigned int hour, mins;
-		char input[32];
-		in >> input;
+		char input[6];
+		in.get(input, 6, ',');
 		if (!(validateAndSetInput(input, hour, mins))) {
 			in.setstate(std::ios::failbit);
 			return in;

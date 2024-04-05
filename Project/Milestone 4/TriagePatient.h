@@ -32,10 +32,15 @@ namespace seneca {
 
 	public:
 		TriagePatient();
+		TriagePatient(const TriagePatient& src);
+		TriagePatient& operator= (const TriagePatient& src);
 		~TriagePatient();
 		char type() const override;
 		std::ostream& write(std::ostream& out) const override;
 		std::istream& read(std::istream& in) override;
+
+	protected:
+		const char* symptoms() const;
 	};
 
 	extern int nextTriageTicket;
