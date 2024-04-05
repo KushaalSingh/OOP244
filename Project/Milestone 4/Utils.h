@@ -36,6 +36,7 @@ namespace seneca {
         int strcmp(const char* s1, const char* s2) const;
         template <typename type>
         void removeDynamicElement(type* array[], int index, int& size);
+
         //// MY CUSTOM FUNCTIONS ////
 
         void allocStringCopy(char*& str, const char* src);
