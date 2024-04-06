@@ -58,7 +58,7 @@ namespace seneca {
     }
 
     void Utils::allocStringCopy(char*& str, const char* src) {
-        delete[] str;
+        // delete[] str; Temp removed
         str = new char[strlen(src) + 1];
         strcpy(str, src);
     }
