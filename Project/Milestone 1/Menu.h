@@ -42,7 +42,7 @@ namespace seneca {
 	};
 
 	int hasNonDigit(const char* str, int& value);
-	//bool isNegative(const char* str);
+	bool isNegative(const char* str);
 }
 
 

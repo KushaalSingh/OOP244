@@ -34,6 +34,8 @@ namespace seneca {
         void setDebugTime(int hour, int min);
         int getTime();
         int strcmp(const char* s1, const char* s2) const;
+        template <typename type>
+        void removeDynamicElement(type* array[], int index, int& size);
 
         //// MY CUSTOM FUNCTIONS ////
 
