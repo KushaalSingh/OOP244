@@ -49,7 +49,7 @@ namespace seneca {
     }
 
     template <typename type>
-    void Utils::removeDynamicElement(type * array[], int index, int& size) {
+    void removeDynamicElement(type * array[], int index, int& size) {
         delete array[index];
         for (int j = index; j < size - 1; j++) {
             array[j] = array[j + 1];

@@ -1,4 +1,5 @@
 #include "PreTriage.h"
+#include "Utils.h"
 
 namespace seneca {
 
@@ -12,7 +13,7 @@ namespace seneca {
 	}
 
 	PreTriage::~PreTriage() {
-		// save(); FUNCTION NEEDS TO BE IMPLEMENTED
+		save();
 		for (int i = 0; i < MAX_PATIENTS; i++) delete[] m_patients[i];
 		delete[] m_dataFile;
 	}
@@ -104,6 +105,73 @@ namespace seneca {
 	}
 
 	void PreTriage::Register() {
+		if (m_numPatients == MAX_PATIENTS) {
+			std::cout << "Line up full!" << std::endl;
+			return;
+		}
 
+		int selection{ 0 };
+		Patient* patient{ nullptr };
+		Menu reg("Select Type of Registration:\n1 - Contagion Test\n2 - Triage\n", 1);
+		reg.display();
+		reg.read(selection);
+		if (selection == 1) {
+			patient = new TestPatient();
+		}
+		else if (selection == 2) {
+			patient = new TriagePatient();
+		}
+		else if (selection == 0) {
+			return;
+		}
+
+		patient->setArrivalTime();
+		std::cout << "Please enter patient information: " << std::endl;
+		std::cin >> *patient;
+		std::cout << std::endl;
+		std::cout << "******************************************" << std::endl;
+		std::cout << *patient << std::endl;
+		std::cout << getWaitTime(*patient) << std::endl;
+		std::cout << "******************************************" << std::endl << std::endl;
+		m_patients[m_numPatients++] = patient;
+	}
+
+	template <typename type>
+	void removeDynamicElement(type* array[], int index, int& size) {
+		delete array[index];
+		for (int j = index; j < size - 1; j++) {
+			array[j] = array[j + 1];
+		}
+		size--;
+	}
+
+	void PreTriage::admit() {
+		int selection{ 0 };
+		char type{};
+		Menu reg("Select Type of Admittance:\n1 - Contagion Test\n2 - Triage\n", 1);
+		reg.display();
+		reg.read(selection);
+		if (selection == 1) {
+			type = 'C';
+		}
+		else if (selection == 2) {
+			type = 'T';
+		}
+		else if (selection == 0) {
+			return;
+		}
+		int index = type == 'C' ? indexOfFirstInLine('C') : indexOfFirstInLine('F');
+		if (index == -1) {
+			std::cerr << "Lineup is empty!" << std::endl;
+			return;
+		}
+		Patient* patient = m_patients[index];
+		std::cout << "******************************************" << std::endl;
+		std::cout << "Call time [" << patient->time() << "]";
+		std::cout << "Calling for " << *patient;
+		std::cout << "******************************************" << std::endl << std::endl;
+		setAverageWaitTime(*patient);
+		removeDynamicElement(m_patients, index, m_numPatients);
+		
 	}
 }
