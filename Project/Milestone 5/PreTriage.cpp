@@ -136,14 +136,14 @@ namespace seneca {
 		m_patients[m_numPatients++] = patient;
 	}
 
-	template <typename type>
+	/*template <typename type>
 	void removeDynamicElement(type* array[], int index, int& size) {
 		delete array[index];
 		for (int j = index; j < size - 1; j++) {
 			array[j] = array[j + 1];
 		}
 		size--;
-	}
+	}*/
 
 	void PreTriage::admit() {
 		int selection{ 0 };
@@ -171,7 +171,7 @@ namespace seneca {
 		std::cout << "Calling for " << *patient;
 		std::cout << "******************************************" << std::endl << std::endl;
 		setAverageWaitTime(*patient);
-		removeDynamicElement(m_patients, index, m_numPatients);
+		U.removeDynamicElement(m_patients, index, m_numPatients);
 		
 	}
 }
