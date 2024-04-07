@@ -48,15 +48,6 @@ namespace seneca {
         return s1[i] - s2[i];
     }
 
-    template <typename type>
-    void Utils::removeDynamicElement(type * array[], int index, int& size) {
-        delete array[index];
-        for (int j = index; j < size - 1; j++) {
-            array[j] = array[j + 1];
-        }
-        size--;
-    }
-
     void Utils::allocStringCopy(char*& str, const char* src) {
         // delete[] str; Temp removed
         str = new char[strlen(src) + 1];
