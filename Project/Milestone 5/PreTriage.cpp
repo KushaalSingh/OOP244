@@ -1,10 +1,27 @@
+/*
+Citation and Sources...
+Final Project Milestone 1
+Module: PreTriage
+Filename: PreTriage.cpp
+Version  1.0
+Author   Kushaal Singh
+Revision History
+-----------------------------------------------------------
+Date      Reason
+2023/?/?  Preliminary release
+2023/?/?  Debugged DMA
+-----------------------------------------------------------
+I have done all the coding by myself and only copied the code
+that my professor provided to complete my workshops and assignments.
+-----------------------------------------------------------
+*/
+
 #include "PreTriage.h"
-#include "Utils.h"
 
 namespace seneca {
 
 	PreTriage::PreTriage(const char* file) : m_avgContaigenTime(15), m_avgTriageTime(5), m_dataFile(nullptr), m_numPatients(0) {
-		for (int i = 0; i < MAX_PATIENTS; i++) m_patients[i] == nullptr;
+		for (int i = 0; i < MAX_PATIENTS; i++) m_patients[i] = nullptr;
 		if (file) {
 			U.allocStringCopy(m_dataFile, file);
 			load();

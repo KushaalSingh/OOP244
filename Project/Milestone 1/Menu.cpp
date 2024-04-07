@@ -20,7 +20,6 @@ that my professor provided to complete my workshops and assignments.
 #include "Utils.h"
 
 namespace seneca {
-	Utils U;
 	Menu::Menu(const char* menuContent, int numberOfTabs) {
 		setEmpty();
 		m_text = new char[strlen(menuContent) + 1];

@@ -1,9 +1,26 @@
+/*
+Citation and Sources...
+Final Project Milestone 1
+Module: PreTriage
+Filename: PreTriage.h
+Version  1.0
+Author   Kushaal Singh
+Revision History
+-----------------------------------------------------------
+Date      Reason
+2023/?/?  Preliminary release
+2023/?/?  Debugged DMA
+-----------------------------------------------------------
+I have done all the coding by myself and only copied the code
+that my professor provided to complete my workshops and assignments.
+-----------------------------------------------------------
+*/
+
 #ifndef SENECA_PRE_TRIAGE_H
 #define SENECA_PRE_TRIAGE_H
 
 #include <fstream>
 #include "Menu.h"
-#include "Patient.h"
 #include "TestPatient.h"
 #include "TriagePatient.h"
 
