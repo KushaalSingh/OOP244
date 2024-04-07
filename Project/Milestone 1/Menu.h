@@ -18,9 +18,7 @@ that my professor provided to complete my workshops and assignments.
 #ifndef SENECA_MENU_H
 #define SENECA_MENU_H
 
-#define _CRT_SECURE_NO_WARNINGS
-#include <iostream>
-#include <cstring>
+#include "Utils.h"
 
 namespace seneca {
 
@@ -32,6 +30,7 @@ namespace seneca {
 		void setEmpty();
 		int returnNumOptions(const char* str) const;
 		std::ostream& indent() const;
+
 	public:
 		Menu(const char* menuContent, int numberOfTabs = 0);
 		~Menu();
@@ -43,7 +42,7 @@ namespace seneca {
 	};
 
 	int hasNonDigit(const char* str, int& value);
-	bool isNegative(const char* str);
+	//bool isNegative(const char* str);
 }
 
 

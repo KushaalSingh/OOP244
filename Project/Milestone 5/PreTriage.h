@@ -3,6 +3,8 @@
 
 #include <fstream>
 #include "Patient.h"
+#include "TestPatient.h"
+#include "TriagePatient.h"
 
 namespace seneca {
 
@@ -10,12 +12,18 @@ namespace seneca {
 
 	class PreTriage {
 	private:
-		Time m_contaigenTest;
-		Time m_triagePatients;
-		Patient* m_patients[MAX_PATIENTS];
+		Time m_avgContaigenTime;
+		Time m_avgTriageTime;
+		Patient* m_patients[MAX_PATIENTS]{};
 		char* m_dataFile;
 		int m_numPatients;
 
+		// Methods:
+		Time getWaitTime(const Patient& src) const;
+		void setAverageWaitTime(const Patient& src);
+		int indexOfFirstInLine(char type);
+		void load();
+		void save();
 	public:
 		PreTriage(const char* file);
 		~PreTriage();

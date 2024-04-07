@@ -96,7 +96,7 @@ namespace seneca {
 	int hasNonDigit(const char* str, int& value) {
 		int digit = 0;
 		int str_len = (int)strlen(str);
-		bool isNgtv = isNegative(str);
+		bool isNgtv = U.isNegative(str);
 		if (isNgtv) digit++;
 		for (int i = 0; i < str_len; i++) if (str[i] >= 48 && str[i] <= 57) digit++;
 		if (digit == 0) return 0;
@@ -108,10 +108,10 @@ namespace seneca {
 		else return -1;
 	}
 
-	bool isNegative(const char* str) {
+	/*bool isNegative(const char* str) {
 		for (int i = 0; i < (int)strlen(str); i++) if (str[i] >= 48 && str[i] <= 57 && str[i - 1] == '-') return true;
 		return false;
-	}
+	}*/
 
 	std::ostream& Menu::indent() const {
 		for (int k = 0; k < m_numberOfTabs * 3; std::cout << " ", k++);
