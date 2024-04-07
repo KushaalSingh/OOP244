@@ -53,14 +53,13 @@ namespace seneca {
 		std::cout << std::endl;
 		indent() << "0- Exit" << std::endl;
 		indent() << "> ";
-		std::cin.ignore();
 		return out;
 	}
 
 	std::istream& Menu::read(int& sel, std::istream& in) const {
 		char str[32];
 		int value, stst = 1;
-
+		//std::cin.ignore();
 		while (stst) {
 			in.getline(str, 32, '\n');
 			int result = U.hasNonDigit(str, value);
