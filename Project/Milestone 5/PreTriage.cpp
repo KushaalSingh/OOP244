@@ -66,7 +66,6 @@ namespace seneca {
 	void PreTriage::load() {
 		Patient* patient{ nullptr };
 		char type{};
-		int i = 0;
 
 		std::cout << "Loading data..." << std::endl;
 		std::ifstream fin(m_dataFile);
