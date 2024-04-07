@@ -2,6 +2,7 @@
 #define SENECA_PRE_TRIAGE_H
 
 #include <fstream>
+#include "Menu.h"
 #include "Patient.h"
 #include "TestPatient.h"
 #include "TriagePatient.h"
@@ -18,12 +19,12 @@ namespace seneca {
 		char* m_dataFile;
 		int m_numPatients;
 
-		// Methods:
 		Time getWaitTime(const Patient& src) const;
 		void setAverageWaitTime(const Patient& src);
 		int indexOfFirstInLine(char type);
 		void load();
 		void save();
+		void Register();
 	public:
 		PreTriage(const char* file);
 		~PreTriage();
@@ -33,4 +34,4 @@ namespace seneca {
 }
 
 
-#endif // !SENECA_PRE_TRIAGE_H
+#endif

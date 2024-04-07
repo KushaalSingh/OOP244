@@ -102,4 +102,8 @@ namespace seneca {
 		}
 		std::cout << cont << " Contagion Tests and " << tri << " Triage records were saved!" << std::endl;
 	}
+
+	void PreTriage::Register() {
+
+	}
 }
