@@ -31,7 +31,7 @@ namespace seneca {
 
 	PreTriage::~PreTriage() {
 		save();
-		for (int i = 0; i < MAX_PATIENTS; i++) delete[] m_patients[i];
+		for (int i = 0; i < m_numPatients; i++) delete[] m_patients[i];
 		delete[] m_dataFile;
 	}
 
