@@ -112,9 +112,9 @@ namespace seneca {
 
 		int selection{ 0 };
 		Patient* patient{ nullptr };
-		Menu reg("Select Type of Registration:\n1 - Contagion Test\n2 - Triage\n", 1);
-		reg.display();
-		reg.read(selection);
+		Menu subMenu("Select Type of Registration:\n1 - Contagion Test\n2 - Triage\n", 1);
+		subMenu.display();
+		subMenu.read(selection);
 		if (selection == 1) {
 			patient = new TestPatient();
 		}
@@ -139,9 +139,9 @@ namespace seneca {
 	void PreTriage::admit() {
 		int selection{ 0 };
 		char type{};
-		Menu reg("Select Type of Admittance:\n1 - Contagion Test\n2 - Triage\n", 1);
-		reg.display();
-		reg.read(selection);
+		Menu subMenu("Select Type of Admittance:\n1 - Contagion Test\n2 - Triage\n", 1);
+		subMenu.display();
+		subMenu.read(selection);
 		if (selection == 1) {
 			type = 'C';
 		}
@@ -168,9 +168,9 @@ namespace seneca {
 	void PreTriage::lineup() const {
 		int selection{ 0 };
 		char type{};
-		Menu reg("Select The Lineup:\n1 - Contagion Test\n2 - Triage\n", 1);
-		reg.display();
-		reg.read(selection);
+		Menu subMenu("Select The Lineup:\n1 - Contagion Test\n2 - Triage\n", 1);
+		subMenu.display();
+		subMenu.read(selection);
 		if (selection == 1) {
 			type = 'C';
 		}
@@ -189,6 +189,24 @@ namespace seneca {
 			std::cout << "-------------------------------------------------------------------------------" << std::endl;
 			for (int i = 0; i < m_numPatients; i++) if (*m_patients[i] == type) std::clog << *m_patients[i];
 			std::cout << "-------------------------------------------------------------------------------" << std::endl;
+		}
+	}
+
+	void PreTriage::run() {
+		int selection{ 0 };
+		Menu mainMenu("General Healthcare Facility Pre-Triage Application\n1 - Register\n2 - Admit\n3 - View Lineup\n");
+		mainMenu.display();
+		if (selection == 1) {
+			Register();
+		}
+		else if (selection == 2) {
+			admit();
+		}
+		else if (selection == 3) {
+			lineup();
+		}
+		else if (selection == 0) {
+			return;
 		}
 	}
 }

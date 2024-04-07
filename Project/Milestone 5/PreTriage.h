@@ -30,6 +30,7 @@ namespace seneca {
 	public:
 		PreTriage(const char* file);
 		~PreTriage();
+		void run();
 	};
 
 
