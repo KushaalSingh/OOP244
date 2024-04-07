@@ -40,9 +40,6 @@ namespace seneca {
 		std::istream& read(int& sel, std::istream& in = std::cin) const;
 		int& operator>>(int& Selection);
 	};
-
-	int hasNonDigit(const char* str, int& value);
-	bool isNegative(const char* str);
 }
 
 
