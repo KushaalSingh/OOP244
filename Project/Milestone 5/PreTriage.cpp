@@ -71,7 +71,7 @@ namespace seneca {
 		std::cout << "Loading data..." << std::endl;
 		std::ifstream fin(m_dataFile);
 		if (!fin.is_open()) {
-			std::cerr << "ERROR: File couldn't open!!!" << std::endl;
+			std::cerr << "No data or bad data file!" << std::endl << std::endl;
 			return;
 		}
 
@@ -100,11 +100,10 @@ namespace seneca {
 					std::cerr << "Error: Bad Data!!!" << std::endl;
 					break;
 				}
-				fin.ignore(10000, '\n');
 			}
 			fin.close();
-			if (m_numPatients) std::cout << m_numPatients << " Records imported..." << std::endl;
-			else std::cout << "No data or bad data file!" << std::endl;
+			if (m_numPatients) std::cout << m_numPatients << " Records imported..." << std::endl << std::endl;
+			else std::cout << "No data or bad data file!" << std::endl << std::endl;
 		}
 	}
 
@@ -153,6 +152,16 @@ namespace seneca {
 		m_patients[m_numPatients++] = patient;
 	}
 
+	// Can't put it in module. Getting error LNK2019.
+	template <typename type>
+	void removeDynamicElement(type* array[], int index, int& size) {
+		delete array[index];
+		for (int j = index; j < size; j++) {
+			array[j] = array[j + 1];
+		}
+		size--;
+	}
+
 	void PreTriage::admit() {
 		int selection{ 0 };
 		char type{};
@@ -179,7 +188,9 @@ namespace seneca {
 		std::cout << "Calling for " << *patient;
 		std::cout << "******************************************" << std::endl << std::endl;
 		setAverageWaitTime(*patient);
-		U.removeDynamicElement(m_patients, index, m_numPatients);
+		
+		// Can't access it from utils module via U. Getting error LNK2019.
+		removeDynamicElement(m_patients, index, m_numPatients);
 	}
 
 	void PreTriage::lineup() const {
@@ -211,8 +222,9 @@ namespace seneca {
 
 	void PreTriage::run() {
 		int selection{ 0 };
-		Menu mainMenu("General Healthcare Facility Pre-Triage Application\n1 - Register\n2 - Admit\n3 - View Lineup\n");
+		Menu mainMenu("General Healthcare Facility Pre-Triage Application\n1- Register\n2- Admit\n3- View Lineup");
 		mainMenu.display();
+		std::cin.ignore();
 		if (selection == 1) {
 			Register();
 		}

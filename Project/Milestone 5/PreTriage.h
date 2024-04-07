@@ -44,12 +44,15 @@ namespace seneca {
 		void Register();
 		void admit();
 		void lineup() const;
+
 	public:
 		PreTriage(const char* file);
 		~PreTriage();
 		void run();
 	};
-
+	// Can't put it in module. Getting error LNK2019.
+	template <typename type>
+	void removeDynamicElement(type* array[], int index, int& size);
 
 }
 
