@@ -26,6 +26,7 @@ namespace seneca {
 		void save();
 		void Register();
 		void admit();
+		void lineup() const;
 	public:
 		PreTriage(const char* file);
 		~PreTriage();

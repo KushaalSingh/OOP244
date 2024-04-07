@@ -136,15 +136,6 @@ namespace seneca {
 		m_patients[m_numPatients++] = patient;
 	}
 
-	/*template <typename type>
-	void removeDynamicElement(type* array[], int index, int& size) {
-		delete array[index];
-		for (int j = index; j < size - 1; j++) {
-			array[j] = array[j + 1];
-		}
-		size--;
-	}*/
-
 	void PreTriage::admit() {
 		int selection{ 0 };
 		char type{};
@@ -172,6 +163,32 @@ namespace seneca {
 		std::cout << "******************************************" << std::endl << std::endl;
 		setAverageWaitTime(*patient);
 		U.removeDynamicElement(m_patients, index, m_numPatients);
-		
+	}
+
+	void PreTriage::lineup() const {
+		int selection{ 0 };
+		char type{};
+		Menu reg("Select The Lineup:\n1 - Contagion Test\n2 - Triage\n", 1);
+		reg.display();
+		reg.read(selection);
+		if (selection == 1) {
+			type = 'C';
+		}
+		else if (selection == 2) {
+			type = 'T';
+		}
+		else if (selection == 0) {
+			return;
+		}
+		if (m_numPatients == 0) {
+			std::cerr << "Lineup is empty!" << std::endl;
+			return;
+		}
+		else {
+			std::cout << "Row - Patient name                                          OHIP     Tk #  Time" << std::endl;
+			std::cout << "-------------------------------------------------------------------------------" << std::endl;
+			for (int i = 0; i < m_numPatients; i++) if (*m_patients[i] == type) std::clog << *m_patients[i];
+			std::cout << "-------------------------------------------------------------------------------" << std::endl;
+		}
 	}
 }
