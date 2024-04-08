@@ -176,7 +176,7 @@ namespace seneca {
 		else if (selection == 0) {
 			return;
 		}
-		int index = type == 'C' ? indexOfFirstInLine('C') : indexOfFirstInLine('F');
+		int index = type == 'C' ? indexOfFirstInLine('C') : indexOfFirstInLine('T');
 		if (index == -1) {
 			std::cerr << "Lineup is empty!" << std::endl;
 			return;
