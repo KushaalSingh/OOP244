@@ -166,7 +166,7 @@ namespace seneca {
 		Patient* patient = m_patients[index];
 		std::cout << std::endl << "******************************************" << std::endl;
 		std::cout << "Call time: [" << Time(U.getTime()) << "]" << std::endl;
-		std::cout << "Calling for " << *patient;
+		std::cout << "Calling at for " << *patient;
 		std::cout << "******************************************" << std::endl << std::endl;
 		setAverageWaitTime(*patient);
 		
