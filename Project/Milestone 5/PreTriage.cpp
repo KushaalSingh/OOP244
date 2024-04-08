@@ -37,15 +37,10 @@ namespace seneca {
 
 
 	Time PreTriage::getWaitTime(const Patient& src) const {
-		int mins = 0, count = 0;
-		for (int i = 0; i < m_numPatients; i++) {
-			if (*m_patients[i] == src) {
-				count++;
-				mins += m_patients[i]->time();
-			}
-		}
-		int avg = mins / count;
-		return Time(avg);
+		int matches = 0;
+		for (int i = 0; i < m_numPatients; i++) if (*m_patients[i] == src) matches++;
+		matches *= (src == 'C') ? m_avgContaigenTime : m_avgTriageTime;
+		return Time(matches);
 	}
 
 	void PreTriage::setAverageWaitTime(const Patient& src) {
@@ -145,8 +140,8 @@ namespace seneca {
 		std::cin >> *patient;
 		std::cout << std::endl;
 		std::cout << "******************************************" << std::endl;
-		std::cout << *patient << std::endl;
-		std::cout << getWaitTime(*patient) << std::endl;
+		std::cout << *patient;
+		std::cout << "Estimated Wait Time: " << getWaitTime(*patient) << std::endl;
 		std::cout << "******************************************" << std::endl << std::endl;
 		m_patients[m_numPatients++] = patient;
 	}
