@@ -127,7 +127,7 @@ namespace seneca {
 
 		int selection{ 0 };
 		Patient* patient{ nullptr };
-		Menu subMenu("Select Type of Registration:\n1 - Contagion Test\n2 - Triage", 1);
+		Menu subMenu("Select Type of Registration:\n1- Contagion Test\n2- Triage", 1);
 		subMenu.display();
 		subMenu.read(selection);
 		if (selection == 1) {
@@ -164,7 +164,7 @@ namespace seneca {
 	void PreTriage::admit() {
 		int selection{ 0 };
 		char type{};
-		Menu subMenu("Select Type of Admittance:\n1 - Contagion Test\n2 - Triage", 1);
+		Menu subMenu("Select Type of Admittance:\n1- Contagion Test\n2- Triage", 1);
 		subMenu.display();
 		subMenu.read(selection);
 		if (selection == 1) {
@@ -195,7 +195,7 @@ namespace seneca {
 	void PreTriage::lineup() const {
 		int selection{ 0 };
 		char type{};
-		Menu subMenu("Select The Lineup:\n1 - Contagion Test\n2 - Triage", 1);
+		Menu subMenu("Select The Lineup:\n1- Contagion Test\n2- Triage", 1);
 		subMenu.display();
 		subMenu.read(selection);
 		if (selection == 1) {
@@ -214,27 +214,41 @@ namespace seneca {
 		else {
 			std::cout << "Row - Patient name                                          OHIP     Tk #  Time" << std::endl;
 			std::cout << "-------------------------------------------------------------------------------" << std::endl;
-			for (int i = 0; i < m_numPatients; i++) if (*m_patients[i] == type) std::clog << *m_patients[i] << std::endl;
+			int row = 0;
+			for (int i = 0; i < m_numPatients; i++) {
+				if (*m_patients[i] == type) {
+					row++;
+					std::clog.width(3);
+					std::clog.setf(std::ios::left);
+					std::clog.fill(' ');
+					std::clog << row;
+					std::clog << " - " << *m_patients[i] << std::endl;
+				}
+			}
 			std::cout << "-------------------------------------------------------------------------------" << std::endl;
 		}
 	}
 
 	void PreTriage::run() {
 		int selection{ 0 };
+		int stst = 1;
 		Menu mainMenu("General Healthcare Facility Pre-Triage Application\n1- Register\n2- Admit\n3- View Lineup");
-		mainMenu.display();
-		mainMenu.read(selection);
-		if (selection == 1) {
-			Register();
+		while (stst) {
+			mainMenu.display();
+			mainMenu.read(selection);
+			if (selection == 1) {
+				Register();
+			}
+			else if (selection == 2) {
+				admit();
+			}
+			else if (selection == 3) {
+				lineup();
+			}
+			else if (selection == 0) {
+				stst = 0;
+			}
 		}
-		else if (selection == 2) {
-			admit();
-		}
-		else if (selection == 3) {
-			lineup();
-		}
-		else if (selection == 0) {
-			return;
-		}
+		return;
 	}
 }

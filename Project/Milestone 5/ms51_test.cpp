@@ -1,9 +1,7 @@
 #include <iostream>
 #include <fstream>
-#include <cstdio>
 #include "PreTriage.h"
 #include "Utils.h"
-
 using namespace std;
 using namespace seneca;
 void copyFile(const char* des, const char* src) {
@@ -23,30 +21,15 @@ void displayFile(const char* fname) {
     while (fin.get(ch)) cout << ch;
     cout << "***************************************************" << endl << endl;
 }
-void noFile() {
-    PreTriage P("emptyfile.csv");
-    P.run();
-}
-void emptyFile() {
-    PreTriage P("emptyfile.csv");
-    P.run();
-}
-void sixteenPatients() {
-    U.setDebugTime(14, 40);
-    copyFile("smalldata.csv", "smalldata.csv.bak");
-    seneca::debug = true;
+void theApp() {
     PreTriage P("smalldata.csv");
-    remove("smalldata.csv");
     P.run();
 }
 int main() {
-    remove("emptyfile.csv");
-    noFile();
-    displayFile("emptyfile.csv");
-    emptyFile();
-    displayFile("emptyfile.csv");
-    sixteenPatients();
+    copyFile("smalldata.csv", "smalldata.csv.bak");
+    seneca::debug = true;
+    U.setDebugTime(8, 41);
+    theApp();
     displayFile("smalldata.csv");
-    remove("emptyfile.csv");
     return 0;
 }
