@@ -59,7 +59,7 @@ namespace seneca {
 	}
 
 	int PreTriage::indexOfFirstInLine(char type) {
-		for (int i = 0; i < m_numPatients; i++) if (type == *m_patients[i]) return i;
+		for (int i = 0; i < m_numPatients; i++) if (*m_patients[i] == type) return i;
 		return -1;
 	}
 
@@ -198,6 +198,7 @@ namespace seneca {
 		Menu subMenu("Select The Lineup:\n1- Contagion Test\n2- Triage", 1);
 		subMenu.display();
 		subMenu.read(selection);
+		std::cout << m_numPatients << std::endl;
 		if (selection == 1) {
 			type = 'C';
 		}
