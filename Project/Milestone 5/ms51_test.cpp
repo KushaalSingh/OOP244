@@ -28,7 +28,7 @@ void theApp() {
 int main() {
     copyFile("smalldata.csv", "smalldata.csv.bak");
     seneca::debug = true;
-    U.setDebugTime(14, 40);
+    U.setDebugTime(8, 41);
     theApp();
     displayFile("smalldata.csv");
     return 0;
