@@ -164,7 +164,7 @@ namespace seneca {
 			return;
 		}
 		Patient* patient = m_patients[index];
-		std::cout << "******************************************" << std::endl;
+		std::cout << std::endl << "******************************************" << std::endl;
 		std::cout << "Call time [" << Time(U.getTime()) << "]" << std::endl;
 		std::cout << "Calling for " << *patient;
 		std::cout << "******************************************" << std::endl << std::endl;
