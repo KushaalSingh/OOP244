@@ -50,11 +50,8 @@ namespace seneca {
 		~PreTriage();
 		void run();
 	};
-	// Can't put it in module. Getting error LNK2019.
+	// Can't put it in Utils module. Getting error LNK2019.
 	template <typename type>
 	void removeDynamicElement(type* array[], int index, int& size);
-
 }
-
-
 #endif

@@ -35,7 +35,6 @@ namespace seneca {
 		delete[] m_dataFile;
 	}
 
-
 	Time PreTriage::getWaitTime(const Patient& src) const {
 		int matches = 0;
 		for (int i = 0; i < m_numPatients; i++) if (*m_patients[i] == src) matches++;
@@ -125,16 +124,10 @@ namespace seneca {
 		Menu subMenu("Select Type of Registration:\n1- Contagion Test\n2- Triage", 1);
 		subMenu.display();
 		subMenu.read(selection);
-		if (selection == 1) {
-			patient = new TestPatient();
-		}
-		else if (selection == 2) {
-			patient = new TriagePatient();
-		}
-		else if (selection == 0) {
-			return;
-		}
-
+		if (selection == 1) patient = new TestPatient();
+		else if (selection == 2) patient = new TriagePatient();
+		else if (selection == 0) return;
+		
 		patient->setArrivalTime();
 		std::cout << "Please enter patient information: " << std::endl;
 		std::cin >> *patient;
@@ -162,15 +155,9 @@ namespace seneca {
 		Menu subMenu("Select Type of Admittance:\n1- Contagion Test\n2- Triage", 1);
 		subMenu.display();
 		subMenu.read(selection);
-		if (selection == 1) {
-			type = 'C';
-		}
-		else if (selection == 2) {
-			type = 'T';
-		}
-		else if (selection == 0) {
-			return;
-		}
+		if (selection == 1) type = 'C';
+		else if (selection == 2) type = 'T';
+		else if (selection == 0) return;
 		int index = type == 'C' ? indexOfFirstInLine('C') : indexOfFirstInLine('T');
 		if (index == -1) {
 			std::cerr << "Lineup is empty!" << std::endl;
@@ -193,16 +180,10 @@ namespace seneca {
 		Menu subMenu("Select The Lineup:\n1- Contagion Test\n2- Triage", 1);
 		subMenu.display();
 		subMenu.read(selection);
-		std::cout << m_numPatients << std::endl;
-		if (selection == 1) {
-			type = 'C';
-		}
-		else if (selection == 2) {
-			type = 'T';
-		}
-		else if (selection == 0) {
-			return;
-		}
+		if (selection == 1) type = 'C';
+		else if (selection == 2) type = 'T';
+		else if (selection == 0) return;
+
 		if (m_numPatients == 0) {
 			std::cerr << "Lineup is empty!" << std::endl;
 			return;
@@ -232,18 +213,10 @@ namespace seneca {
 		while (stst) {
 			mainMenu.display();
 			mainMenu.read(selection);
-			if (selection == 1) {
-				Register();
-			}
-			else if (selection == 2) {
-				admit();
-			}
-			else if (selection == 3) {
-				lineup();
-			}
-			else if (selection == 0) {
-				stst = 0;
-			}
+			if (selection == 1) Register();
+			else if (selection == 2) admit();
+			else if (selection == 3) lineup();
+			else if (selection == 0) stst = 0;
 		}
 		return;
 	}
