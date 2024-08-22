@@ -2,11 +2,11 @@
 #include <fstream>
 #include "PreTriage.h"
 #include "Utils.h"
-using namespace std;
 using namespace seneca;
+
 void copyFile(const char* des, const char* src) {
-    ifstream infile(src);
-    ofstream outfile(des);
+    std::ifstream infile(src);
+    std::ofstream outfile(des);
     if (outfile) {
         char ch;
         while (infile.get(ch)) {
@@ -14,17 +14,20 @@ void copyFile(const char* des, const char* src) {
         }
     }
 }
+
 void displayFile(const char* fname) {
-    ifstream fin(fname);
+    std::ifstream fin(fname);
     char ch;
-    cout << endl << "******  Content of file: \"" << fname << "\":" << endl;
-    while (fin.get(ch)) cout << ch;
-    cout << "***************************************************" << endl << endl;
+    std::cout << std::endl << "******  Content of file: \"" << fname << "\":" << std::endl;
+    while (fin.get(ch)) std::cout << ch;
+    std::cout << "***************************************************" << std::endl << std::endl;
 }
+
 void theApp() {
     PreTriage P("smalldata.csv");
     P.run();
 }
+
 int main() {
     copyFile("smalldata.csv", "smalldata.csv.bak");
     seneca::debug = true;
